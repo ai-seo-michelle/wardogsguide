@@ -30,6 +30,20 @@ const { title, description, canonical, ogType = "website" } = Astro.props;
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {
+      site.analyticsId && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.analyticsId}`} />
+          <script
+            is:inline
+            set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${site.analyticsId}');`}
+          />
+        </>
+      )
+    }
   </head>
   <body>
     <div class="site-shell">

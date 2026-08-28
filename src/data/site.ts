@@ -3,7 +3,7 @@ export const site = {
   domain: "https://wardogsguide.site",
   language: "en",
   supportedLanguages: ["en", "sv", "fi", "no"],
-  analyticsId: "",
+  analyticsId: "G-Q6XYZQ8ZZ4",
   description:
     "Independent fan-made WARDOGS guide focused on Early Access, launch, troubleshooting, settings, controls, and current-version answers.",
   disclaimer:
