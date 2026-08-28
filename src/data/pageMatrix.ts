@@ -1,0 +1,458 @@
+export type ManualReviewLevel = "low" | "medium" | "high";
+export type PagePriority = "P0" | "P1";
+export type PageType =
+  | "home"
+  | "guide_hub"
+  | "launch_guide"
+  | "status_guide"
+  | "troubleshooting"
+  | "settings_guide"
+  | "overview"
+  | "beginner_guide"
+  | "controls_guide";
+
+export type GuideSection = {
+  heading: string;
+  body: string;
+};
+
+export type PageMatrixEntry = {
+  title: string;
+  route: string;
+  keyword: string;
+  type: PageType;
+  priority: PagePriority;
+  manualReview: ManualReviewLevel;
+  intent: string;
+  eyebrow: string;
+  h1: string;
+  description: string;
+  quickAnswer: string;
+  sections: GuideSection[];
+  relatedRoutes: string[];
+};
+
+export const sourcePriority = [
+  "Official WARDOGS / BULKHEAD",
+  "Official Steam page / Steam announcements",
+  "Team17 official information",
+  "Verified in-game information",
+  "Current community cross-check",
+  "Reliable third-party guides"
+] as const;
+
+export const pageMatrix: PageMatrixEntry[] = [
+  {
+    title: "WARDOGS Guide",
+    route: "/",
+    keyword: "wardogs",
+    type: "home",
+    priority: "P0",
+    manualReview: "low",
+    intent: "home entry for the independent fan-made WARDOGS guide",
+    eyebrow: "Independent Fan-Made Guide",
+    h1: "WARDOGS Guide",
+    description:
+      "A practical WARDOGS guide hub for launch, Early Access, troubleshooting, settings, controls, and beginner questions.",
+    quickAnswer:
+      "This site is being built as an independent fan-made guide. Current pages use a verified-first structure so launch-sensitive details can be checked before publication.",
+    sections: [
+      {
+        heading: "Start with the guide hub",
+        body: "Use the main guide hub for the approved first set of WARDOGS pages and the safest route into launch, troubleshooting, settings, and controls topics."
+      },
+      {
+        heading: "Verification-first coverage",
+        body: "Release timing, server behavior, error codes, performance advice, and control details are marked for manual review until they can be checked against official or in-game sources."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-guide/",
+      "/wardogs-release-date/",
+      "/wardogs-early-access/",
+      "/wardogs-server-status/",
+      "/wardogs-crashing/",
+      "/wardogs-best-settings/"
+    ]
+  },
+  {
+    title: "WARDOGS Guide",
+    route: "/wardogs-guide/",
+    keyword: "wardogs guide",
+    type: "guide_hub",
+    priority: "P0",
+    manualReview: "low",
+    intent: "central guide and internal-linking hub",
+    eyebrow: "Guide Hub",
+    h1: "WARDOGS Guide",
+    description:
+      "The central hub for WARDOGS launch help, Early Access answers, troubleshooting, settings, controls, and beginner routes.",
+    quickAnswer:
+      "Start here if you need the safest route through the current WARDOGS guide set. Each detailed guide links back here and is separated by launch, troubleshooting, settings, and controls intent.",
+    sections: [
+      {
+        heading: "Launch and access",
+        body: "Use the release date and Early Access guides for timing, availability, and purchase-related questions after official details are verified."
+      },
+      {
+        heading: "Troubleshooting path",
+        body: "Use the server status, crashing, not launching, and error-code pages as the first troubleshooting cluster."
+      },
+      {
+        heading: "Settings and controls",
+        body: "Use the settings and controls guides for performance, input setup, and vehicle-control topics once details have been checked against the current build."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-release-date/",
+      "/wardogs-early-access/",
+      "/wardogs-server-status/",
+      "/wardogs-crashing/",
+      "/wardogs-best-settings/",
+      "/what-is-wardogs-game/",
+      "/how-to-play-wardogs/",
+      "/wardogs-not-launching/",
+      "/wardogs-error-code-1147405308/",
+      "/wardogs-controller-settings/",
+      "/wardogs-helicopter-controls/"
+    ]
+  },
+  {
+    title: "WARDOGS Release Date",
+    route: "/wardogs-release-date/",
+    keyword: "wardogs release date",
+    type: "launch_guide",
+    priority: "P0",
+    manualReview: "high",
+    intent: "release timing, platforms, time zones, launch window",
+    eyebrow: "Launch Guide",
+    h1: "WARDOGS Release Date",
+    description:
+      "A verification-ready WARDOGS release date page for timing, platforms, time zones, and launch-window updates.",
+    quickAnswer:
+      "Current release details will be verified against the latest official build and official announcements before publication.",
+    sections: [
+      {
+        heading: "What to verify first",
+        body: "Confirm the official release timing, platform availability, and any launch-window language from official WARDOGS, Steam, BULKHEAD, or Team17 sources."
+      },
+      {
+        heading: "Time zone handling",
+        body: "Do not publish time-zone conversions until the source announcement includes a confirmed time or a reliable official launch window."
+      },
+      {
+        heading: "Update workflow",
+        body: "Keep community reports separate from official facts and mark any unconfirmed launch timing as pending verification."
+      }
+    ],
+    relatedRoutes: ["/wardogs-early-access/", "/wardogs-guide/", "/what-is-wardogs-game/"]
+  },
+  {
+    title: "WARDOGS Early Access",
+    route: "/wardogs-early-access/",
+    keyword: "wardogs early access",
+    type: "launch_guide",
+    priority: "P0",
+    manualReview: "high",
+    intent: "Early Access timing, access, preload, purchase details",
+    eyebrow: "Early Access",
+    h1: "WARDOGS Early Access",
+    description:
+      "A WARDOGS Early Access guide structure for access timing, preload, purchase details, and launch-day checks.",
+    quickAnswer:
+      "Current Early Access details will be verified against the latest official build and official store information before publication.",
+    sections: [
+      {
+        heading: "Access details",
+        body: "Verify how players get access through official store pages, official announcements, or publisher information before writing exact purchase guidance."
+      },
+      {
+        heading: "Preload and availability",
+        body: "Leave preload and availability details unpublished until official wording confirms whether they apply."
+      },
+      {
+        heading: "Launch-day checks",
+        body: "Link Early Access readers to server status and beginner guidance once those pages are fact-checked."
+      }
+    ],
+    relatedRoutes: ["/wardogs-release-date/", "/wardogs-server-status/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Server Status",
+    route: "/wardogs-server-status/",
+    keyword: "wardogs server status",
+    type: "status_guide",
+    priority: "P0",
+    manualReview: "high",
+    intent: "server status, server full, offline, failed to join, matchmaking",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Server Status",
+    description:
+      "A WARDOGS server status guide structure for server availability, failed joins, offline messages, and matchmaking checks.",
+    quickAnswer:
+      "Current server-status details will be verified against official channels and the current live build before publication.",
+    sections: [
+      {
+        heading: "Status checks",
+        body: "Prioritize official service updates before adding any statement about server availability, downtime, capacity, or matchmaking behavior."
+      },
+      {
+        heading: "Join and matchmaking issues",
+        body: "Keep failed-to-join, offline, and server-full guidance generic until verified with the current build and official troubleshooting notes."
+      },
+      {
+        heading: "Troubleshooting cluster",
+        body: "Connect server checks with crashing, not launching, and error-code pages so readers can move through the first diagnosis path."
+      }
+    ],
+    relatedRoutes: ["/wardogs-crashing/", "/wardogs-not-launching/", "/wardogs-error-code-1147405308/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Crashing",
+    route: "/wardogs-crashing/",
+    keyword: "wardogs crashing",
+    type: "troubleshooting",
+    priority: "P0",
+    manualReview: "high",
+    intent: "game crashes and crash troubleshooting",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Crashing",
+    description:
+      "A WARDOGS crashing troubleshooting page structure for crash reports, safe checks, and current-build verification.",
+    quickAnswer:
+      "Current crash troubleshooting details will be verified against the latest official build before publication.",
+    sections: [
+      {
+        heading: "Before publishing fixes",
+        body: "Do not publish specific crash causes, launch flags, driver claims, or performance values until they are verified with official guidance or repeatable in-game testing."
+      },
+      {
+        heading: "Safe first checks",
+        body: "Keep the page organized for basic, reversible checks and direct readers to server status or not-launching pages when the symptom changes."
+      },
+      {
+        heading: "Evidence tracking",
+        body: "Separate confirmed official issues from current community reports and avoid presenting community workarounds as official fixes."
+      }
+    ],
+    relatedRoutes: ["/wardogs-server-status/", "/wardogs-not-launching/", "/wardogs-error-code-1147405308/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Best Settings",
+    route: "/wardogs-best-settings/",
+    keyword: "wardogs best settings",
+    type: "settings_guide",
+    priority: "P0",
+    manualReview: "high",
+    intent: "FPS, performance, graphics and visibility settings",
+    eyebrow: "Settings",
+    h1: "WARDOGS Best Settings",
+    description:
+      "A WARDOGS best settings guide structure for performance, visibility, graphics, and safe current-build testing.",
+    quickAnswer:
+      "Current settings guidance will be verified against the latest official build and in-game options before publication.",
+    sections: [
+      {
+        heading: "Settings to verify",
+        body: "Confirm the live graphics menu, display options, and any accessibility or visibility settings before recommending changes."
+      },
+      {
+        heading: "Performance guidance",
+        body: "Do not publish FPS targets, hardware claims, or best-setting presets until repeatable testing is available."
+      },
+      {
+        heading: "Input-adjacent settings",
+        body: "Route input setup questions toward the controller settings and helicopter controls pages when those details are verified."
+      }
+    ],
+    relatedRoutes: ["/wardogs-controller-settings/", "/wardogs-helicopter-controls/", "/wardogs-guide/"]
+  },
+  {
+    title: "What Is WARDOGS Game",
+    route: "/what-is-wardogs-game/",
+    keyword: "what is wardogs game",
+    type: "overview",
+    priority: "P1",
+    manualReview: "low",
+    intent: "explain what the game is and the gameplay framework",
+    eyebrow: "Overview",
+    h1: "What Is WARDOGS Game?",
+    description:
+      "A concise overview page for explaining what WARDOGS is, who it is for, and where new players should start.",
+    quickAnswer:
+      "This page will explain WARDOGS using verified official descriptions first, then link readers into beginner and launch guides.",
+    sections: [
+      {
+        heading: "Core explanation",
+        body: "Use official descriptions to explain the game at a high level without turning the site into a full wiki or database."
+      },
+      {
+        heading: "Who should read next",
+        body: "Send new players to the guide hub and how-to-play page for practical next steps."
+      }
+    ],
+    relatedRoutes: ["/wardogs-guide/", "/how-to-play-wardogs/", "/wardogs-release-date/"]
+  },
+  {
+    title: "How to Play WARDOGS",
+    route: "/how-to-play-wardogs/",
+    keyword: "how to play wardogs",
+    type: "beginner_guide",
+    priority: "P1",
+    manualReview: "medium",
+    intent: "first-match learning path",
+    eyebrow: "Beginner Guide",
+    h1: "How to Play WARDOGS",
+    description:
+      "A beginner-friendly WARDOGS page structure for first-match orientation and verified learning paths.",
+    quickAnswer:
+      "This page will become a first-match learning path after core gameplay details are checked against official and in-game sources.",
+    sections: [
+      {
+        heading: "First-match path",
+        body: "Keep the beginner route practical, but wait for verified build information before explaining objectives, roles, or mechanics."
+      },
+      {
+        heading: "Setup before playing",
+        body: "Link players to Early Access, best settings, and controller settings once those pages have current-version guidance."
+      },
+      {
+        heading: "What not to assume",
+        body: "Avoid naming maps, weapons, factions, or meta advice until the site enters the fact-verification stage."
+      }
+    ],
+    relatedRoutes: ["/wardogs-early-access/", "/wardogs-best-settings/", "/wardogs-controller-settings/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Not Launching",
+    route: "/wardogs-not-launching/",
+    keyword: "wardogs not launching",
+    type: "troubleshooting",
+    priority: "P1",
+    manualReview: "high",
+    intent: "startup failure, access denied, anti-cheat checks",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Not Launching",
+    description:
+      "A WARDOGS not launching troubleshooting page structure for startup failures, access checks, and safe diagnosis.",
+    quickAnswer:
+      "Current startup troubleshooting details will be verified against the latest official build before publication.",
+    sections: [
+      {
+        heading: "Startup symptoms",
+        body: "Separate launch failure, access-denied behavior, and post-launch crashes so readers can follow the right troubleshooting path."
+      },
+      {
+        heading: "Anti-cheat caution",
+        body: "Do not publish anti-cheat fixes, file edits, or workaround claims unless they are officially documented or safely verified."
+      },
+      {
+        heading: "Next diagnosis step",
+        body: "Route readers to the specific error-code page first, then server status if the symptom points to online access."
+      }
+    ],
+    relatedRoutes: ["/wardogs-error-code-1147405308/", "/wardogs-server-status/", "/wardogs-crashing/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Error Code 1147405308",
+    route: "/wardogs-error-code-1147405308/",
+    keyword: "wardogs error code 1147405308",
+    type: "troubleshooting",
+    priority: "P1",
+    manualReview: "high",
+    intent: "specific error-code lookup and safe troubleshooting",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Error Code 1147405308",
+    description:
+      "A verification-first page for WARDOGS error code 1147405308 and safe troubleshooting notes.",
+    quickAnswer:
+      "The cause and fix for WARDOGS error code 1147405308 are not asserted here until they are verified against official or current-build evidence.",
+    sections: [
+      {
+        heading: "What is known",
+        body: "Reserve this section for confirmed information only. Do not infer the cause of the code from unrelated games or unverified posts."
+      },
+      {
+        heading: "Safe troubleshooting scope",
+        body: "Keep any future steps reversible and clearly sourced, especially if access, anti-cheat, or server behavior may be involved."
+      },
+      {
+        heading: "Related checks",
+        body: "Connect this page to not-launching and server-status pages so readers can move through a safe diagnosis path."
+      }
+    ],
+    relatedRoutes: ["/wardogs-not-launching/", "/wardogs-server-status/", "/wardogs-crashing/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Controller Settings",
+    route: "/wardogs-controller-settings/",
+    keyword: "wardogs controller settings",
+    type: "settings_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "controller, keyboard, mouse and keybind setup",
+    eyebrow: "Settings",
+    h1: "WARDOGS Controller Settings",
+    description:
+      "A WARDOGS controller settings page structure for controller, keyboard, mouse, and keybind setup after verification.",
+    quickAnswer:
+      "Current controller and keybind details will be verified against the latest official build before publication.",
+    sections: [
+      {
+        heading: "Input support",
+        body: "Verify controller support, mouse and keyboard options, and remapping behavior in the current build before writing setup guidance."
+      },
+      {
+        heading: "Sensitivity and layout",
+        body: "Do not publish recommended sensitivity, deadzone, or layout values until in-game options and testing are available."
+      },
+      {
+        heading: "Vehicle controls",
+        body: "Link readers to helicopter controls for vehicle-specific input questions after those controls are verified."
+      }
+    ],
+    relatedRoutes: ["/wardogs-best-settings/", "/wardogs-helicopter-controls/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Helicopter Controls",
+    route: "/wardogs-helicopter-controls/",
+    keyword: "wardogs helicopter controls",
+    type: "controls_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "helicopter, vehicle and HOTAS controls",
+    eyebrow: "Controls",
+    h1: "WARDOGS Helicopter Controls",
+    description:
+      "A WARDOGS helicopter controls page structure for vehicle controls, input setup, and HOTAS-related verification.",
+    quickAnswer:
+      "Current helicopter, vehicle, and HOTAS control details will be verified against the latest official build before publication.",
+    sections: [
+      {
+        heading: "Control mapping",
+        body: "Do not publish helicopter keybinds, vehicle inputs, or HOTAS behavior until verified from the current build or official documentation."
+      },
+      {
+        heading: "Learning flow",
+        body: "Use this page to organize takeoff, movement, aiming, and landing sections only after verified control details exist."
+      },
+      {
+        heading: "Related setup",
+        body: "Connect vehicle-control questions back to general best settings and controller settings."
+      }
+    ],
+    relatedRoutes: ["/wardogs-best-settings/", "/wardogs-controller-settings/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+  }
+];
+
+export const pageMatrixByRoute = Object.fromEntries(
+  pageMatrix.map((page) => [page.route, page])
+) as Record<string, PageMatrixEntry>;
+
+export function getPageByRoute(route: string) {
+  return pageMatrixByRoute[route];
+}
+
+export function getPageBySlug(slug: string) {
+  return pageMatrix.find((page) => page.route === `/${slug}/`);
+}

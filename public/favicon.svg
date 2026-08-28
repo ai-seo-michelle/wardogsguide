@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="WARDOGS Guide favicon">
+  <rect width="64" height="64" rx="8" fill="#244c5a"/>
+  <path d="M13 17h7l4 20 5-20h6l5 20 4-20h7l-8 30h-7l-4-17-4 17h-7L13 17Z" fill="#fffdf8"/>
+  <path d="M12 51h40" stroke="#c64b30" stroke-width="5" stroke-linecap="square"/>
+</svg>

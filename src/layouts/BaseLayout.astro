@@ -1,0 +1,79 @@
+---
+import { navigation } from "../data/navigation";
+import { site } from "../data/site";
+import "../styles/global.css";
+
+type Props = {
+  title: string;
+  description: string;
+  canonical: string;
+  ogType?: "website" | "article";
+};
+
+const { title, description, canonical, ogType = "website" } = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="/" aria-label="WARDOGS Guide home">
+            <span class="brand-mark" aria-hidden="true">WG</span>
+            <span class="brand-text">
+              {site.name}
+              <span class="brand-subtext">Independent fan-made guide</span>
+            </span>
+          </a>
+          <nav class="primary-nav" aria-label="Primary navigation">
+            {
+              navigation.map((group) => (
+                <div class="nav-group">
+                  <a class="nav-trigger" href={group.items[0].href}>{group.label}</a>
+                  {group.items.length > 1 && (
+                    <ul class="nav-menu" aria-label={`${group.label} pages`}>
+                      {group.items.map((item) => (
+                        <li>
+                          <a href={item.href}>{item.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))
+            }
+          </nav>
+        </div>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div>
+            <strong>{site.name}</strong>
+            <div>{site.disclaimer}</div>
+          </div>
+          <div>Language: English. Future language support is reserved but not published.</div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

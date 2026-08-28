@@ -1,0 +1,167 @@
+---
+import { pageMatrixByRoute, sourcePriority, type PageMatrixEntry } from "../data/pageMatrix";
+import { guideContentByRoute } from "../data/pageContent";
+import type { SeoEntry } from "../data/seo";
+import PageMetaRail from "./PageMetaRail.astro";
+
+type Props = {
+  page: PageMatrixEntry;
+  seo: SeoEntry;
+};
+
+const { page, seo } = Astro.props;
+const content = guideContentByRoute[page.route];
+const relatedPages = page.relatedRoutes
+  .map((route) => pageMatrixByRoute[route])
+  .filter(Boolean);
+const quickAnswerParagraphs = content?.quickAnswer ?? [page.quickAnswer];
+const sections = content?.sections ?? page.sections;
+const reviewCopy =
+  page.manualReview === "high"
+    ? "This is pre-release / Early Access sensitive content. Current details will be verified against the latest official build before publication."
+    : page.manualReview === "medium"
+      ? "This page needs manual review before detailed gameplay guidance is published."
+      : "This page is low risk, but all WARDOGS-specific facts still need source review before final publication.";
+---
+
+<section class="hero-band">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1>{seo.h1}</h1>
+      <p class="lead">{page.description}</p>
+    </div>
+    <aside class="status-panel" aria-label="Page status">
+      <dl>
+        <div>
+          <dt>Target keyword</dt>
+          <dd>{page.keyword}</dd>
+        </div>
+        <div>
+          <dt>Priority</dt>
+          <dd>{page.priority}</dd>
+        </div>
+        <div>
+          <dt>Manual review</dt>
+          <dd>{page.manualReview}</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<div class="page-frame">
+  <article class="content-stack">
+    <section class="panel">
+      <h2>Quick Answer</h2>
+      {quickAnswerParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    {
+      page.manualReview === "high" && (
+        <section class="panel review-banner" aria-label="Manual review notice">
+          <h2>Needs Manual Review</h2>
+          <p><strong>Pre-release / Early Access sensitive:</strong> {reviewCopy}</p>
+        </section>
+      )
+    }
+
+    <div class="section-list">
+      {
+        sections.map((section) => (
+          <section class="panel">
+            <h2>{section.heading}</h2>
+            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            {section.body && <p>{section.body}</p>}
+            {
+              section.facts && (
+                <ul class="facts-list">
+                  {section.facts.map((fact) => (
+                    <li>
+                      <span class="fact-status">{fact.status}:</span>
+                      <span>{fact.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+            {
+              section.bullets && (
+                <ul class="review-list">
+                  {section.bullets.map((item) => <li>{item}</li>)}
+                </ul>
+              )
+            }
+            {
+              section.links && (
+                <ul class="link-grid">
+                  {section.links.map((link) => (
+                    <li>
+                      <a class="guide-link" href={link.href}>
+                        <strong>{link.label}</strong>
+                        {link.description && <em>{link.description}</em>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+          </section>
+        ))
+      }
+    </div>
+
+    <section class="panel">
+      <h2>Related Guides</h2>
+      <ul class="link-grid">
+        {
+          relatedPages.map((related) => (
+            <li>
+              <a class="guide-link" href={related.route}>
+                <span>{related.type.replaceAll("_", " ")}</span>
+                <strong>{related.title}</strong>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Sources &amp; References</h2>
+      {
+        content ? (
+          <ul class="source-list">
+            {content.sources.map((source) => (
+              <li>
+                <a href={source.url}>{source.label}</a>
+                <span class="source-type"> {source.type}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <>
+            <p>
+              Source priority for future fact checks. Community material should never be written
+              as official fact.
+            </p>
+            <ol class="source-list">
+              {sourcePriority.map((source) => <li>{source}</li>)}
+            </ol>
+          </>
+        )
+      }
+    </section>
+
+    <section class="panel">
+      <h2>Needs Manual Review</h2>
+      <ul class="review-list">
+        {(content?.reviewNotes ?? [reviewCopy]).map((note) => <li>{note}</li>)}
+        <li>Do not publish unverified WARDOGS mechanics, numbers, controls, errors, or map data.</li>
+        <li>Confirm final wording against the latest official or verified in-game source before expanding the article.</li>
+      </ul>
+    </section>
+  </article>
+
+  <PageMetaRail page={page} seo={seo} />
+</div>

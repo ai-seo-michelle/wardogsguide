@@ -1,0 +1,554 @@
+{
+  "project": "WARDOGS",
+  "site": "wardogsguide.site",
+  "language": "en",
+  "source_file": "WARDOGS Keywords Research.md",
+  "generated_at": "2026-08-28",
+  "selection_rules": {
+    "target_keyword_count": "10-20",
+    "actual_keyword_count": 18,
+    "primary_use": "first-batch one-keyword-one-page SEO pages",
+    "dedupe_policy": "Keep one canonical keyword per intent; keep repeated or near-synonym terms as aliases.",
+    "filter_policy": "Remove movie/film intent, unrelated searches, standalone platform/service nouns, misspellings, and low-value localization-only variants from the first batch.",
+    "category_policy": "Categories are mutually independent; broad empty buckets such as gameplay or general are intentionally avoided."
+  },
+  "category_stats": {
+    "total_inner_pages": 18,
+    "guide": 3,
+    "launch_access": 5,
+    "troubleshooting": 4,
+    "controls_settings": 3,
+    "combat_systems": 3
+  },
+  "categories": [
+    {
+      "id": "guide",
+      "name": "Guide",
+      "description": "Beginner and overview pages for users who do not yet understand what WARDOGS is or how to start.",
+      "page_count": 3,
+      "keywords": [
+        {
+          "keyword": "wardogs guide",
+          "slug": "wardogs-guide",
+          "intent": "main guide hub",
+          "page_type": "hub",
+          "priority": 1,
+          "aliases": [
+            "wardogs wiki",
+            "wardogs gameplay",
+            "wardogs video game"
+          ],
+          "source_terms": [
+            "wardogs",
+            "wardogs game",
+            "wardogs gameplay",
+            "wardogs video game",
+            "wardogs wiki"
+          ],
+          "notes": "Use as the central internal-linking page for the first content cluster."
+        },
+        {
+          "keyword": "what is wardogs game",
+          "slug": "what-is-wardogs-game",
+          "intent": "definition and game overview",
+          "page_type": "article",
+          "priority": 2,
+          "aliases": [
+            "what is wardogs",
+            "wardogs game",
+            "war dogs game"
+          ],
+          "source_terms": [
+            "what is wardogs",
+            "what is wardogs game",
+            "wardogs game",
+            "war dogs game"
+          ],
+          "notes": "Best for explaining genre, player count, teams, cash, maps, and why the game is searched under spaced and unspaced names."
+        },
+        {
+          "keyword": "how to play wardogs",
+          "slug": "how-to-play-wardogs",
+          "intent": "new player start guide",
+          "page_type": "article",
+          "priority": 2,
+          "aliases": [
+            "how to play wardogs beta",
+            "wardogs beginner guide"
+          ],
+          "source_terms": [
+            "how to play wardogs",
+            "how to play wardogs beta"
+          ],
+          "notes": "Keep this separate from beta access; this page should answer the actual first-match learning path."
+        }
+      ]
+    },
+    {
+      "id": "launch_access",
+      "name": "Launch & Access",
+      "description": "Release, early access, beta, playtest, pre-order, and edition pages.",
+      "page_count": 5,
+      "keywords": [
+        {
+          "keyword": "wardogs release date",
+          "slug": "wardogs-release-date",
+          "intent": "release timing",
+          "page_type": "article",
+          "priority": 1,
+          "aliases": [
+            "wardogs game release date",
+            "wardogs release",
+            "when does wardogs come out",
+            "wardogs date de sortie",
+            "wardogs дата выхода"
+          ],
+          "source_terms": [
+            "wardogs release date",
+            "wardogs game release date",
+            "wardogs release",
+            "when does wardogs come out",
+            "wardogs дата выхода"
+          ],
+          "notes": "High-value launch page. Keep updated as the launch window changes."
+        },
+        {
+          "keyword": "wardogs early access",
+          "slug": "wardogs-early-access",
+          "intent": "early access overview",
+          "page_type": "article",
+          "priority": 1,
+          "aliases": [
+            "wardogs early access release time",
+            "wardogs preload"
+          ],
+          "source_terms": [
+            "wardogs early access",
+            "wardogs early access release time",
+            "wardogs preload"
+          ],
+          "notes": "Keep distinct from release date because the searcher wants access conditions, preload, price, and what changes during Early Access."
+        },
+        {
+          "keyword": "wardogs beta",
+          "slug": "wardogs-beta",
+          "intent": "beta access and schedule",
+          "page_type": "article",
+          "priority": 1,
+          "aliases": [
+            "wardogs closed beta",
+            "wardogs open beta",
+            "wardogs game beta",
+            "beta wardogs",
+            "war dogs beta",
+            "wardogs beta test",
+            "wardogs beta access",
+            "wardogs beta key",
+            "wardogs beta code",
+            "wardogs beta date",
+            "wardogs beta start",
+            "when does wardogs beta start",
+            "when does wardogs beta end"
+          ],
+          "source_terms": [
+            "wardogs beta",
+            "wardogs closed beta",
+            "wardogs open beta",
+            "wardogs game beta",
+            "wardogs beta access",
+            "wardogs beta key",
+            "wardogs beta code",
+            "wardogs beta date",
+            "wardogs beta start",
+            "when does wardogs beta start",
+            "when does wardogs beta end"
+          ],
+          "notes": "Many raw terms collapse into this one page. Historical beta windows should be marked clearly once the beta ends."
+        },
+        {
+          "keyword": "wardogs playtest",
+          "slug": "wardogs-playtest",
+          "intent": "Steam playtest access",
+          "page_type": "article",
+          "priority": 2,
+          "aliases": [
+            "wardogs playtest date",
+            "wardogs playtest dates",
+            "wardogs playtest time",
+            "wardogs playtest start",
+            "wardogs playtest end",
+            "wardogs playtest end time",
+            "wardogs playtest sign up",
+            "how long is the wardogs playtest",
+            "when does wardogs playtest end"
+          ],
+          "source_terms": [
+            "wardogs playtest",
+            "wardogs playtest date",
+            "wardogs playtest dates",
+            "wardogs playtest time",
+            "wardogs playtest sign up",
+            "how long is the wardogs playtest",
+            "when does wardogs playtest end"
+          ],
+          "notes": "Separate from beta because Steam Playtest access has its own signup/search intent."
+        },
+        {
+          "keyword": "wardogs supporter edition",
+          "slug": "wardogs-supporter-edition",
+          "intent": "edition comparison and purchase decision",
+          "page_type": "article",
+          "priority": 2,
+          "aliases": [
+            "wardogs price",
+            "wardogs steam key",
+            "wardogs pre order"
+          ],
+          "source_terms": [
+            "wardogs supporter edition",
+            "wardogs price",
+            "wardogs steam key"
+          ],
+          "notes": "Good commercial-intent page. Compare base edition, supporter pack content, and whether it is worth buying."
+        }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "name": "Troubleshooting",
+      "description": "Pages for errors, launch failures, crashes, server access, and connection problems.",
+      "page_count": 4,
+      "keywords": [
+        {
+          "keyword": "wardogs server status",
+          "slug": "wardogs-server-status",
+          "intent": "server and connection status",
+          "page_type": "status_guide",
+          "priority": 1,
+          "aliases": [
+            "wardogs server",
+            "wardogs servers",
+            "wardogs server full",
+            "wardogs server offline",
+            "wardogs failed to join",
+            "wardogs matchmaking not working"
+          ],
+          "source_terms": [
+            "wardogs server",
+            "wardogs servers",
+            "wardogs server status",
+            "wardogs server full",
+            "wardogs server offline",
+            "wardogs failed to join",
+            "wardogs matchmaking not working"
+          ],
+          "notes": "Strong opportunity page because server scaling and beta access both appeared in the research set."
+        },
+        {
+          "keyword": "wardogs crashing",
+          "slug": "wardogs-crashing",
+          "intent": "crash fixes",
+          "page_type": "troubleshooting",
+          "priority": 1,
+          "aliases": [
+            "wardogs crash",
+            "wardogs crashes",
+            "wardogs crashing on startup"
+          ],
+          "source_terms": [
+            "wardogs crashing",
+            "wardogs crash"
+          ],
+          "notes": "Keep crash-specific fixes separate from not-launching because the user state is different."
+        },
+        {
+          "keyword": "wardogs not launching",
+          "slug": "wardogs-not-launching",
+          "intent": "startup failure fixes",
+          "page_type": "troubleshooting",
+          "priority": 2,
+          "aliases": [
+            "wardogs won't launch",
+            "wardogs access denied",
+            "wardogs anti cheat"
+          ],
+          "source_terms": [
+            "wardogs not launching",
+            "wardogs access denied",
+            "wardogs anti cheat"
+          ],
+          "notes": "Good evergreen technical page once the Steam client is available."
+        },
+        {
+          "keyword": "wardogs error code 1147405308",
+          "slug": "wardogs-error-code-1147405308",
+          "intent": "specific error lookup",
+          "page_type": "troubleshooting",
+          "priority": 2,
+          "aliases": [
+            "wardogs error 1147405308",
+            "wardogs error code"
+          ],
+          "source_terms": [
+            "wardogs error 1147405308",
+            "wardogs error code 1147405308",
+            "wardogs error code"
+          ],
+          "notes": "Specific code pages often convert well from search because the user needs an immediate fix."
+        }
+      ]
+    },
+    {
+      "id": "controls_settings",
+      "name": "Controls & Settings",
+      "description": "Pages for performance settings, input, controllers, keybinds, vehicles, and flight controls.",
+      "page_count": 3,
+      "keywords": [
+        {
+          "keyword": "wardogs best settings",
+          "slug": "wardogs-best-settings",
+          "intent": "performance and graphics optimization",
+          "page_type": "settings_guide",
+          "priority": 1,
+          "aliases": [
+            "wardogs best fps settings",
+            "wardogs fps",
+            "wardogs pc anforderungen"
+          ],
+          "source_terms": [
+            "wardogs best settings",
+            "wardogs best fps settings",
+            "wardogs fps",
+            "wardogs pc anforderungen"
+          ],
+          "notes": "Use for FPS, graphics presets, visibility, hardware requirements, and early access performance notes."
+        },
+        {
+          "keyword": "wardogs controller settings",
+          "slug": "wardogs-controller-settings",
+          "intent": "controller and input setup",
+          "page_type": "settings_guide",
+          "priority": 2,
+          "aliases": [
+            "wardogs keybinds",
+            "wardogs gamepad support"
+          ],
+          "source_terms": [
+            "wardogs controller settings",
+            "wardogs keybinds"
+          ],
+          "notes": "Keep as the broader input page for keyboard, mouse, and controller settings."
+        },
+        {
+          "keyword": "wardogs helicopter controls",
+          "slug": "wardogs-helicopter-controls",
+          "intent": "vehicle and flight controls",
+          "page_type": "controls_guide",
+          "priority": 2,
+          "aliases": [
+            "wardogs vehicle controls",
+            "wardogs hotas",
+            "hotas"
+          ],
+          "source_terms": [
+            "wardogs helicopter controls",
+            "wardogs vehicle controls",
+            "wardogs hotas",
+            "hotas"
+          ],
+          "notes": "High-specificity page that should be created once controls can be verified in-game."
+        }
+      ]
+    },
+    {
+      "id": "combat_systems",
+      "name": "Combat Systems",
+      "description": "Pages for concrete WARDOGS systems: weapons, factions, maps, economy, cash, FOBs, and building.",
+      "page_count": 3,
+      "keywords": [
+        {
+          "keyword": "wardogs weapons",
+          "slug": "wardogs-weapons",
+          "intent": "weapon list and loadout basics",
+          "page_type": "system_guide",
+          "priority": 1,
+          "aliases": [
+            "wardogs guns",
+            "wardogs loadouts"
+          ],
+          "source_terms": [
+            "wardogs weapons"
+          ],
+          "notes": "Strong first-batch system page because weapons appear in rising keyword data and official game positioning."
+        },
+        {
+          "keyword": "wardogs factions",
+          "slug": "wardogs-factions",
+          "intent": "faction/team explanation",
+          "page_type": "system_guide",
+          "priority": 2,
+          "aliases": [
+            "wardogs teams"
+          ],
+          "source_terms": [
+            "wardogs factions"
+          ],
+          "notes": "Use this to explain three-team play, faction differences if any, and team selection once confirmed."
+        },
+        {
+          "keyword": "wardogs map",
+          "slug": "wardogs-map",
+          "intent": "map and objective guide",
+          "page_type": "system_guide",
+          "priority": 2,
+          "aliases": [
+            "wardogs towers",
+            "wardogs fob",
+            "wardogs building",
+            "wardogs cash",
+            "wardogs economy"
+          ],
+          "source_terms": [
+            "wardogs map",
+            "wardogs towers",
+            "wardogs fob",
+            "wardogs building",
+            "wardogs cash",
+            "wardogs economy"
+          ],
+          "notes": "Use as a compact first map/systems page. Split into dedicated economy or FOB pages later if search volume grows."
+        }
+      ]
+    }
+  ],
+  "excluded_terms": [
+    {
+      "term": "wardogs movie",
+      "reason": "non-game movie intent"
+    },
+    {
+      "term": "wardogs film",
+      "reason": "non-game movie intent"
+    },
+    {
+      "term": "wardogs cast",
+      "reason": "non-game movie intent"
+    },
+    {
+      "term": "wardogs 2016",
+      "reason": "non-game movie intent"
+    },
+    {
+      "term": "wardogs hd film cehennemi",
+      "reason": "non-game movie intent"
+    },
+    {
+      "term": "mw4 beta",
+      "reason": "unrelated game"
+    },
+    {
+      "term": "steam",
+      "reason": "standalone platform term; too broad"
+    },
+    {
+      "term": "steam charts",
+      "reason": "standalone tool term; merge only when WARDOGS-specific"
+    },
+    {
+      "term": "steamdb",
+      "reason": "standalone tool term; merge only when WARDOGS-specific"
+    },
+    {
+      "term": "discord",
+      "reason": "standalone platform term; too broad"
+    },
+    {
+      "term": "twitch",
+      "reason": "standalone platform term; too broad"
+    },
+    {
+      "term": "utc",
+      "reason": "standalone time-zone term; only useful inside beta/release pages"
+    },
+    {
+      "term": "bulkhead",
+      "reason": "developer brand term, not a first-batch WARDOGS page"
+    },
+    {
+      "term": "wardgos",
+      "reason": "misspelling; not worth a dedicated page"
+    },
+    {
+      "term": "wardogs wallpaper",
+      "reason": "low priority media intent for first batch"
+    },
+    {
+      "term": "wardogs twitter",
+      "reason": "navigation/social intent, not a guide page"
+    },
+    {
+      "term": "wardogs x",
+      "reason": "navigation/social intent, not a guide page"
+    },
+    {
+      "term": "wardogs discord",
+      "reason": "navigation/community intent; mention inside guide/access pages instead"
+    },
+    {
+      "term": "wardogs купить",
+      "reason": "localization-only purchase variant; not first-batch English page"
+    },
+    {
+      "term": "wardogs spiel",
+      "reason": "localization-only generic variant; not first-batch English page"
+    },
+    {
+      "term": "wardogs jeu",
+      "reason": "localization-only generic variant; not first-batch English page"
+    },
+    {
+      "term": "wardogs gra",
+      "reason": "localization-only generic variant; not first-batch English page"
+    },
+    {
+      "term": "wardogs игра",
+      "reason": "localization-only generic variant; not first-batch English page"
+    }
+  ],
+  "future_split_candidates": [
+    {
+      "keyword": "wardogs player count",
+      "merged_terms": [
+        "wardogs steam charts",
+        "steam charts wardogs",
+        "wardogs steamdb",
+        "steamdb wardogs",
+        "wardogs steamcharts",
+        "steamcharts wardogs"
+      ],
+      "reason": "Good data-led page after launch, but better delayed until stable live player-count interest exists."
+    },
+    {
+      "keyword": "wardogs ps5",
+      "merged_terms": [
+        "wardogs xbox",
+        "wardogs console",
+        "wardogs game ps5",
+        "wardogs game console",
+        "is wardogs on xbox",
+        "will wardogs be on console",
+        "wardogs on console"
+      ],
+      "reason": "Useful platform page later, but first batch should focus on PC/Steam launch, access, fixes, settings, and systems."
+    },
+    {
+      "keyword": "wardogs economy",
+      "merged_terms": [
+        "wardogs cash",
+        "wardogs fob",
+        "wardogs building"
+      ],
+      "reason": "Strong system cluster; split from the map page when enough verified in-game detail is available."
+    }
+  ]
+}

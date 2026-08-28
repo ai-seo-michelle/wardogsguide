@@ -1,0 +1,22 @@
+---
+import GuidePageView from "../../components/GuidePageView.astro";
+import { pageMatrix } from "../../data/pageMatrix";
+import { getSeo } from "../../data/seo";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return pageMatrix
+    .filter((page) => page.route !== "/")
+    .map((page) => ({
+      params: { slug: page.route.replaceAll("/", "") },
+      props: { page }
+    }));
+}
+
+const { page } = Astro.props;
+const seo = getSeo(page.route);
+---
+
+<BaseLayout title={seo.title} description={seo.description} canonical={seo.canonical} ogType={seo.ogType}>
+  <GuidePageView page={page} seo={seo} />
+</BaseLayout>

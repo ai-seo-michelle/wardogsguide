@@ -1,0 +1,13 @@
+---
+import GuidePageView from "../components/GuidePageView.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPageByRoute } from "../data/pageMatrix";
+import { getSeo } from "../data/seo";
+
+const page = getPageByRoute("/");
+const seo = getSeo("/");
+---
+
+<BaseLayout title={seo.title} description={seo.description} canonical={seo.canonical} ogType={seo.ogType}>
+  <GuidePageView page={page} seo={seo} />
+</BaseLayout>

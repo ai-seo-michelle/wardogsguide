@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const canonical = new URL("/404/", site.domain).toString();
+---
+
+<BaseLayout
+  title="404 | WARDOGS Guide"
+  description="The requested WARDOGS Guide page does not exist."
+  canonical={canonical}
+>
+  <section class="not-found">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+    <p class="lead">
+      This page is not part of the approved WARDOGS Guide launch matrix. Start from the
+      <a href="/wardogs-guide/">guide hub</a>.
+    </p>
+  </section>
+</BaseLayout>
