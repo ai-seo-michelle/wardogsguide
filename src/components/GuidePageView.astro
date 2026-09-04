@@ -1,5 +1,5 @@
 ---
-import { pageMatrixByRoute, sourcePriority, type PageMatrixEntry } from "../data/pageMatrix";
+import { pageMatrixByRoute, type PageMatrixEntry } from "../data/pageMatrix";
 import { guideContentByRoute } from "../data/pageContent";
 import type { SeoEntry } from "../data/seo";
 import PageMetaRail from "./PageMetaRail.astro";
@@ -15,75 +15,57 @@ const relatedPages = page.relatedRoutes
   .map((route) => pageMatrixByRoute[route])
   .filter(Boolean);
 const quickAnswerParagraphs = content?.quickAnswer ?? [page.quickAnswer];
-const sections = content?.sections ?? page.sections;
+const sections = content?.sections ?? [];
 const faqs = content?.faqs ?? [];
-const reviewCopy =
-  page.manualReview === "high"
-    ? "This is pre-release / Early Access sensitive content. Current details will be verified against the latest official build before publication."
-    : page.manualReview === "medium"
-      ? "This page needs manual review before detailed gameplay guidance is published."
-      : "This page is low risk, but all WARDOGS-specific facts still need source review before final publication.";
+const sources = content?.sources ?? [];
+const lastUpdated = content?.lastUpdated;
+const editorOnlyCopyPattern = /^(Keep manual review|Keep this page as|Route explicit|Do not publish|Confirm final wording|Manual review is)/i;
+const isPublicCopy = (text: string) => !editorOnlyCopyPattern.test(text.trim());
+const publicSections = sections
+  .map((section) => ({
+    ...section,
+    paragraphs: section.paragraphs?.filter(isPublicCopy),
+    body: section.body && isPublicCopy(section.body) ? section.body : undefined,
+    facts: section.facts?.filter((fact) => isPublicCopy(fact.text)),
+    bullets: section.bullets?.filter(isPublicCopy)
+  }))
+  .filter((section) =>
+    Boolean(
+      section.body ||
+        section.paragraphs?.length ||
+        section.facts?.length ||
+        section.bullets?.length ||
+        section.links?.length
+    )
+  );
 ---
 
 <section class="hero-band">
-  <div class="hero">
+  <div class="hero hero--single">
     <div>
       <p class="eyebrow">{page.eyebrow}</p>
       <h1>{seo.h1}</h1>
       <p class="lead">{page.description}</p>
     </div>
-    <aside class="status-panel" aria-label="Page status">
-      <dl>
-        <div>
-          <dt>Target keyword</dt>
-          <dd>{page.keyword}</dd>
-        </div>
-        <div>
-          <dt>Priority</dt>
-          <dd>{page.priority}</dd>
-        </div>
-        <div>
-          <dt>Manual review</dt>
-          <dd>{page.manualReview}</dd>
-        </div>
-        {
-          content?.lastUpdated && (
-            <div>
-              <dt>Last updated</dt>
-              <dd>{content.lastUpdated}</dd>
-            </div>
-          )
-        }
-      </dl>
-    </aside>
   </div>
 </section>
 
-<div class="page-frame">
+<div class:list={["page-frame", !lastUpdated && "page-frame--single"]}>
   <article class="content-stack">
     <section class="panel">
       <h2>Quick Answer</h2>
       {quickAnswerParagraphs.map((paragraph) => <p>{paragraph}</p>)}
     </section>
 
-    {
-      page.manualReview === "high" && (
-        <section class="panel review-banner" aria-label="Manual review notice">
-          <h2>Needs Manual Review</h2>
-          <p><strong>Pre-release / Early Access sensitive:</strong> {reviewCopy}</p>
-        </section>
-      )
-    }
-
     <div class="section-list">
       {
-        sections.map((section) => (
+        publicSections.map((section) => (
           <section class="panel">
             <h2>{section.heading}</h2>
             {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
             {section.body && <p>{section.body}</p>}
             {
-              section.facts && (
+              section.facts && section.facts.length > 0 && (
                 <ul class="facts-list">
                   {section.facts.map((fact) => (
                     <li>
@@ -95,7 +77,7 @@ const reviewCopy =
               )
             }
             {
-              section.bullets && (
+              section.bullets && section.bullets.length > 0 && (
                 <ul class="review-list">
                   {section.bullets.map((item) => <li>{item}</li>)}
                 </ul>
@@ -152,41 +134,22 @@ const reviewCopy =
       </ul>
     </section>
 
-    <section class="panel">
-      <h2>Sources &amp; References</h2>
-      {
-        content ? (
+    {
+      sources.length ? (
+        <section class="panel">
+          <h2>Sources &amp; References</h2>
           <ul class="source-list">
-            {content.sources.map((source) => (
+            {sources.map((source) => (
               <li>
                 <a href={source.url}>{source.label}</a>
                 <span class="source-type"> {source.type}</span>
               </li>
             ))}
           </ul>
-        ) : (
-          <>
-            <p>
-              Source priority for future fact checks. Community material should never be written
-              as official fact.
-            </p>
-            <ol class="source-list">
-              {sourcePriority.map((source) => <li>{source}</li>)}
-            </ol>
-          </>
-        )
-      }
-    </section>
-
-    <section class="panel">
-      <h2>Needs Manual Review</h2>
-      <ul class="review-list">
-        {(content?.reviewNotes ?? [reviewCopy]).map((note) => <li>{note}</li>)}
-        <li>Do not publish unverified WARDOGS mechanics, numbers, controls, errors, or map data.</li>
-        <li>Confirm final wording against the latest official or verified in-game source before expanding the article.</li>
-      </ul>
-    </section>
+        </section>
+      ) : null
+    }
   </article>
 
-  <PageMetaRail page={page} seo={seo} />
+  {lastUpdated && <PageMetaRail lastUpdated={lastUpdated} />}
 </div>

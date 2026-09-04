@@ -258,6 +258,15 @@ h1 {
   align-items: start;
 }
 
+.hero--single,
+.page-frame--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.page-frame--single .content-stack {
+  max-width: 820px;
+}
+
 .content-stack {
   display: grid;
   gap: 24px;

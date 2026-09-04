@@ -1,30 +1,16 @@
 ---
-import type { PageMatrixEntry } from "../data/pageMatrix";
-import type { SeoEntry } from "../data/seo";
-
 type Props = {
-  page: PageMatrixEntry;
-  seo: SeoEntry;
+  lastUpdated: string;
 };
 
-const { page, seo } = Astro.props;
+const { lastUpdated } = Astro.props;
 ---
 
-<aside class="side-rail" aria-label="Page metadata">
+<aside class="side-rail" aria-label="Page details">
   <section class="panel">
-    <h2>Page Matrix</h2>
-    <div class="meta-row">
-      <span class="meta-pill">{page.type.replaceAll("_", " ")}</span>
-      <span class="meta-pill">{page.priority}</span>
-      <span class="meta-pill">{page.manualReview} review</span>
-    </div>
-  </section>
-  <section class="panel">
-    <h2>SEO</h2>
+    <h2>Page Details</h2>
     <ul class="matrix-list">
-      <li>Canonical: {seo.canonical}</li>
-      <li>Target keyword: {seo.keyword}</li>
-      <li>Open Graph: {seo.ogType}</li>
+      <li>Last updated: {lastUpdated}</li>
     </ul>
   </section>
 </aside>
