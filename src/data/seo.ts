@@ -58,12 +58,39 @@ export const seoByRoute: Record<string, SeoEntry> = {
     ogType: "article"
   },
   "/wardogs-crashing/": {
-    title: "WARDOGS Crashing | Safe Troubleshooting Guide",
+    title: "WARDOGS Crash Troubleshooting Hub | Diagnose Crash Issues",
     description:
-      "WARDOGS crashing troubleshooting page structure for crash reports, safe checks, and current-build verification.",
-    h1: "WARDOGS Crashing",
+      "Diagnose WARDOGS crash issues and choose the right guide for crashing fixes, not launching, Easy Anti-Cheat errors, server status, or error codes.",
+    h1: "WARDOGS Crash Troubleshooting Hub",
     canonical: canonical("/wardogs-crashing/"),
+    keyword: "wardogs crash troubleshooting",
+    ogType: "article"
+  },
+  "/wardogs-crashing-fix/": {
+    title: "WARDOGS Crashing Fix: Startup, Launch, Steam & Mid-Game Crashes",
+    description:
+      "Fix WARDOGS crashing on startup, Steam launch, shader compilation, DX12, freezing, and mid-game crashes with official notes and safe community-reported checks.",
+    h1: "WARDOGS Crashing Fix",
+    canonical: canonical("/wardogs-crashing-fix/"),
     keyword: "wardogs crashing",
+    ogType: "article"
+  },
+  "/wardogs-voip-not-working/": {
+    title: "WARDOGS VoIP Not Working? Voice Chat & Mic Fixes",
+    description:
+      "Troubleshoot WARDOGS VoIP, voice chat, and mic issues with official beta voice-service notes, input checks, and community-reported workarounds.",
+    h1: "WARDOGS VoIP Not Working? Voice Chat & Mic Fixes",
+    canonical: canonical("/wardogs-voip-not-working/"),
+    keyword: "wardogs voip not working",
+    ogType: "article"
+  },
+  "/wardogs-easy-anti-cheat-error-fix/": {
+    title: "WARDOGS Easy Anti-Cheat Error Fix: Login Failed, Module Not Found & Crashes",
+    description:
+      "Troubleshoot WARDOGS Easy Anti-Cheat login failed, module not found, splash-screen crashes, and anti-cheat launch symptoms without unsafe fixes.",
+    h1: "WARDOGS Easy Anti-Cheat Error Fix",
+    canonical: canonical("/wardogs-easy-anti-cheat-error-fix/"),
+    keyword: "wardogs anti cheat",
     ogType: "article"
   },
   "/wardogs-best-settings/": {

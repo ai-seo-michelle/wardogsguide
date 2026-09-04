@@ -16,6 +16,11 @@ export type GuideFact = {
   text: string;
 };
 
+export type GuideFaq = {
+  question: string;
+  answer: string;
+};
+
 export type GuideContentSection = {
   heading: string;
   paragraphs?: string[];
@@ -42,6 +47,8 @@ export type GuidePageContent = {
   quickAnswer: string[];
   sections: GuideContentSection[];
   sources: GuideSource[];
+  faqs?: GuideFaq[];
+  lastUpdated?: string;
   reviewNotes?: string[];
 };
 
@@ -141,6 +148,12 @@ const steamComputerCrashSupport: GuideSource = {
   type: "Support"
 };
 
+const easyAntiCheatSupport: GuideSource = {
+  label: "Easy Anti-Cheat Support",
+  url: "https://www.easy.ac/support/",
+  type: "Support"
+};
+
 const steamCommunityDiscussions: GuideSource = {
   label: "WARDOGS Steam community discussions",
   url: "https://steamcommunity.com/app/1867240/discussions/",
@@ -172,7 +185,10 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           "For now, this site separates confirmed official information from community-reported workarounds so launch-week pages do not turn guesses into instructions."
         ],
         links: [
-          { label: "WARDOGS Crashing", href: "/wardogs-crashing/" },
+          { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
+          { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/" },
+          { label: "WARDOGS VoIP Not Working", href: "/wardogs-voip-not-working/" },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/" },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" }
@@ -220,7 +236,10 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         heading: "Troubleshooting",
         links: [
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Server, region, failed join, and matchmaking checks." },
-          { label: "WARDOGS Crashing", href: "/wardogs-crashing/", description: "Crash symptoms and safe current-build checks." },
+          { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/", description: "Diagnose crash issues and choose the right troubleshooting route." },
+          { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "Startup, Steam, shader, DX12, and mid-game crash fixes." },
+          { label: "WARDOGS VoIP Not Working", href: "/wardogs-voip-not-working/", description: "Voice chat, microphone, and local voice reset checks." },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "EAC login, module, splash, and anti-cheat launch symptoms." },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Startup failure and access checks." },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "Specific error lookup without unverified fixes." }
         ]
@@ -536,7 +555,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           }
         ],
         links: [
-          { label: "WARDOGS Crashing", href: "/wardogs-crashing/" },
+          { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" }
@@ -551,107 +570,54 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
   },
   "/wardogs-crashing/": {
     quickAnswer: [
-      "Officially confirmed: BULKHEAD's Closed Beta Known Issues post says crashes are being tracked as part of the test process. The same official post does not provide a universal WARDOGS crash fix.",
-      "Use the steps below as general PC troubleshooting, not as WARDOGS-specific official fixes: restart Windows, verify Steam files, update Windows and drivers, close non-essential software, and compare your PC with the Steam system requirements.",
-      "If WARDOGS causes a full PC restart, blue screen, or hard freeze, stop treating it like an ordinary game crash. Record the exact symptom, crash report, and time, then wait for official guidance or seek qualified PC support."
+      "Use this page as the WARDOGS crash troubleshooting hub, not the detailed crash-fix article. If your intent is to fix WARDOGS crashing on startup, Steam launch, shader compilation, DX12, freezing, or mid-game crashes, go to the dedicated WARDOGS Crashing Fix page.",
+      "Start by identifying where the failure happens: before the game opens, at the Easy Anti-Cheat splash, during login or server join, during shader compilation, inside a match, or alongside a numeric error code.",
+      "Officially confirmed: BULKHEAD acknowledged Closed Beta crashes and tracked crash reports. This hub keeps that official context separate from community-reported symptoms and routes each case to the right guide."
     ],
+    lastUpdated: "September 4, 2026",
     sections: [
       {
-        heading: "Before You Try Fixes",
-        facts: [
-          {
-            status: "Officially confirmed",
-            text: "BULKHEAD acknowledged Closed Beta crashes in a pinned Known Issues post and said crash reports help the team catch issues before Early Access launch."
-          },
-          {
-            status: "Not officially confirmed",
-            text: "No official WARDOGS-specific cause has been published for crashes, driver conflicts, overlays, DirectX errors, Windows updates, or corrupted files in the sources checked on August 28, 2026."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Apply general Steam and Windows checks first. Keep a note of what changed so you can reverse it if the issue remains."
-          }
-        ]
-      },
-      {
-        heading: "Officially Confirmed Crash Issues",
-        facts: [
-          {
-            status: "Officially confirmed",
-            text: "Crashes existed during the Closed Beta and were being tracked by BULKHEAD."
-          },
-          {
-            status: "Not officially confirmed",
-            text: "No public patch note or official troubleshooting post found in this check names a universal crash fix for WARDOGS."
-          }
-        ]
-      },
-      {
-        heading: "Safe Troubleshooting Steps",
-        facts: [
-          {
-            status: "Safe generic troubleshooting",
-            text: "Restart Windows and Steam before making deeper changes."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Use Steam's Verify integrity of game files tool to check whether installed files are missing or damaged."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Update Windows and GPU drivers, then test again with the same settings."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Close non-essential overlays, hardware-monitoring tools, recording tools, and background apps for one clean test, but do not permanently disable security software."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Compare your PC with the Steam minimum and recommended requirements before assuming the issue is server-side."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Check Steam announcements and pinned discussions for current crash notes or patch updates."
-          }
-        ]
-      },
-      {
-        heading: "Community-reported Crash Patterns",
-        facts: [
-          {
-            status: "Community-reported",
-            text: "Steam Support forum posts describe startup crashes, shader-compilation or DirectX 12 crash reports, and hard crashes during or after entering matches."
-          },
-          {
-            status: "Community-reported",
-            text: "Some players mention overlays, RGB software, Windows updates, or specific system configurations, but these are mixed reports and should not be treated as universal fixes."
-          }
-        ]
-      },
-      {
-        heading: "When to Stop Troubleshooting",
-        facts: [
-          {
-            status: "Safe generic troubleshooting",
-            text: "Stop local troubleshooting if the game repeatedly causes a blue screen, full PC restart, or Windows recovery event. Record the crash code or dump evidence instead of repeating the same launch attempts."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "If many players are reporting the same issue after a new build, wait for an official patch note or developer update before applying risky community workarounds."
-          }
-        ],
+        heading: "Choose the Right Troubleshooting Path",
         links: [
-          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
-          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
-          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" },
-          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+          { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "For startup, launch, Steam, shader, DX12, freezing, and mid-game crash fix checks." },
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "For cases where Steam starts WARDOGS but the game never reaches a playable state." },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "For Easy Anti-Cheat login failed, module not found, splash, or anti-cheat launch symptoms." },
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "For failed joins, queues, server access, matchmaking, or online-service symptoms." },
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "For the specific beta-era authentication error code." },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the main WARDOGS guide hub." }
+        ]
+      },
+      {
+        heading: "Official Crash Context",
+        facts: [
+          { status: "Officially confirmed", text: "BULKHEAD acknowledged Closed Beta crashes in a pinned Known Issues post and said crash reports help the team catch issues before Early Access launch." },
+          { status: "Not officially confirmed", text: "No official public source checked here names one universal WARDOGS crash fix for every crash symptom." },
+          { status: "General guidance", text: "Use the crash location and error text to choose the next guide instead of trying every fix path at once." }
+        ]
+      },
+      {
+        heading: "Diagnose the Crash Symptom",
+        bullets: [
+          "If Steam briefly starts WARDOGS and then returns to Play, use the Crashing Fix or Not Launching guide depending on whether a game window appears.",
+          "If the message mentions Easy Anti-Cheat, failed login, module not found, or an anti-cheat splash, use the Easy Anti-Cheat guide.",
+          "If the crash happens during shader compilation, DX12 startup, freezing, or mid-match play, use the Crashing Fix page.",
+          "If the problem appears with queues, failed joins, matchmaking, authentication, or server access, check Server Status and the error-code page before changing local PC settings."
+        ]
+      },
+      {
+        heading: "What This Hub Does Not Do",
+        bullets: [
+          "It does not repeat the full WARDOGS crashing fix checklist.",
+          "It does not present community-reported workaround claims as guaranteed fixes.",
+          "It does not turn anti-cheat, server, or numeric error symptoms into one generic crash article.",
+          "It does not replace official WARDOGS crash reporting or current build notes."
         ]
       }
     ],
     sources: [steamStore, steamKnownIssues, steamShaderCrashThread, steamGameCrashesThread, steamLaunchSupport, steamVerifyFilesSupport, steamComputerCrashSupport],
     reviewNotes: [
-      "Keep manual review high because crash guidance can change quickly when Early Access builds or hotfix notes appear.",
-      "Do not promote community fixes such as deleting files, uninstalling Windows updates, or changing anti-cheat components unless official WARDOGS guidance confirms them."
+      "Keep this page as a diagnosis and routing hub. Do not expand it back into the primary crash fix article.",
+      "Route explicit fix-intent links and anchor text to /wardogs-crashing-fix/ instead of this hub."
     ]
   },
   "/wardogs-not-launching/": {
@@ -739,7 +705,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           "If launch failures appear across many Steam threads shortly after a beta, patch, or Early Access unlock, wait for Steam announcements or a pinned developer post. Repeating risky local changes can hide the original symptom."
         ],
         links: [
-          { label: "WARDOGS Crashing", href: "/wardogs-crashing/" },
+          { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" }
@@ -846,7 +812,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         links: [
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
-          { label: "WARDOGS Crashing", href: "/wardogs-crashing/" },
+          { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" }
         ]
       }
@@ -855,6 +821,218 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
     reviewNotes: [
       "Keep manual review high because the official numeric meaning and any official fix for 1147405308 remain undocumented.",
       "Recheck official sources after Early Access unlocks before calling the code active, fixed, server-side, or local."
+    ]
+  },
+  "/wardogs-crashing-fix/": {
+    quickAnswer: [
+      "If WARDOGS keeps crashing, start with safe, reversible checks: restart Steam and Windows, verify the game files in Steam, update Windows and GPU drivers, compare your PC with the Steam requirements, and check current official posts before changing security or anti-cheat files.",
+      "Officially confirmed: BULKHEAD's Closed Beta Known Issues post says crash reports were being tracked during testing. It does not publish one universal WARDOGS crashing fix.",
+      "Community-reported: Steam players have reported shader-compilation crashes, DX12-adjacent crash dumps, EXCEPTION_ACCESS_VIOLATION, Steam launch failures, and mid-game freezes. Treat those as evidence of symptoms, not guaranteed fixes."
+    ],
+    lastUpdated: "September 4, 2026",
+    sections: [
+      {
+        heading: "Start Here: Safe Checks",
+        facts: [
+          { status: "Officially confirmed", text: "Steam lists WARDOGS as a Windows PC title with published system requirements and kernel-level Easy Anti-Cheat on the store page." },
+          { status: "Officially confirmed", text: "BULKHEAD's Closed Beta Known Issues post says crashes were being tracked and that crash reports helped the team catch issues before Early Access launch." },
+          { status: "Safe generic troubleshooting", text: "Restart Windows and Steam, then launch WARDOGS once from the Steam Library before changing deeper settings." },
+          { status: "Safe generic troubleshooting", text: "Use Steam's Verify integrity of game files tool before reinstalling the game." },
+          { status: "Safe generic troubleshooting", text: "Update Windows and GPU drivers, close non-essential overlays or recording tools for one clean test, and keep notes so every change can be reversed." }
+        ]
+      },
+      {
+        heading: "Startup, Launch, and Steam Crashes",
+        paragraphs: [
+          "For wardogs crashing on startup, wardogs crashing on launch, or wardogs crashing on Steam, first identify what you actually see: the Steam button flips back to Play, an anti-cheat splash closes, shader compilation starts and then exits, or the menu loads before the client freezes.",
+          "Steam's general launch support and file-verification support are safe first checks. They are not WARDOGS-specific official fixes, but they avoid risky steps such as deleting DLL files, swapping executables, or changing security software permanently."
+        ],
+        links: [
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Use this if Steam opens the game and it never reaches a playable state." },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Use this if the crash appears around Easy Anti-Cheat, login, or an anti-cheat module message." }
+        ]
+      },
+      {
+        heading: "Shader Compilation, DX12, and EXCEPTION_ACCESS_VIOLATION",
+        facts: [
+          { status: "Community-reported", text: "Steam Support forum reports describe WARDOGS Playtest crashing after shader compilation, including DX12-adjacent crash discussion and 0xC0000005 EXCEPTION_ACCESS_VIOLATION in player-provided crash details." },
+          { status: "Not officially confirmed", text: "No official public source checked on September 4, 2026 confirms one WARDOGS-specific root cause or guaranteed fix for shader compilation crashes, wardogs crashing dx12, or EXCEPTION_ACCESS_VIOLATION." },
+          { status: "Safe generic troubleshooting", text: "If the crash always happens during shader compilation, preserve the crash text, driver version, Windows build, GPU model, and whether the same crash happens after Steam file verification." }
+        ]
+      },
+      {
+        heading: "Mid-Game Freezing and Crashes",
+        facts: [
+          { status: "Community-reported", text: "Steam players have reported wardogs crashing mid game, hard crashes, and wardogs freezing and crashing after entering matches. These reports help identify patterns, but they are not a universal fix list." },
+          { status: "Safe generic troubleshooting", text: "Record match timing, server region, graphics preset, overlays, and the exact crash behavior before repeating the same test." },
+          { status: "Safe generic troubleshooting", text: "If WARDOGS causes a full PC restart or blue screen, stop repeated launch attempts and treat it as a system-level crash. Steam's support guidance for blue screens and restarts is the safer reference point." }
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Use this if the symptom looks like server kicks, failed joins, or login failures instead of a local crash." }
+        ]
+      },
+      {
+        heading: "Easy Anti-Cheat-Related Crash Symptoms",
+        paragraphs: [
+          "Steam's store disclosure currently lists Easy Anti-Cheat for WARDOGS. If the crash happens before or during the anti-cheat splash, or if the error mentions login failed, failed to login, module not found, or an anti-cheat server error, do not mix that with generic crash advice.",
+          "Use the dedicated anti-cheat page for safe EAC troubleshooting boundaries and link generic wardogs crashing PC symptoms back here."
+        ],
+        links: [
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "EAC login failed, module not found, anti-cheat splash, and launch crash checks." },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the central WARDOGS troubleshooting hub." }
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Why does WARDOGS keep crashing on startup?", answer: "There is no single official cause confirmed for every startup crash. Start with Steam file verification, a Steam and Windows restart, driver updates, and current official posts before trying community workarounds." },
+      { question: "Is EXCEPTION_ACCESS_VIOLATION a confirmed WARDOGS bug?", answer: "EXCEPTION_ACCESS_VIOLATION appears in Steam player reports around shader-compilation crashes, but no official public WARDOGS source checked here confirms it as one universal bug with one guaranteed fix." },
+      { question: "Should I reinstall WARDOGS to fix crashing?", answer: "Reinstalling is not the first confirmed WARDOGS fix. Verify game files in Steam first, then only reinstall if safe checks and official guidance leave no better option." },
+      { question: "Can Easy Anti-Cheat make WARDOGS crash on launch?", answer: "WARDOGS is listed on Steam with Easy Anti-Cheat, so anti-cheat-adjacent launch symptoms are possible. Use the anti-cheat guide if the crash occurs at the EAC splash or names an anti-cheat login or module error." }
+    ],
+    sources: [steamStore, steamKnownIssues, steamShaderCrashThread, steamGameCrashesThread, steamLaunchSupport, steamVerifyFilesSupport, steamComputerCrashSupport, easyAntiCheatSupport],
+    reviewNotes: [
+      "Keep manual review high because WARDOGS crash behavior can change with the current beta and Early Access builds.",
+      "Do not publish BIOS, registry, DLL, antivirus-disable, or anti-cheat file-swap advice unless official WARDOGS, Steam, or Easy Anti-Cheat guidance supports it for the current build."
+    ]
+  },
+  "/wardogs-voip-not-working/": {
+    quickAnswer: [
+      "If WARDOGS VoIP is not working, first identify the direction of the problem: you cannot hear other players, other players cannot hear you, or local voice chat drops after working for a while.",
+      "Officially confirmed for the Closed Beta: BULKHEAD said lost local voice chat could be reset by turning voice chat off in settings or opening the scoreboard and pressing U twice to toggle mute/unmute. BULKHEAD also noted possible third-party voice provider outages.",
+      "If your microphone works in Windows and Steam but not in WARDOGS, do not assume reinstalling the game is a confirmed fix. The symptom may be game-side, server-side, or related to the voice provider."
+    ],
+    lastUpdated: "September 4, 2026",
+    sections: [
+      {
+        heading: "First Separate the Voice Chat Symptom",
+        facts: [
+          { status: "General guidance", text: "If you cannot hear others, check output device, volume, in-game voice settings, and whether the issue follows one server or one session." },
+          { status: "General guidance", text: "If others cannot hear you, check the selected Windows and Steam microphone input before treating WARDOGS as broken." },
+          { status: "Officially confirmed", text: "Steam lists WARDOGS with online PvP and official material describes proximity voice chat as part of the Early Access feature set." }
+        ]
+      },
+      {
+        heading: "Official Local Voice Chat Workaround",
+        facts: [
+          { status: "Officially confirmed", text: "BULKHEAD's Closed Beta Known Issues post says that if local voice chat is lost, players can turn voice chat off in settings or open the scoreboard and press U twice to toggle mute/unmute." },
+          { status: "Officially confirmed", text: "The same official post says there are potential outages with the third-party voice provider that the team was investigating." },
+          { status: "Safe generic troubleshooting", text: "After using the scoreboard + U twice workaround, test in the same context before changing microphone drivers or reinstalling the game." }
+        ]
+      },
+      {
+        heading: "If Others Cannot Hear You",
+        bullets: [
+          "Confirm Windows is using the intended microphone and the device is not muted at the hardware level.",
+          "Confirm Steam voice input uses the same microphone that works in Windows.",
+          "Check the current WARDOGS voice setting and input binding in-game instead of assuming a key from another build.",
+          "If Windows and Steam both pass but WARDOGS fails, treat it as possibly game-side, server-side, or voice-provider-side."
+        ]
+      },
+      {
+        heading: "If You Cannot Hear Others",
+        bullets: [
+          "Check that WARDOGS audio is routed to the expected output device.",
+          "Try the official local voice reset path: turn voice chat off and on, or open the scoreboard and press U twice.",
+          "If voice works on one server but not another, rejoin or test another server before changing system audio settings.",
+          "Check current official posts if many players report the same wardogs voice chat issues at once."
+        ]
+      },
+      {
+        heading: "Server or Provider-Side VoIP Issues",
+        paragraphs: [
+          "WARDOGS voice chat can fail even when your microphone is healthy. BULKHEAD specifically noted potential third-party provider outages during the Closed Beta, so widespread wardogs voip issues may not be fixable from your PC.",
+          "Restarting the game, rejoining, or trying another server can be reasonable when the issue is session-specific. Reinstalling WARDOGS is not a confirmed voice chat fix in the checked official sources."
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Use this if voice issues appear alongside server, login, queue, or matchmaking symptoms." },
+          { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "Use this if voice issues appear with freezing, crashing, or client instability." },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the central WARDOGS troubleshooting hub." }
+        ]
+      }
+    ],
+    faqs: [
+      { question: "How do I fix WARDOGS voice chat not working?", answer: "Try the official Closed Beta workaround first: turn voice chat off and on, or open the scoreboard and press U twice to toggle mute/unmute. Then check whether the issue is input, output, server, or provider-side." },
+      { question: "Why can other players not hear my mic in WARDOGS?", answer: "Check the microphone selected in Windows and Steam, then confirm WARDOGS is using the intended voice setting. If the mic works outside the game, the issue may be game-side or voice-service-side." },
+      { question: "Why can I not hear other players in WARDOGS?", answer: "Check output device and game audio first, then use the scoreboard + U twice voice reset workaround. If many players report it at once, check official posts for a provider outage." },
+      { question: "Is reinstalling WARDOGS a confirmed VoIP fix?", answer: "No. The checked official WARDOGS sources do not confirm reinstalling as a VoIP fix. Start with input/output checks, the official local voice workaround, and current server or provider notes." }
+    ],
+    sources: [steamStore, steamKnownIssues, steamCommunityDiscussions],
+    reviewNotes: [
+      "Keep manual review high because voice chat behavior can change across beta and Early Access builds.",
+      "Do not claim that reinstalling WARDOGS, reinstalling audio drivers, or changing network settings is a confirmed VoIP fix unless official guidance confirms it."
+    ]
+  },
+  "/wardogs-easy-anti-cheat-error-fix/": {
+    quickAnswer: [
+      "Steam currently lists WARDOGS as using Easy Anti-Cheat, shown as kernel-level anti-cheat on the store page. That is the safest public source for the EAC wording.",
+      "No public WARDOGS-specific official fix was found for Easy Anti-Cheat login failed, failed to login, module not found, anti-cheat server error, or EAC splash-screen crashes in the sources checked on September 4, 2026.",
+      "Use safe checks only: restart Steam and Windows, verify files in Steam, check official WARDOGS posts, and use Easy Anti-Cheat official support for generic EAC help. Do not download replacement DLLs, run unofficial repair tools, or permanently disable security software."
+    ],
+    lastUpdated: "September 4, 2026",
+    sections: [
+      {
+        heading: "What Anti-Cheat Does WARDOGS Use?",
+        facts: [
+          { status: "Officially confirmed", text: "The official Steam store page for WARDOGS lists Easy Anti-Cheat and labels it as kernel-level anti-cheat." },
+          { status: "Community-reported", text: "Some September 2026 Steam community posts discuss Elytra or build-specific anti-cheat behavior. These posts are useful context, but they are not a replacement for the current Steam store disclosure or an official public migration note." },
+          { status: "Not officially confirmed", text: "No public official WARDOGS post checked here confirms a single, universal player-side fix for all wardogs anticheat launch or login errors." }
+        ]
+      },
+      {
+        heading: "Login Failed or Failed to Login",
+        facts: [
+          { status: "Community-reported", text: "During the August Closed Beta, Steam players reported access-denied and failed-authentication symptoms around online login and queueing." },
+          { status: "Not officially confirmed", text: "Those beta login reports do not prove that every wardogs anticheat login fail or wardogs anticheat failed to login message is caused by Easy Anti-Cheat. It may also be account, server, entitlement, or build availability related." },
+          { status: "Safe generic troubleshooting", text: "Check official announcements and server-status context before changing local anti-cheat or security settings." }
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Use this if the anti-cheat message appears with queues, login, failed joins, or server access." },
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "Use this if the symptom includes the beta-era authentication error code." }
+        ]
+      },
+      {
+        heading: "Module Not Found or Module Could Not Be Downloaded",
+        paragraphs: [
+          "For wardogs anti cheat module not found symptoms, no WARDOGS-specific official fix was found in the checked public sources. Keep the troubleshooting reversible: restart Steam and Windows, verify files through Steam, and check Easy Anti-Cheat support for generic EAC guidance.",
+          "Do not download a missing module from a third-party site, copy files from another game, or run unknown executables. Anti-cheat components are security-sensitive and build-specific."
+        ]
+      },
+      {
+        heading: "EAC Splash or Anti-Cheat Launch Crash",
+        facts: [
+          { status: "Safe generic troubleshooting", text: "If wardogs crashing before Easy Anti-Cheat finishes loading, preserve the exact error text and time, then verify Steam files before reinstalling." },
+          { status: "Safe generic troubleshooting", text: "Close overlays or apps that inject into games for one clean test, but do not permanently disable antivirus, firewall, or Windows security protections." },
+          { status: "General guidance", text: "If the symptom is shader compilation, DX12, freezing, or a mid-game crash rather than a clear EAC message, use the WARDOGS crashing fix page." }
+        ],
+        links: [
+          { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "Startup, Steam, shader, DX12, and mid-game crash diagnosis." },
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Startup failure and access checks." }
+        ]
+      },
+      {
+        heading: "Safe EAC Troubleshooting Boundary",
+        bullets: [
+          "Restart Steam and Windows before changing files.",
+          "Verify WARDOGS files through Steam.",
+          "Check the official Steam store page, Steam announcements, pinned developer posts, and Easy Anti-Cheat support.",
+          "Avoid permanent antivirus or firewall disablement.",
+          "Avoid BIOS, registry, DLL, driver, or security-service changes unless official guidance for the current WARDOGS build supports them."
+        ],
+        links: [
+          { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the main WARDOGS guide and troubleshooting hub." }
+        ]
+      }
+    ],
+    faqs: [
+      { question: "Does WARDOGS use Easy Anti-Cheat?", answer: "The official Steam store page currently lists WARDOGS with Easy Anti-Cheat and labels it as kernel-level anti-cheat. Community posts may discuss build-specific anti-cheat changes, so check official sources before assuming the current build behavior." },
+      { question: "Is every WARDOGS login failed message an anti-cheat issue?", answer: "No. Beta-era reports connect failed authentication and access denied with online queues and server load, but they do not prove every login failed message is caused by anti-cheat." },
+      { question: "How do I fix WARDOGS anti-cheat module not found?", answer: "No WARDOGS-specific official module-not-found fix was found. Use safe steps: restart Steam and Windows, verify files in Steam, check official WARDOGS posts, and use Easy Anti-Cheat official support for generic help." },
+      { question: "Should I disable antivirus to fix WARDOGS anti-cheat?", answer: "Do not permanently disable antivirus or firewall protection. If a security tool is suspected, test cautiously and follow official WARDOGS, Steam, or Easy Anti-Cheat guidance rather than downloading replacement files or using unofficial repair tools." }
+    ],
+    sources: [steamStore, steamKnownIssues, steamAuthErrorThread, steamLaunchSupport, steamVerifyFilesSupport, easyAntiCheatSupport, steamCommunityDiscussions],
+    reviewNotes: [
+      "Keep manual review high because WARDOGS anti-cheat behavior appears build-sensitive and public player reports may conflict with the Steam store disclosure.",
+      "Do not add WARDOGS-specific EAC repair steps, BIOS changes, Secure Boot claims, or module-download claims without official current-build evidence."
     ]
   },
   "/wardogs-best-settings/": {

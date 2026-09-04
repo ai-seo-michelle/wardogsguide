@@ -368,6 +368,33 @@ h1 {
   margin-top: 14px;
 }
 
+.faq-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.faq-item {
+  padding-top: 16px;
+  border-top: 1px solid rgba(29, 37, 40, 0.1);
+}
+
+.faq-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.faq-item h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.faq-item p {
+  margin: 0;
+}
+
 .fact-status {
   color: var(--ink);
   font-weight: 850;

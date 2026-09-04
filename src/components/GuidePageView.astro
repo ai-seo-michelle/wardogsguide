@@ -16,6 +16,7 @@ const relatedPages = page.relatedRoutes
   .filter(Boolean);
 const quickAnswerParagraphs = content?.quickAnswer ?? [page.quickAnswer];
 const sections = content?.sections ?? page.sections;
+const faqs = content?.faqs ?? [];
 const reviewCopy =
   page.manualReview === "high"
     ? "This is pre-release / Early Access sensitive content. Current details will be verified against the latest official build before publication."
@@ -45,6 +46,14 @@ const reviewCopy =
           <dt>Manual review</dt>
           <dd>{page.manualReview}</dd>
         </div>
+        {
+          content?.lastUpdated && (
+            <div>
+              <dt>Last updated</dt>
+              <dd>{content.lastUpdated}</dd>
+            </div>
+          )
+        }
       </dl>
     </aside>
   </div>
@@ -110,6 +119,22 @@ const reviewCopy =
         ))
       }
     </div>
+
+    {
+      faqs.length > 0 && (
+        <section class="panel">
+          <h2>FAQ</h2>
+          <div class="faq-list">
+            {faqs.map((faq) => (
+              <article class="faq-item">
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <section class="panel">
       <h2>Related Guides</h2>

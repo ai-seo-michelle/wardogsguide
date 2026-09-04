@@ -1,5 +1,5 @@
 export type ManualReviewLevel = "low" | "medium" | "high";
-export type PagePriority = "P0" | "P1";
+export type PagePriority = "P0" | "P1" | "P2";
 export type PageType =
   | "home"
   | "guide_hub"
@@ -72,6 +72,8 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-early-access/",
       "/wardogs-server-status/",
       "/wardogs-crashing/",
+      "/wardogs-crashing-fix/",
+      "/wardogs-voip-not-working/",
       "/wardogs-best-settings/"
     ]
   },
@@ -108,6 +110,9 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-early-access/",
       "/wardogs-server-status/",
       "/wardogs-crashing/",
+      "/wardogs-crashing-fix/",
+      "/wardogs-voip-not-working/",
+      "/wardogs-easy-anti-cheat-error-fix/",
       "/wardogs-best-settings/",
       "/what-is-wardogs-game/",
       "/how-to-play-wardogs/",
@@ -208,34 +213,131 @@ export const pageMatrix: PageMatrixEntry[] = [
     relatedRoutes: ["/wardogs-crashing/", "/wardogs-not-launching/", "/wardogs-error-code-1147405308/", "/wardogs-guide/"]
   },
   {
-    title: "WARDOGS Crashing",
+    title: "WARDOGS Crash Troubleshooting Hub",
     route: "/wardogs-crashing/",
+    keyword: "wardogs crash troubleshooting",
+    type: "troubleshooting",
+    priority: "P0",
+    manualReview: "high",
+    intent: "diagnose WARDOGS crash issues and route players to the right troubleshooting page",
+    eyebrow: "Troubleshooting Hub",
+    h1: "WARDOGS Crash Troubleshooting Hub",
+    description:
+      "A WARDOGS crash troubleshooting hub that helps players diagnose the symptom and choose the right crash, launch, anti-cheat, server, or error-code guide.",
+    quickAnswer:
+      "Use this hub to diagnose where the WARDOGS crash happens. For step-by-step crash fixes, use the dedicated WARDOGS Crashing Fix page.",
+    sections: [
+      {
+        heading: "Choose the right crash path",
+        body: "Identify whether the issue is a startup crash, not-launching symptom, anti-cheat message, server or login problem, or numeric error code before following a fix guide."
+      },
+      {
+        heading: "Use the dedicated fix page for crash fixes",
+        body: "This hub does not compete with the crash fix page. It routes fix intent to the detailed WARDOGS Crashing Fix guide."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-crashing-fix/",
+      "/wardogs-easy-anti-cheat-error-fix/",
+      "/wardogs-not-launching/",
+      "/wardogs-server-status/",
+      "/wardogs-error-code-1147405308/",
+      "/wardogs-guide/"
+    ]
+  },
+  {
+    title: "WARDOGS Crashing Fix",
+    route: "/wardogs-crashing-fix/",
     keyword: "wardogs crashing",
     type: "troubleshooting",
     priority: "P0",
     manualReview: "high",
-    intent: "game crashes and crash troubleshooting",
+    intent: "startup, launch, Steam, shader, DX12, anti-cheat-adjacent and mid-game crash fixes",
     eyebrow: "Troubleshooting",
-    h1: "WARDOGS Crashing",
+    h1: "WARDOGS Crashing Fix",
     description:
-      "A WARDOGS crashing troubleshooting page structure for crash reports, safe checks, and current-build verification.",
+      "Fix WARDOGS startup, launch, Steam, shader, DX12, freezing, and mid-game crash symptoms with verified-first guidance.",
     quickAnswer:
-      "Current crash troubleshooting details will be verified against the latest official build before publication.",
+      "If WARDOGS keeps crashing, start with reversible Steam and Windows checks, then separate official known issues from community-reported crash patterns.",
     sections: [
       {
-        heading: "Before publishing fixes",
-        body: "Do not publish specific crash causes, launch flags, driver claims, or performance values until they are verified with official guidance or repeatable in-game testing."
+        heading: "Start with safe checks",
+        body: "Verify game files, restart Steam and Windows, compare your PC with the Steam requirements, and check official posts before applying risky community workarounds."
       },
       {
-        heading: "Safe first checks",
-        body: "Keep the page organized for basic, reversible checks and direct readers to server status or not-launching pages when the symptom changes."
-      },
-      {
-        heading: "Evidence tracking",
-        body: "Separate confirmed official issues from current community reports and avoid presenting community workarounds as official fixes."
+        heading: "Separate the crash symptom",
+        body: "Startup crashes, shader-compilation crashes, Easy Anti-Cheat-adjacent launch crashes, and mid-game freezes point to different diagnosis paths."
       }
     ],
-    relatedRoutes: ["/wardogs-server-status/", "/wardogs-not-launching/", "/wardogs-error-code-1147405308/", "/wardogs-guide/"]
+    relatedRoutes: [
+      "/wardogs-easy-anti-cheat-error-fix/",
+      "/wardogs-crashing/",
+      "/wardogs-not-launching/",
+      "/wardogs-server-status/",
+      "/wardogs-guide/"
+    ]
+  },
+  {
+    title: "WARDOGS VoIP Not Working",
+    route: "/wardogs-voip-not-working/",
+    keyword: "wardogs voip not working",
+    type: "troubleshooting",
+    priority: "P1",
+    manualReview: "high",
+    intent: "voice chat, microphone, local voice, provider outage and server-side VoIP checks",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS VoIP Not Working? Voice Chat & Mic Fixes",
+    description:
+      "Fix WARDOGS voice chat and mic symptoms with official known-issue notes, safe input checks, and clearly labeled community workarounds.",
+    quickAnswer:
+      "If WARDOGS voice chat stops working, identify whether you cannot hear others or others cannot hear you, then try the official local voice reset workaround before reinstalling anything.",
+    sections: [
+      {
+        heading: "Check the direction of the voice issue",
+        body: "Differentiate input, output, server, and provider symptoms before changing Windows, Steam, or game settings."
+      },
+      {
+        heading: "Use the official local voice workaround",
+        body: "BULKHEAD's Closed Beta known-issues post gives a local voice chat reset path through settings or the scoreboard mute toggle."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-server-status/",
+      "/wardogs-crashing-fix/",
+      "/wardogs-not-launching/",
+      "/wardogs-guide/"
+    ]
+  },
+  {
+    title: "WARDOGS Easy Anti-Cheat Error Fix",
+    route: "/wardogs-easy-anti-cheat-error-fix/",
+    keyword: "wardogs anti cheat",
+    type: "troubleshooting",
+    priority: "P2",
+    manualReview: "high",
+    intent: "Easy Anti-Cheat login failed, module not found, anti-cheat splash and launch crash symptoms",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Easy Anti-Cheat Error Fix",
+    description:
+      "Troubleshoot WARDOGS Easy Anti-Cheat login failed, module not found, splash-screen crashes, and anti-cheat launch symptoms safely.",
+    quickAnswer:
+      "Steam lists WARDOGS with Easy Anti-Cheat, but no public WARDOGS-specific universal EAC fix is confirmed. Use safe checks and avoid unofficial downloads or file swaps.",
+    sections: [
+      {
+        heading: "Confirm the anti-cheat context",
+        body: "Use the Steam store page and official posts first, because anti-cheat behavior can differ between playtest and Early Access builds."
+      },
+      {
+        heading: "Keep launch crashes separate",
+        body: "If the symptom is a generic crash or freeze rather than a clear anti-cheat message, use the crashing fix guide first."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-crashing-fix/",
+      "/wardogs-not-launching/",
+      "/wardogs-error-code-1147405308/",
+      "/wardogs-guide/"
+    ]
   },
   {
     title: "WARDOGS Best Settings",
@@ -351,7 +453,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Route readers to the specific error-code page first, then server status if the symptom points to online access."
       }
     ],
-    relatedRoutes: ["/wardogs-error-code-1147405308/", "/wardogs-server-status/", "/wardogs-crashing/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-easy-anti-cheat-error-fix/", "/wardogs-error-code-1147405308/", "/wardogs-server-status/", "/wardogs-crashing-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Error Code 1147405308",
@@ -381,7 +483,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Connect this page to not-launching and server-status pages so readers can move through a safe diagnosis path."
       }
     ],
-    relatedRoutes: ["/wardogs-not-launching/", "/wardogs-server-status/", "/wardogs-crashing/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-easy-anti-cheat-error-fix/", "/wardogs-not-launching/", "/wardogs-server-status/", "/wardogs-crashing-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Controller Settings",
