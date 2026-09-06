@@ -9,7 +9,9 @@ export type PageType =
   | "settings_guide"
   | "overview"
   | "beginner_guide"
-  | "controls_guide";
+  | "controls_guide"
+  | "economy_guide"
+  | "playtest_guide";
 
 export type GuideSection = {
   heading: string;
@@ -74,6 +76,9 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-crashing/",
       "/wardogs-crashing-fix/",
       "/wardogs-voip-not-working/",
+      "/wardogs-playtest-schedule/",
+      "/wardogs-how-to-make-money/",
+      "/wardogs-helicopter-guide/",
       "/wardogs-best-settings/"
     ]
   },
@@ -119,6 +124,9 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-not-launching/",
       "/wardogs-error-code-1147405308/",
       "/wardogs-controller-settings/",
+      "/wardogs-helicopter-guide/",
+      "/wardogs-how-to-make-money/",
+      "/wardogs-playtest-schedule/",
       "/wardogs-helicopter-controls/"
     ]
   },
@@ -150,7 +158,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Keep community reports separate from official facts and mark any unconfirmed launch timing as pending verification."
       }
     ],
-    relatedRoutes: ["/wardogs-early-access/", "/wardogs-guide/", "/what-is-wardogs-game/"]
+    relatedRoutes: ["/wardogs-early-access/", "/wardogs-playtest-schedule/", "/wardogs-guide/", "/what-is-wardogs-game/"]
   },
   {
     title: "WARDOGS Early Access",
@@ -180,7 +188,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Link Early Access readers to server status and beginner guidance once those pages are fact-checked."
       }
     ],
-    relatedRoutes: ["/wardogs-release-date/", "/wardogs-server-status/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-release-date/", "/wardogs-playtest-schedule/", "/wardogs-server-status/", "/how-to-play-wardogs/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Server Status",
@@ -423,7 +431,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Avoid naming maps, weapons, factions, or meta advice until the site enters the fact-verification stage."
       }
     ],
-    relatedRoutes: ["/wardogs-early-access/", "/wardogs-best-settings/", "/wardogs-controller-settings/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-early-access/", "/wardogs-how-to-make-money/", "/wardogs-helicopter-guide/", "/wardogs-best-settings/", "/wardogs-controller-settings/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Not Launching",
@@ -516,34 +524,134 @@ export const pageMatrix: PageMatrixEntry[] = [
     relatedRoutes: ["/wardogs-best-settings/", "/wardogs-helicopter-controls/", "/how-to-play-wardogs/", "/wardogs-guide/"]
   },
   {
-    title: "WARDOGS Helicopter Controls",
-    route: "/wardogs-helicopter-controls/",
-    keyword: "wardogs helicopter controls",
+    title: "WARDOGS Helicopter Guide",
+    route: "/wardogs-helicopter-guide/",
+    keyword: "wardogs helicopter",
     type: "controls_guide",
     priority: "P1",
     manualReview: "high",
-    intent: "helicopter, vehicle and HOTAS controls",
-    eyebrow: "Controls",
-    h1: "WARDOGS Helicopter Controls",
+    intent: "complete helicopter guide for controls, flying, landing, aiming, transport, and settings boundaries",
+    eyebrow: "Helicopter Guide",
+    h1: "WARDOGS Helicopter Guide",
     description:
-      "A WARDOGS helicopter controls page structure for vehicle controls, input setup, and HOTAS-related verification.",
+      "A verified-first WARDOGS helicopter guide for controls, flying, landing, aiming, transport, and input setup without guessing unconfirmed keybinds.",
     quickAnswer:
-      "Current helicopter, vehicle, and HOTAS control details will be verified against the latest official build before publication.",
+      "WARDOGS officially includes flyable aircraft and helicopter supply transport, but a complete official helicopter control map has not been published. Use this guide for safe helicopter learning and verified boundaries.",
     sections: [
       {
-        heading: "Control mapping",
-        body: "Do not publish helicopter keybinds, vehicle inputs, or HOTAS behavior until verified from the current build or official documentation."
+        heading: "Official helicopter facts",
+        body: "Official Steam and Team17 sources confirm vehicles, flyable aircraft, logistics, and helicopter supply transport. Exact helicopter keybinds and advanced handling values still need current-build verification."
       },
       {
-        heading: "Learning flow",
-        body: "Use this page to organize takeoff, movement, aiming, and landing sections only after verified control details exist."
-      },
-      {
-        heading: "Related setup",
-        body: "Connect vehicle-control questions back to general best settings and controller settings."
+        heading: "Learning path",
+        body: "Check the live controls menu first, practice takeoff and landing before loaded transport, and treat community control claims as build-specific until verified."
       }
     ],
-    relatedRoutes: ["/wardogs-best-settings/", "/wardogs-controller-settings/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+    relatedRoutes: [
+      "/wardogs-helicopter-controls/",
+      "/wardogs-controller-settings/",
+      "/wardogs-best-settings/",
+      "/wardogs-how-to-make-money/",
+      "/how-to-play-wardogs/",
+      "/wardogs-guide/"
+    ]
+  },
+  {
+    title: "How to Make Money in WARDOGS",
+    route: "/wardogs-how-to-make-money/",
+    keyword: "how to make money in wardogs",
+    type: "economy_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "cash, money making, logistics, supply, transport, persistence, and spending-risk guide",
+    eyebrow: "Money Guide",
+    h1: "How to Make Money in WARDOGS",
+    description:
+      "A WARDOGS money guide for cash basics, teamplay income, logistics, supply transport, persistence, and unverified money-loss questions.",
+    quickAnswer:
+      "Official sources say WARDOGS cash is earned through team-oriented play such as revives, transport, supplies, objective control, and building support. Do not trust exact farming routes until the current build is verified.",
+    sections: [
+      {
+        heading: "Money basics",
+        body: "Use this page for the economy and logistics intent. The beginner guide stays focused on first-match orientation, while this page tracks money-making and cash-risk questions."
+      },
+      {
+        heading: "Logistics belongs here for now",
+        body: "The WARDOGS logistics query is handled as a major section of this money guide instead of a separate thin page."
+      }
+    ],
+    relatedRoutes: [
+      "/how-to-play-wardogs/",
+      "/wardogs-helicopter-guide/",
+      "/wardogs-controller-settings/",
+      "/wardogs-server-status/",
+      "/wardogs-guide/"
+    ]
+  },
+
+  {
+    title: "WARDOGS Playtest Schedule",
+    route: "/wardogs-playtest-schedule/",
+    keyword: "wardogs playtest end time",
+    type: "playtest_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "current playtest end time, next playtest, beta access, and schedule updates",
+    eyebrow: "Playtest Schedule",
+    h1: "WARDOGS Playtest Schedule",
+    description:
+      "A continuously updated WARDOGS playtest schedule page for current beta end time, next playtest status, access, and official update checks.",
+    quickAnswer:
+      "The current official WARDOGS beta window points to Sunday, September 6, 2026 at 08:00 UTC as the scheduled end time. A next playtest date has not been officially confirmed in the checked sources.",
+    sections: [
+      {
+        heading: "Current schedule",
+        body: "Use official Steam store and Steam news wording for active test dates. Do not treat community countdowns as the source of truth."
+      },
+      {
+        heading: "Next playtest tracking",
+        body: "This page is structured to switch from current beta end time to next playtest or next beta information when official sources publish it."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-release-date/",
+      "/wardogs-early-access/",
+      "/wardogs-server-status/",
+      "/wardogs-not-launching/",
+      "/wardogs-guide/"
+    ]
+  },
+  {
+    title: "WARDOGS Helicopter Controls",
+    route: "/wardogs-helicopter-controls/",
+    keyword: "wardogs helicopter controls status",
+    type: "controls_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "current helicopter control-map status and input-support boundaries",
+    eyebrow: "Controls Status",
+    h1: "WARDOGS Helicopter Controls",
+    description:
+      "A narrow WARDOGS helicopter controls status page for official keybind availability, controller limits, HOTAS status, and the full helicopter guide route.",
+    quickAnswer:
+      "Use the full WARDOGS Helicopter Guide for flying, landing, transport, and tips. This page tracks whether a reliable official helicopter control map or input-support note exists.",
+    sections: [
+      {
+        heading: "Current control-map status",
+        body: "Official sources confirm flyable aircraft, but a complete public helicopter keybind map has not been published in the sources checked."
+      },
+      {
+        heading: "Where to go next",
+        body: "Use the helicopter guide for flight practice and transport context, and use controller settings for broader input setup."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-helicopter-guide/",
+      "/wardogs-controller-settings/",
+      "/wardogs-best-settings/",
+      "/how-to-play-wardogs/",
+      "/wardogs-guide/"
+    ]
   }
 ];
 

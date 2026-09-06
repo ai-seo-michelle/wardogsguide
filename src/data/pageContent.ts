@@ -160,6 +160,19 @@ const steamCommunityDiscussions: GuideSource = {
   type: "Community"
 };
 
+const steamOpenBetaNews: GuideSource = {
+  label: "WARDOGS Steam news: current beta update",
+  url: "https://steamcommunity.com/app/1867240/homecontent/",
+  type: "Announcement"
+};
+
+const steamHotasDeveloperReply: GuideSource = {
+  label: "Steam discussion with developer HOTAS response",
+  url: "https://steamcommunity.com/app/1867240/discussions/0/806848045381638518/",
+  type: "Developer Post"
+};
+
+
 export const guideContentByRoute: Record<string, GuidePageContent> = {
   "/": {
     quickAnswer: [
@@ -174,6 +187,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Use the main hub to pick the right next page." },
           { label: "Release Date", href: "/wardogs-release-date/", description: "Check the confirmed Early Access date and open launch questions." },
           { label: "Early Access", href: "/wardogs-early-access/", description: "See what Early Access means, how access works, and what is still unconfirmed." },
+          { label: "Playtest Schedule", href: "/wardogs-playtest-schedule/", description: "Check the current beta end time and next-playtest status." },
           { label: "Server Status", href: "/wardogs-server-status/", description: "Use this when connection, server, or matchmaking issues are the symptom." },
           { label: "Best Settings", href: "/wardogs-best-settings/", description: "Use this once current-build settings guidance has been verified." }
         ]
@@ -201,7 +215,9 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ],
         links: [
           { label: "WARDOGS Best Settings", href: "/wardogs-best-settings/" },
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/" },
           { label: "WARDOGS Controller Settings", href: "/wardogs-controller-settings/" },
+          { label: "WARDOGS Helicopter Guide", href: "/wardogs-helicopter-guide/" },
           { label: "WARDOGS Helicopter Controls", href: "/wardogs-helicopter-controls/" }
         ]
       },
@@ -229,7 +245,9 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "What Is WARDOGS Game", href: "/what-is-wardogs-game/", description: "A short overview of the game and its official framing." },
           { label: "How to Play WARDOGS", href: "/how-to-play-wardogs/", description: "A first-match path once gameplay details are verified." },
           { label: "WARDOGS Release Date", href: "/wardogs-release-date/", description: "Confirmed launch date, platform, and open timing questions." },
-          { label: "WARDOGS Early Access", href: "/wardogs-early-access/", description: "Access, pricing, beta history, and Early Access expectations." }
+          { label: "WARDOGS Early Access", href: "/wardogs-early-access/", description: "Access, pricing, beta history, and Early Access expectations." },
+          { label: "WARDOGS Playtest Schedule", href: "/wardogs-playtest-schedule/", description: "Current beta end time, next-playtest status, and official schedule checks." },
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, supply transport, and persistence questions." }
         ]
       },
       {
@@ -249,7 +267,8 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         links: [
           { label: "WARDOGS Best Settings", href: "/wardogs-best-settings/", description: "Graphics, visibility, and performance guidance after verification." },
           { label: "WARDOGS Controller Settings", href: "/wardogs-controller-settings/", description: "Controller, keyboard, mouse, and keybind setup." },
-          { label: "WARDOGS Helicopter Controls", href: "/wardogs-helicopter-controls/", description: "Vehicle and helicopter controls after current-build checks." }
+          { label: "WARDOGS Helicopter Guide", href: "/wardogs-helicopter-guide/", description: "Flying, landing, transport, and helicopter settings boundaries." },
+          { label: "WARDOGS Helicopter Controls", href: "/wardogs-helicopter-controls/", description: "Current helicopter keybind and input-support status." }
         ]
       },
       {
@@ -1240,95 +1259,457 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       "Do not publish a controller button map unless official documentation or direct in-game verification confirms it."
     ]
   },
-  "/wardogs-helicopter-controls/": {
+  "/wardogs-helicopter-guide/": {
     quickAnswer: [
-      "Officially confirmed: WARDOGS includes vehicles and flyable aircraft, and Team17 specifically describes using a helicopter to ferry supplies to teammates.",
-      "BULKHEAD has not published a complete official helicopter control map at the time of writing.",
-      "Do not assume default helicopter controls such as throttle, yaw, pitch, mouse steering, or controller bindings until the current in-game controls menu is verified."
+      "WARDOGS officially includes flyable aircraft, vehicles, logistics, and helicopter supply transport. That is enough to write a helicopter guide, but not enough to invent exact keybinds or handling values.",
+      "At the time of this update, no complete official helicopter control map was found in public WARDOGS sources. Before flying, open the current in-game controls menu and confirm the live keyboard, mouse, and controller bindings.",
+      "Use this page for the full helicopter intent: controls checks, how to fly, how to land, aiming and transport basics, mouse/controller settings, and cautious helicopter tips. Use the Helicopter Controls page only for current keybind-status notes."
     ],
     sections: [
       {
-        heading: "Are Helicopters Officially in WARDOGS?",
+        heading: "What Is Officially Confirmed",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The WARDOGS Steam developer FAQ says the game includes drivable vehicles and flyable aircraft."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The Steam store Early Access description lists vehicles, logistics, support-focused gameplay, and up to 100-player online multiplayer."
+          },
+          {
+            status: "Officially confirmed",
+            text: "Team17 describes helicopter supply transport as part of WARDOGS support play."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The Supporter Pack includes a Littlebird Helicopter Taxi Camo, confirming helicopter-related cosmetic content."
+          }
+        ]
+      },
+      {
+        heading: "Helicopter Controls: Check the Live Menu First",
+        facts: [
+          {
+            status: "Not officially confirmed",
+            text: "No complete public WARDOGS helicopter keybind map was found in the official sources checked for this update."
+          },
+          {
+            status: "General guidance",
+            text: "Open the live Settings or Controls menu before flying and confirm whether aircraft bindings are separated from infantry, ground vehicle, mouse, and controller bindings."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ says controller support is limited in the current version."
+          },
+          {
+            status: "Officially confirmed",
+            text: "A developer response says HOTAS support is in the development pipeline but is not a current priority."
+          }
+        ],
+        links: [
+          { label: "WARDOGS Helicopter Controls", href: "/wardogs-helicopter-controls/", description: "Current keybind and input-support status." },
+          { label: "WARDOGS Controller Settings", href: "/wardogs-controller-settings/", description: "Broader input setup and controller caveats." }
+        ]
+      },
+      {
+        heading: "How to Fly Without Guessing Keybinds",
+        paragraphs: [
+          "Treat your first helicopter session as a control check, not a combat run. Spawn or enter the helicopter only after you know the live bindings for lift, nose movement, turning, camera, exit, and any seat or weapon controls shown by the current build.",
+          "Practice light movements first: lift off gently, hold a steady hover, make small turns, move forward slowly, and return to a safe landing area. This is general flight-learning guidance, not a confirmed WARDOGS flight-model claim."
+        ]
+      },
+      {
+        heading: "How to Land Safely",
+        bullets: [
+          "Pick a clear, flat landing area before you begin the approach.",
+          "Slow down early instead of trying to stop at the last second.",
+          "Keep the helicopter level and avoid crowded combat areas until you understand the handling.",
+          "For supply or passenger runs, communicate before landing so teammates know where to load, unload, or move away."
+        ]
+      },
+      {
+        heading: "Aiming, Unload, and Transport Basics",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "Official sources connect helicopters with ferrying supplies and support-focused play."
+          },
+          {
+            status: "Not officially confirmed",
+            text: "The exact current controls for unloading supplies, changing seats, using aircraft weapons, or aiming from aircraft are not confirmed in the public sources checked."
+          },
+          {
+            status: "General guidance",
+            text: "Treat helicopter transport as team support first: move supplies, move players, avoid unnecessary crashes, and check the money guide before assuming any one transport loop is the best way to earn cash."
+          }
+        ],
+        links: [
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, supply transport, and persistence questions." }
+        ]
+      },
+      {
+        heading: "Mouse and Controller Settings",
+        facts: [
+          {
+            status: "Not officially confirmed",
+            text: "No official aircraft sensitivity, deadzone, inversion, smoothing, or controller preset values were found in the public sources checked."
+          },
+          {
+            status: "General guidance",
+            text: "Start with the current default settings, make one input change at a time, and test takeoff, hover, turning, and landing before changing another value."
+          },
+          {
+            status: "General guidance",
+            text: "If controller behavior feels incomplete, compare it with the current controller settings page and remember that official FAQ wording describes controller support as limited in the current version."
+          }
+        ],
+        links: [
+          { label: "WARDOGS Best Settings", href: "/wardogs-best-settings/", description: "Performance and visibility setup." },
+          { label: "WARDOGS Controller Settings", href: "/wardogs-controller-settings/", description: "Keyboard, mouse, and controller setup boundaries." }
+        ]
+      },
+      {
+        heading: "Helicopter Tips That Stay Inside the Evidence",
+        bullets: [
+          "Learn takeoff, hover, and landing before carrying passengers or supplies.",
+          "Avoid treating beta videos or community comments as a permanent control map.",
+          "Keep aircraft runs tied to team value: supply movement, transport, objective support, and safe extraction.",
+          "If a helicopter crash looks like a technical issue rather than pilot error, use the crashing fix page instead of changing control settings first."
+        ],
+        links: [
+          { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/" },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+        ]
+      }
+    ],
+    sources: [steamStore, team17GamePage, steamDeveloperFaq, supporterPack, steamHotasDeveloperReply],
+    faqs: [
+      {
+        question: "Are helicopters in WARDOGS?",
+        answer: "Yes. Official sources confirm flyable aircraft, and Team17 specifically describes ferrying supplies by helicopter."
+      },
+      {
+        question: "What are the WARDOGS helicopter controls?",
+        answer: "A complete official helicopter control map was not found in public sources for this update. Check the current in-game controls menu before relying on any keybind list."
+      },
+      {
+        question: "Does WARDOGS support HOTAS or flight sticks?",
+        answer: "A developer response says HOTAS support is in the development pipeline but is not a current priority, so do not assume full flight-stick support in the current build."
+      },
+      {
+        question: "Can helicopters help make money in WARDOGS?",
+        answer: "Official descriptions connect transport, supplies, and support play with the cash economy, but no single helicopter money route is confirmed as the best method."
+      }
+    ],
+    lastUpdated: "September 6, 2026",
+    reviewNotes: [
+      "Keep manual review high because helicopter controls and economy impact require current-build verification.",
+      "Route broad helicopter queries to this guide and reserve /wardogs-helicopter-controls/ for keybind-status checks."
+    ]
+  },
+  "/wardogs-how-to-make-money/": {
+    quickAnswer: [
+      "The safest answer is team play, not a magic farm. Official WARDOGS sources say cash can come from useful team actions such as reviving, transporting players, supplying teammates, controlling the objective, and building FOBs.",
+      "The Steam developer FAQ says players start with $10,000, cash persists between lives and matches, and cash is used to buy weapons, equipment, gadgets, vehicles, supplies, and building resources.",
+      "Exact best money routes, death penalties, vehicle costs, supply payouts, and wipe behavior can change with playtest or Early Access builds. This page keeps WARDOGS logistics inside the money guide instead of splitting it into a separate thin page."
+    ],
+    sections: [
+      {
+        heading: "How the WARDOGS Money System Works",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ says players start with $10,000."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The FAQ says players use cash to buy weapons, equipment, gadgets, vehicles, supplies, and building resources."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The FAQ says cash persists between lives and matches."
+          },
+          {
+            status: "Officially confirmed",
+            text: "Steam Early Access wording says players buy gear for each life and can choose whether to spend big for potential returns or save cash."
+          }
+        ]
+      },
+      {
+        heading: "Best Way to Make Money: What Is Actually Supported",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ lists reviving downed allies, transporting players to the frontline, dropping supplies, shooting down drones, holding the Control Zone, fighting in the Hot Zone, controlling the Hot Zone, and building FOBs as cash-earning team actions."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The Steam store says players can earn cash through teamwork such as picking up and reviving teammates, controlling points, and building forward operating bases."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ says performing actions inside the Hot Zone grants a 2x cash bonus."
+          },
+          {
+            status: "General guidance",
+            text: "Until current-build payout values are verified, the best supported money advice is to stay useful near team objectives and logistics instead of chasing an unverified farming loop."
+          }
+        ]
+      },
+      {
+        heading: "Logistics, Supply, and Transport",
+        paragraphs: [
+          "WARDOGS logistics belongs in this money guide for now. Official sources connect support work, supply transport, player transport, FOB building, and helicopter supply runs with the broader cash loop.",
+          "If you are trying to make money, look for team actions that move people, supplies, or objective pressure forward. The checked sources do not confirm exact payout tables, so this page avoids ranking one supply route above another."
+        ],
+        links: [
+          { label: "WARDOGS Helicopter Guide", href: "/wardogs-helicopter-guide/", description: "Transport and helicopter supply context." },
+          { label: "How to Play WARDOGS", href: "/how-to-play-wardogs/", description: "The broader match loop and objective basics." }
+        ]
+      },
+      {
+        heading: "Money Loss and Persistence",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ says cash persists between lives and matches."
+          },
+          {
+            status: "Officially confirmed",
+            text: "Official Steam wording frames spending as a risk decision: spend big for potential returns or save cash for later."
+          },
+          {
+            status: "Community-reported",
+            text: "Steam community discussions include player questions about running out of cash and persistent money losses, but those reports do not establish final Early Access economy rules."
+          },
+          {
+            status: "Not officially confirmed",
+            text: "Exact death-loss behavior, vehicle refund rules, supply refund behavior, and account-level reset or wipe rules were not confirmed in the official sources checked."
+          }
+        ]
+      },
+      {
+        heading: "Practical Money-Making Plan for New Players",
+        bullets: [
+          "Start with team actions that official sources already connect to cash: revives, transport, supplies, objective control, Hot Zone play, and FOB support.",
+          "Avoid spending all cash on expensive vehicles or gear until you understand the current build's risk and persistence behavior.",
+          "Use logistics to help the team before chasing combat-only income.",
+          "Treat any claimed best farm, exact payout route, or guaranteed money exploit as unverified unless it is supported by official notes or current-build testing."
+        ]
+      },
+      {
+        heading: "What Is Not Confirmed Yet",
+        facts: [
+          {
+            status: "Not officially confirmed",
+            text: "The checked official sources do not publish exact payout values for every action."
+          },
+          {
+            status: "Not officially confirmed",
+            text: "The checked official sources do not confirm a final best money-making route, full item price list, vehicle cost table, death penalty table, or wipe schedule."
+          }
+        ],
+        links: [
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" },
+          { label: "WARDOGS Playtest Schedule", href: "/wardogs-playtest-schedule/" },
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" }
+        ]
+      }
+    ],
+    sources: [steamStore, team17GamePage, steamDeveloperFaq, steamCommunityDiscussions],
+    faqs: [
+      {
+        question: "What is the best way to make money in WARDOGS?",
+        answer: "Official sources support teamplay money routes: revives, transport, supplies, objective control, Hot Zone actions, and FOB building. Exact best routes are not confirmed."
+      },
+      {
+        question: "Does money persist in WARDOGS?",
+        answer: "The Steam developer FAQ says cash persists between lives and matches. Future wipe or reset rules still need official confirmation."
+      },
+      {
+        question: "Is WARDOGS logistics a separate guide?",
+        answer: "Not currently. Logistics is handled as a major section of this money guide because supply and transport questions are closely tied to cash."
+      },
+      {
+        question: "Can I lose money by dying in WARDOGS?",
+        answer: "Official sources confirm cash persistence and risk-based spending, but exact death-loss behavior was not confirmed in the official sources checked."
+      }
+    ],
+    lastUpdated: "September 6, 2026",
+    reviewNotes: [
+      "Keep manual review high because economy values, logistics payouts, and persistence rules can change by build.",
+      "Do not create a separate wardogs logistics page until search demand and verified material justify a distinct intent."
+    ]
+  },
+  "/wardogs-playtest-schedule/": {
+    quickAnswer: [
+      "Current official timing: the WARDOGS Steam store lists guaranteed Closed Beta access from September 3, 2026 at 18:00 UTC to September 6, 2026 at 08:00 UTC. The official Steam news feed also describes the beta as open until Sunday at 08:00 UTC.",
+      "That means the current WARDOGS playtest end time is Sunday, September 6, 2026 at 08:00 UTC, unless BULKHEAD or Team17 posts an extension or another update.",
+      "A next WARDOGS playtest or next beta date has not been officially confirmed in the sources checked for this update. Use Steam's request-access flow and official announcements for schedule changes."
+    ],
+    sections: [
+      {
+        heading: "Current Official Playtest Window",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "Steam store pre-purchase wording lists guaranteed Closed Beta access from September 3, 2026 at 18:00 UTC to September 6, 2026 at 08:00 UTC."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The official Steam news feed says the Closed Beta is now an Open Beta until Sunday at 08:00 UTC."
+          },
+          {
+            status: "General guidance",
+            text: "If you are reading after September 6, 2026 at 08:00 UTC, check official Steam announcements before assuming the beta is still live."
+          }
+        ]
+      },
+      {
+        heading: "Next Playtest / Next Beta Status",
+        facts: [
+          {
+            status: "Not officially confirmed",
+            text: "No next playtest date was confirmed in the official sources checked for this update."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The Steam store page provides a Playtest request-access option for WARDOGS."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ points players toward WARDOGS FirstLook, the official Discord, Steam announcements, and official social channels for future playtest details."
+          }
+        ]
+      },
+      {
+        heading: "Playtest vs Early Access",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The Steam store lists WARDOGS Early Access for September 10, 2026."
+          },
+          {
+            status: "General guidance",
+            text: "A playtest or beta is temporary testing access. Early Access is the paid Steam launch phase listed separately on the store page."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ says cash earned during early Pre-Alpha playtests will not carry over to the full game."
+          }
+        ],
+        links: [
+          { label: "WARDOGS Release Date", href: "/wardogs-release-date/" },
+          { label: "WARDOGS Early Access", href: "/wardogs-early-access/" }
+        ]
+      },
+      {
+        heading: "How to Check Schedule Changes",
+        paragraphs: [
+          "Use official Steam sources first. The store page shows access status and the Steam news feed carries official schedule changes, extensions, or beta announcements.",
+          "Community posts can help identify widespread confusion, but they should not be treated as the official end time or next beta date."
+        ],
+        links: [
+          { label: "WARDOGS on Steam", href: "https://store.steampowered.com/app/1867240/WARDOGS/" },
+          { label: "WARDOGS Steam announcements", href: "https://steamcommunity.com/app/1867240/announcements/" },
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" }
+        ]
+      },
+      {
+        heading: "If the Playtest Does Not Start or Fails to Join",
+        bullets: [
+          "Confirm whether the beta window is still active before troubleshooting your PC.",
+          "Check Steam access status and official announcements for capacity or schedule changes.",
+          "Use server-status guidance if the game opens but cannot connect.",
+          "Use not-launching or error-code pages if the game fails before connection."
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" }
+        ]
+      }
+    ],
+    sources: [steamStore, steamOpenBetaNews, steamAnnouncements, steamDeveloperFaq],
+    faqs: [
+      {
+        question: "When does the current WARDOGS playtest end?",
+        answer: "The checked official Steam sources point to Sunday, September 6, 2026 at 08:00 UTC as the scheduled end time."
+      },
+      {
+        question: "When is the next WARDOGS playtest?",
+        answer: "A next playtest date was not officially confirmed in the sources checked for this update. Watch Steam announcements and the Steam request-access status."
+      },
+      {
+        question: "Is the current WARDOGS beta open?",
+        answer: "The official Steam news feed says the Closed Beta is now an Open Beta until Sunday at 08:00 UTC. Check Steam for any newer update after that time."
+      },
+      {
+        question: "Does playtest progress carry over?",
+        answer: "The developer FAQ says cash earned during early Pre-Alpha playtests will not carry over to the full game. Do not assume carryover rules for later tests unless official wording confirms them."
+      }
+    ],
+    lastUpdated: "September 6, 2026",
+    reviewNotes: [
+      "Keep manual review high because current beta windows and next-playtest dates can change quickly.",
+      "Switch this page from current beta end time to next playtest information only after official sources confirm the next window."
+    ]
+  },
+  "/wardogs-helicopter-controls/": {
+    quickAnswer: [
+      "Use the full WARDOGS Helicopter Guide for flying, landing, transport, and tips. This page only tracks whether a reliable official helicopter control map or input-support note exists.",
+      "Official sources confirm flyable aircraft, but no complete default control layout was found in public sources for this update. Check the live controls menu before copying beta keybind claims."
+    ],
+    sections: [
+      {
+        heading: "Control Map Status",
         facts: [
           {
             status: "Officially confirmed",
             text: "The Steam developer FAQ says WARDOGS includes drivable vehicles and flyable aircraft."
           },
           {
-            status: "Officially confirmed",
-            text: "Team17 describes players ferrying supplies to teammates by helicopter."
+            status: "Not officially confirmed",
+            text: "No complete official helicopter keyboard, mouse, controller, or HOTAS binding list was found in the public sources checked."
           },
           {
-            status: "Officially confirmed",
-            text: "The WARDOGS Supporter Pack includes a Littlebird Helicopter Taxi Camo, confirming helicopter-related cosmetic content."
+            status: "General guidance",
+            text: "Use the live in-game controls menu as the source of truth for current aircraft bindings."
           }
         ]
       },
       {
-        heading: "Official Control Information",
+        heading: "Controller and HOTAS Status",
         facts: [
+          {
+            status: "Officially confirmed",
+            text: "The developer FAQ says controller support is limited in the current version."
+          },
+          {
+            status: "Officially confirmed",
+            text: "A developer response says HOTAS support is in the development pipeline but is not a current priority."
+          },
           {
             status: "Not officially confirmed",
-            text: "BULKHEAD has not published a complete official helicopter control map at the time of writing."
-          },
-          {
-            status: "Not officially confirmed",
-            text: "No official source checked here confirms default helicopter keyboard, mouse, controller, or HOTAS bindings."
-          },
-          {
-            status: "Officially confirmed",
-            text: "The developer FAQ says HOTAS support is not available now and is not a priority, though it is in the development pipeline."
+            text: "No official aircraft-specific controller preset, deadzone setting, or sensitivity recommendation was found in the checked sources."
           }
         ]
       },
       {
-        heading: "How to Check Your Current Controls",
-        facts: [
-          {
-            status: "General guidance",
-            text: "Open the current in-game Settings or Controls menu and record the bindings shown there before publishing any helicopter-control guide."
-          },
-          {
-            status: "General guidance",
-            text: "Check whether helicopter controls are listed separately from infantry, vehicle, controller, and accessibility settings."
-          },
-          {
-            status: "General guidance",
-            text: "If a binding is missing or behaves differently from beta reports, treat the live build as the source of truth."
-          }
-        ]
-      },
-      {
-        heading: "Community-reported Handling",
-        facts: [
-          {
-            status: "Community-reported",
-            text: "Steam community discussions include questions and feedback about aircraft handling, mouse flight, and HOTAS or TrackIR-style support."
-          },
-          {
-            status: "Community-reported",
-            text: "These reports help identify what players are testing, but they do not establish official default controls."
-          }
-        ]
-      },
-      {
-        heading: "What Not to Publish Yet",
-        bullets: [
-          "Do not publish default throttle, yaw, pitch, roll, landing, camera, weapon, or seat-switch bindings without verification.",
-          "Do not state that HOTAS or flight sticks are supported in the current build unless official notes or direct testing confirms it.",
-          "Do not copy beta-era aircraft handling reports into an Early Access guide without checking the live controls menu."
-        ],
+        heading: "Where to Go Next",
         links: [
-          { label: "WARDOGS Best Settings", href: "/wardogs-best-settings/" },
-          { label: "WARDOGS Controller Settings", href: "/wardogs-controller-settings/" },
+          { label: "WARDOGS Helicopter Guide", href: "/wardogs-helicopter-guide/", description: "Flying, landing, aiming, transport, settings, and tips." },
+          { label: "WARDOGS Controller Settings", href: "/wardogs-controller-settings/", description: "Broader controller and input setup notes." },
+          { label: "WARDOGS Best Settings", href: "/wardogs-best-settings/", description: "Performance and visibility setup." },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" }
         ]
       }
     ],
-    sources: [steamStore, steamDeveloperFaq, team17GamePage, supporterPack, steamCommunityDiscussions],
+    sources: [steamStore, steamDeveloperFaq, team17GamePage, steamHotasDeveloperReply],
     reviewNotes: [
       "Keep manual review high because vehicle and helicopter controls require direct current-build verification.",
-      "Do not add any default helicopter keybinds until the in-game controls menu or official documentation confirms them."
+      "Keep this page narrow so broad helicopter intent belongs to /wardogs-helicopter-guide/."
     ]
   },
   "/how-to-play-wardogs/": {

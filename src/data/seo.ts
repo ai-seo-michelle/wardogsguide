@@ -147,13 +147,40 @@ export const seoByRoute: Record<string, SeoEntry> = {
     keyword: "wardogs controller settings",
     ogType: "article"
   },
-  "/wardogs-helicopter-controls/": {
-    title: "WARDOGS Helicopter Controls | Vehicle Input Guide",
+  "/wardogs-helicopter-guide/": {
+    title: "WARDOGS Helicopter Guide: Controls, Flying, Landing & Transport",
     description:
-      "WARDOGS helicopter controls page structure for vehicle controls, input setup, and HOTAS-related verification.",
+      "Learn how to fly helicopters in WARDOGS with controls, landing, aiming, transport, settings, and practical flying tips.",
+    h1: "WARDOGS Helicopter Guide",
+    canonical: canonical("/wardogs-helicopter-guide/"),
+    keyword: "wardogs helicopter",
+    ogType: "article"
+  },
+  "/wardogs-how-to-make-money/": {
+    title: "How to Make Money in WARDOGS: Best Ways to Earn Money Fast",
+    description:
+      "Learn how to make money in WARDOGS, including cash basics, logistics, supply and transport, money loss, and useful money-making tips.",
+    h1: "How to Make Money in WARDOGS",
+    canonical: canonical("/wardogs-how-to-make-money/"),
+    keyword: "how to make money in wardogs",
+    ogType: "article"
+  },
+  "/wardogs-playtest-schedule/": {
+    title: "WARDOGS Playtest Schedule: End Time & Next Beta Updates",
+    description:
+      "Track the WARDOGS playtest schedule, current beta end time, next playtest status, access notes, and official Steam update sources.",
+    h1: "WARDOGS Playtest Schedule",
+    canonical: canonical("/wardogs-playtest-schedule/"),
+    keyword: "wardogs playtest end time",
+    ogType: "article"
+  },
+  "/wardogs-helicopter-controls/": {
+    title: "WARDOGS Helicopter Controls: Current Keybind Status",
+    description:
+      "Check what is officially confirmed about WARDOGS helicopter controls, controller limits, HOTAS status, and where to use the full helicopter guide.",
     h1: "WARDOGS Helicopter Controls",
     canonical: canonical("/wardogs-helicopter-controls/"),
-    keyword: "wardogs helicopter controls",
+    keyword: "wardogs helicopter controls status",
     ogType: "article"
   }
 };

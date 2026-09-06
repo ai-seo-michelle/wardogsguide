@@ -1,6 +1,6 @@
 # WARDOGS Guide Page Matrix
 
-This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 15 English SEO pages.
+This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 18 English SEO pages.
 
 | Route | Page | Target keyword | Type | Priority | Manual review | Intent |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -19,15 +19,19 @@ This page matrix contains the approved launch set plus the first troubleshooting
 | `/wardogs-not-launching/` | WARDOGS Not Launching | wardogs not launching | troubleshooting | P1 | high | startup failure, access denied, anti-cheat checks |
 | `/wardogs-error-code-1147405308/` | WARDOGS Error Code 1147405308 | wardogs error code 1147405308 | troubleshooting | P1 | high | specific error-code lookup and safe troubleshooting |
 | `/wardogs-controller-settings/` | WARDOGS Controller Settings | wardogs controller settings | settings_guide | P1 | high | controller, keyboard, mouse and keybind setup |
-| `/wardogs-helicopter-controls/` | WARDOGS Helicopter Controls | wardogs helicopter controls | controls_guide | P1 | high | helicopter, vehicle and HOTAS controls |
+| `/wardogs-helicopter-guide/` | WARDOGS Helicopter Guide | wardogs helicopter | controls_guide | P1 | high | complete helicopter guide for controls, flying, landing, aiming, transport, and settings boundaries |
+| `/wardogs-how-to-make-money/` | How to Make Money in WARDOGS | how to make money in wardogs | economy_guide | P1 | high | cash, money making, logistics, supply, transport, persistence, and spending-risk guide |
+| `/wardogs-playtest-schedule/` | WARDOGS Playtest Schedule | wardogs playtest end time | playtest_guide | P1 | high | current playtest end time, next playtest, beta access, and schedule updates |
+| `/wardogs-helicopter-controls/` | WARDOGS Helicopter Controls | wardogs helicopter controls status | controls_guide | P1 | high | current helicopter control-map status and input-support boundaries |
 
 ## Navigation
 
 - Guide: `/wardogs-guide/`
-- Launch: `/wardogs-release-date/`, `/wardogs-early-access/`
+- Launch: `/wardogs-release-date/`, `/wardogs-early-access/`, `/wardogs-playtest-schedule/`
 - Troubleshooting: `/wardogs-server-status/`, `/wardogs-crashing/`, `/wardogs-crashing-fix/`, `/wardogs-voip-not-working/`, `/wardogs-easy-anti-cheat-error-fix/`, `/wardogs-not-launching/`, `/wardogs-error-code-1147405308/`
 - Settings: `/wardogs-best-settings/`, `/wardogs-controller-settings/`
-- Controls: `/wardogs-helicopter-controls/`
+- Controls: `/wardogs-helicopter-guide/`, `/wardogs-helicopter-controls/`
+- Economy: `/wardogs-how-to-make-money/`
 
 ## Source Priority
 
