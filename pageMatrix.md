@@ -1,6 +1,6 @@
 # WARDOGS Guide Page Matrix
 
-This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 18 English SEO pages.
+This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 19 English SEO pages.
 
 | Route | Page | Target keyword | Type | Priority | Manual review | Intent |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -13,6 +13,7 @@ This page matrix contains the approved launch set plus the first troubleshooting
 | `/wardogs-crashing-fix/` | WARDOGS Crashing Fix | wardogs crashing | troubleshooting | P0 | high | startup, launch, Steam, shader, DX12, anti-cheat-adjacent and mid-game crash fixes |
 | `/wardogs-voip-not-working/` | WARDOGS VoIP Not Working | wardogs voip not working | troubleshooting | P1 | high | voice chat, microphone, local voice, provider outage and server-side VoIP checks |
 | `/wardogs-easy-anti-cheat-error-fix/` | WARDOGS Easy Anti-Cheat Error Fix | wardogs anti cheat | troubleshooting | P2 | high | Easy Anti-Cheat login failed, module not found, anti-cheat splash and launch crash symptoms |
+| `/wardogs-missing-game-executable/` | WARDOGS Missing Game Executable | wardogs missing game executable | troubleshooting | P1 | high | missing game executable, game executable not found, invalid executable, playtest availability, and anti-cheat refusal |
 | `/wardogs-best-settings/` | WARDOGS Best Settings | wardogs best settings | settings_guide | P0 | high | FPS, performance, graphics and visibility settings |
 | `/what-is-wardogs-game/` | What Is WARDOGS Game | what is wardogs game | overview | P1 | low | explain what the game is and the gameplay framework |
 | `/how-to-play-wardogs/` | How to Play WARDOGS | how to play wardogs | beginner_guide | P1 | medium | first-match learning path |
@@ -28,7 +29,7 @@ This page matrix contains the approved launch set plus the first troubleshooting
 
 - Guide: `/wardogs-guide/`
 - Launch: `/wardogs-release-date/`, `/wardogs-early-access/`, `/wardogs-playtest-schedule/`
-- Troubleshooting: `/wardogs-server-status/`, `/wardogs-crashing/`, `/wardogs-crashing-fix/`, `/wardogs-voip-not-working/`, `/wardogs-easy-anti-cheat-error-fix/`, `/wardogs-not-launching/`, `/wardogs-error-code-1147405308/`
+- Troubleshooting: `/wardogs-server-status/`, `/wardogs-crashing/`, `/wardogs-crashing-fix/`, `/wardogs-voip-not-working/`, `/wardogs-easy-anti-cheat-error-fix/`, `/wardogs-missing-game-executable/`, `/wardogs-not-launching/`, `/wardogs-error-code-1147405308/`
 - Settings: `/wardogs-best-settings/`, `/wardogs-controller-settings/`
 - Controls: `/wardogs-helicopter-guide/`, `/wardogs-helicopter-controls/`
 - Economy: `/wardogs-how-to-make-money/`

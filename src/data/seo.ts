@@ -93,6 +93,15 @@ export const seoByRoute: Record<string, SeoEntry> = {
     keyword: "wardogs anti cheat",
     ogType: "article"
   },
+  "/wardogs-missing-game-executable/": {
+    title: "WARDOGS Missing Game Executable: Fix Launch & Anti-Cheat Errors",
+    description:
+      "Fix the WARDOGS missing game executable error, including Steam playtest access, invalid executable paths, launch issues, and anti-cheat errors.",
+    h1: "WARDOGS Missing Game Executable Fix",
+    canonical: canonical("/wardogs-missing-game-executable/"),
+    keyword: "wardogs missing game executable",
+    ogType: "article"
+  },
   "/wardogs-best-settings/": {
     title: "WARDOGS Best Settings | Performance and Visibility Guide",
     description:

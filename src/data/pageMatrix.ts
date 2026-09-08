@@ -76,6 +76,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-crashing/",
       "/wardogs-crashing-fix/",
       "/wardogs-voip-not-working/",
+      "/wardogs-missing-game-executable/",
       "/wardogs-playtest-schedule/",
       "/wardogs-how-to-make-money/",
       "/wardogs-helicopter-guide/",
@@ -118,6 +119,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-crashing-fix/",
       "/wardogs-voip-not-working/",
       "/wardogs-easy-anti-cheat-error-fix/",
+      "/wardogs-missing-game-executable/",
       "/wardogs-best-settings/",
       "/what-is-wardogs-game/",
       "/how-to-play-wardogs/",
@@ -231,13 +233,13 @@ export const pageMatrix: PageMatrixEntry[] = [
     eyebrow: "Troubleshooting Hub",
     h1: "WARDOGS Crash Troubleshooting Hub",
     description:
-      "A WARDOGS crash troubleshooting hub that helps players diagnose the symptom and choose the right crash, launch, anti-cheat, server, or error-code guide.",
+      "A WARDOGS crash troubleshooting hub that helps players diagnose the symptom and choose the right crash, executable, launch, anti-cheat, server, or error-code guide.",
     quickAnswer:
       "Use this hub to diagnose where the WARDOGS crash happens. For step-by-step crash fixes, use the dedicated WARDOGS Crashing Fix page.",
     sections: [
       {
         heading: "Choose the right crash path",
-        body: "Identify whether the issue is a startup crash, not-launching symptom, anti-cheat message, server or login problem, or numeric error code before following a fix guide."
+        body: "Identify whether the issue is a startup crash, missing executable message, not-launching symptom, anti-cheat message, server or login problem, or numeric error code before following a fix guide."
       },
       {
         heading: "Use the dedicated fix page for crash fixes",
@@ -247,6 +249,7 @@ export const pageMatrix: PageMatrixEntry[] = [
     relatedRoutes: [
       "/wardogs-crashing-fix/",
       "/wardogs-easy-anti-cheat-error-fix/",
+      "/wardogs-missing-game-executable/",
       "/wardogs-not-launching/",
       "/wardogs-server-status/",
       "/wardogs-error-code-1147405308/",
@@ -344,6 +347,39 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-crashing-fix/",
       "/wardogs-not-launching/",
       "/wardogs-error-code-1147405308/",
+      "/wardogs-guide/"
+    ]
+  },
+  {
+    title: "WARDOGS Missing Game Executable",
+    route: "/wardogs-missing-game-executable/",
+    keyword: "wardogs missing game executable",
+    type: "troubleshooting",
+    priority: "P1",
+    manualReview: "high",
+    intent: "missing game executable, game executable not found, invalid executable, playtest availability, and anti-cheat refusal",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Missing Game Executable Fix",
+    description:
+      "A WARDOGS troubleshooting guide for missing executable, Steam launch, playtest availability, invalid executable path, and anti-cheat refusal symptoms.",
+    quickAnswer:
+      "First check whether the WARDOGS playtest or Early Access build should be playable right now. If access is not active, do not loop verify or reinstall steps; if access is active, separate Steam file problems from anti-cheat refusal.",
+    sections: [
+      {
+        heading: "Check playtest availability first",
+        body: "A missing executable can be a real local install problem, but it can also happen when an old or ended Playtest entry no longer has a usable build. Confirm official availability before changing local system settings."
+      },
+      {
+        heading: "Keep crashes separate",
+        body: "Use this page when Steam, the launcher, or anti-cheat cannot find or accept the executable. If WARDOGS opens and then crashes or freezes, use the crash troubleshooting hub or crashing fix page instead."
+      }
+    ],
+    relatedRoutes: [
+      "/wardogs-playtest-schedule/",
+      "/wardogs-not-launching/",
+      "/wardogs-easy-anti-cheat-error-fix/",
+      "/wardogs-crashing/",
+      "/wardogs-server-status/",
       "/wardogs-guide/"
     ]
   },
@@ -461,7 +497,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Route readers to the specific error-code page first, then server status if the symptom points to online access."
       }
     ],
-    relatedRoutes: ["/wardogs-easy-anti-cheat-error-fix/", "/wardogs-error-code-1147405308/", "/wardogs-server-status/", "/wardogs-crashing-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-missing-game-executable/", "/wardogs-easy-anti-cheat-error-fix/", "/wardogs-error-code-1147405308/", "/wardogs-server-status/", "/wardogs-crashing-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Error Code 1147405308",
@@ -618,6 +654,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-early-access/",
       "/wardogs-server-status/",
       "/wardogs-not-launching/",
+      "/wardogs-missing-game-executable/",
       "/wardogs-guide/"
     ]
   },

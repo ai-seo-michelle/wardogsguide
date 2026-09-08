@@ -172,6 +172,18 @@ const steamHotasDeveloperReply: GuideSource = {
   type: "Developer Post"
 };
 
+const steamMissingExecutableSupport: GuideSource = {
+  label: "Steam Support: Failed to Start Game (Missing Executable)",
+  url: "https://help.steampowered.com/en/faqs/view/3A2A-BF2D-15FF-7963",
+  type: "Support"
+};
+
+const steamMissingExecutableThread: GuideSource = {
+  label: "Steam community report: WARDOGS missing game executable",
+  url: "https://steamcommunity.com/app/1867240/discussions/0/588436064418606542/",
+  type: "Community"
+};
+
 
 export const guideContentByRoute: Record<string, GuidePageContent> = {
   "/": {
@@ -195,7 +207,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       {
         heading: "Troubleshooting",
         paragraphs: [
-          "The first troubleshooting cluster covers crashing, not launching, server or matchmaking symptoms, and a specific error-code page. Those pages stay manual-review sensitive until each fix is checked against official notes or the current build.",
+          "The troubleshooting cluster covers crashing, not launching, server or matchmaking symptoms, and specific error pages. Each page separates official notes from community-reported workarounds until fixes are confirmed against the current build.",
           "For now, this site separates confirmed official information from community-reported workarounds so launch-week pages do not turn guesses into instructions."
         ],
         links: [
@@ -203,6 +215,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/" },
           { label: "WARDOGS VoIP Not Working", href: "/wardogs-voip-not-working/" },
           { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/" },
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/" },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" }
@@ -258,6 +271,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "Startup, Steam, shader, DX12, and mid-game crash fixes." },
           { label: "WARDOGS VoIP Not Working", href: "/wardogs-voip-not-working/", description: "Voice chat, microphone, and local voice reset checks." },
           { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "EAC login, module, splash, and anti-cheat launch symptoms." },
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/", description: "Steam missing executable, invalid executable path, and Playtest build checks." },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Startup failure and access checks." },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "Specific error lookup without unverified fixes." }
         ]
@@ -601,6 +615,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "For startup, launch, Steam, shader, DX12, freezing, and mid-game crash fix checks." },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "For cases where Steam starts WARDOGS but the game never reaches a playable state." },
           { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "For Easy Anti-Cheat login failed, module not found, splash, or anti-cheat launch symptoms." },
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/", description: "For Steam missing executable, invalid executable path, or executable-refused launch errors." },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "For failed joins, queues, server access, matchmaking, or online-service symptoms." },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "For the specific beta-era authentication error code." },
           { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the main WARDOGS guide hub." }
@@ -618,6 +633,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         heading: "Diagnose the Crash Symptom",
         bullets: [
           "If Steam briefly starts WARDOGS and then returns to Play, use the Crashing Fix or Not Launching guide depending on whether a game window appears.",
+          "If the message says missing game executable, game executable not found, invalid game executable, or points to a missing launcher path, use the Missing Game Executable page.",
           "If the message mentions Easy Anti-Cheat, failed login, module not found, or an anti-cheat splash, use the Easy Anti-Cheat guide.",
           "If the crash happens during shader compilation, DX12 startup, freezing, or mid-match play, use the Crashing Fix page.",
           "If the problem appears with queues, failed joins, matchmaking, authentication, or server access, check Server Status and the error-code page before changing local PC settings."
@@ -633,7 +649,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       }
     ],
-    sources: [steamStore, steamKnownIssues, steamShaderCrashThread, steamGameCrashesThread, steamLaunchSupport, steamVerifyFilesSupport, steamComputerCrashSupport],
+    sources: [steamStore, steamKnownIssues, steamShaderCrashThread, steamGameCrashesThread, steamMissingExecutableSupport, steamLaunchSupport, steamVerifyFilesSupport, steamComputerCrashSupport],
     reviewNotes: [
       "Keep this page as a diagnosis and routing hub. Do not expand it back into the primary crash fix article.",
       "Route explicit fix-intent links and anchor text to /wardogs-crashing-fix/ instead of this hub."
@@ -643,7 +659,8 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
     quickAnswer: [
       "Officially confirmed: the Steam page lists WARDOGS as a Windows PC game and says it uses kernel-level Easy Anti-Cheat. Steam also lists minimum requirements including Windows 10, 16 GB RAM, a 64-bit processor and operating system, broadband internet, and 50 GB storage.",
       "Not officially confirmed: no public official WARDOGS-specific fix was found for access denied, launcher failure, Easy Anti-Cheat repair, antivirus conflicts, or other security conflicts.",
-      "Start with safe checks: restart Windows and Steam, confirm the official live window, verify files in Steam, check official announcements, and avoid risky downloads or security changes."
+      "Start with safe checks: restart Windows and Steam, confirm the official live window, verify files in Steam, check official announcements, and avoid risky downloads or security changes.",
+      "If Steam specifically says missing game executable, game executable not found, or invalid game executable, use the dedicated Missing Game Executable page before applying broader not-launching checks."
     ],
     sections: [
       {
@@ -669,6 +686,9 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
             status: "Officially confirmed",
             text: "Steam lists the minimum OS as Windows 10 and the recommended OS as Windows 11, with a 64-bit processor and operating system required."
           }
+        ],
+        links: [
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/", description: "Use this if Steam or anti-cheat cannot find or accept the game executable." }
         ]
       },
       {
@@ -724,6 +744,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           "If launch failures appear across many Steam threads shortly after a beta, patch, or Early Access unlock, wait for Steam announcements or a pinned developer post. Repeating risky local changes can hide the original symptom."
         ],
         links: [
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/" },
           { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
@@ -731,7 +752,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       }
     ],
-    sources: [steamStore, steamAnnouncements, steamKnownIssues, steamAuthErrorThread, steamLaunchSupport, steamVerifyFilesSupport],
+    sources: [steamStore, steamAnnouncements, steamKnownIssues, steamAuthErrorThread, steamMissingExecutableSupport, steamLaunchSupport, steamVerifyFilesSupport],
     reviewNotes: [
       "Keep manual review high because launch and anti-cheat symptoms are sensitive and can change with the Early Access build.",
       "Do not add Easy Anti-Cheat repair steps unless BULKHEAD, Team17, Steam, or Easy Anti-Cheat publishes WARDOGS-specific guidance."
@@ -1014,6 +1035,9 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         paragraphs: [
           "For wardogs anti cheat module not found symptoms, no WARDOGS-specific official fix was found in the checked public sources. Keep the troubleshooting reversible: restart Steam and Windows, verify files through Steam, and check Easy Anti-Cheat support for generic EAC guidance.",
           "Do not download a missing module from a third-party site, copy files from another game, or run unknown executables. Anti-cheat components are security-sensitive and build-specific."
+        ],
+        links: [
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/", description: "Use this if the launcher or Steam says the game executable itself is missing or invalid." }
         ]
       },
       {
@@ -1025,6 +1049,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ],
         links: [
           { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "Startup, Steam, shader, DX12, and mid-game crash diagnosis." },
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/", description: "Missing executable, invalid path, and executable-refused checks." },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Startup failure and access checks." }
         ]
       },
@@ -1048,10 +1073,200 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       { question: "How do I fix WARDOGS anti-cheat module not found?", answer: "No WARDOGS-specific official module-not-found fix was found. Use safe steps: restart Steam and Windows, verify files in Steam, check official WARDOGS posts, and use Easy Anti-Cheat official support for generic help." },
       { question: "Should I disable antivirus to fix WARDOGS anti-cheat?", answer: "Do not permanently disable antivirus or firewall protection. If a security tool is suspected, test cautiously and follow official WARDOGS, Steam, or Easy Anti-Cheat guidance rather than downloading replacement files or using unofficial repair tools." }
     ],
-    sources: [steamStore, steamKnownIssues, steamAuthErrorThread, steamLaunchSupport, steamVerifyFilesSupport, easyAntiCheatSupport, steamCommunityDiscussions],
+    sources: [steamStore, steamKnownIssues, steamAuthErrorThread, steamMissingExecutableSupport, steamLaunchSupport, steamVerifyFilesSupport, easyAntiCheatSupport, steamCommunityDiscussions],
     reviewNotes: [
       "Keep manual review high because WARDOGS anti-cheat behavior appears build-sensitive and public player reports may conflict with the Steam store disclosure.",
       "Do not add WARDOGS-specific EAC repair steps, BIOS changes, Secure Boot claims, or module-download claims without official current-build evidence."
+    ]
+  },
+  "/wardogs-missing-game-executable/": {
+    quickAnswer: [
+      "First decide whether WARDOGS should be playable right now. As of September 8, 2026, the last official beta window checked for this page had already ended on Sunday, September 6, 2026 at 08:00 UTC, while Steam lists Early Access for September 10, 2026. If you are launching an old Playtest entry outside an active window, repeated verify, reinstall, or system-setting changes may not restore a playable build.",
+      "If WARDOGS is inside an active playtest or Early Access window and Steam says missing game executable, game executable not found, or invalid game executable, check whether Steam actually downloaded real game files before touching anti-cheat or security settings.",
+      "If the error names Easy Anti-Cheat, Elytra, or an anti-cheat module instead of a missing file, treat it as an anti-cheat launch symptom. Steam officially lists Easy Anti-Cheat for WARDOGS; Elytra-specific errors are currently community-reported and build-specific, not a universal official WARDOGS fix path."
+    ],
+    lastUpdated: "September 8, 2026",
+    sections: [
+      {
+        heading: "Is the WARDOGS Playtest Still Active?",
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The official Steam store page lists WARDOGS Early Access for September 10, 2026 and describes a closed beta access window ending September 6, 2026 at 08:00 UTC."
+          },
+          {
+            status: "Officially confirmed",
+            text: "The official Steam news feed said the beta was open until Sunday at 08:00 UTC."
+          },
+          {
+            status: "General guidance",
+            text: "Because September 8, 2026 is after that listed beta end time, check official Steam announcements before assuming a WARDOGS Playtest build should still launch."
+          }
+        ],
+        links: [
+          { label: "WARDOGS Playtest Schedule", href: "/wardogs-playtest-schedule/", description: "Check official beta end time and next-playtest status." },
+          { label: "WARDOGS on Steam", href: "https://store.steampowered.com/app/1867240/WARDOGS/", description: "Confirm the current Steam access state." }
+        ]
+      },
+      {
+        heading: "Why WARDOGS Says Missing Game Executable",
+        paragraphs: [
+          "The same visible error can point to different problems: a Playtest entry that is no longer available, incomplete Steam local files, an old manifest or launch path, or an anti-cheat/launcher refusal.",
+          "Do not treat every WARDOGS missing executable message as a damaged PC. Start by checking whether the current Steam client is supposed to contain a playable executable at all."
+        ],
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "Steam has an official support page for Failed to Start Game (Missing Executable) and a separate support page for verifying game files."
+          },
+          {
+            status: "Community-reported",
+            text: "August 2026 WARDOGS Steam discussion reports describe players receiving Playtest access after a test ended or seeing very small downloads while Steam still showed a missing executable message."
+          }
+        ]
+      },
+      {
+        heading: "Playtest Ended / Build No Longer Available",
+        bullets: [
+          "If you are launching WARDOGS Playtest after September 6, 2026 at 08:00 UTC and no newer official test window is posted, treat availability as the first suspect.",
+          "Do not repeatedly verify or reinstall an ended Playtest build expecting Steam to create an executable that is no longer being delivered.",
+          "Use the Steam store, Steam announcements, and Playtest Schedule page before changing Windows security, drivers, registry, or anti-cheat files.",
+          "If Early Access has not unlocked yet for your region or account, wait for the official Steam unlock state instead of forcing the Playtest client."
+        ],
+        links: [
+          { label: "WARDOGS Playtest Schedule", href: "/wardogs-playtest-schedule/" },
+          { label: "WARDOGS Release Date", href: "/wardogs-release-date/" },
+          { label: "WARDOGS Early Access", href: "/wardogs-early-access/" }
+        ]
+      },
+      {
+        heading: "Verify the WARDOGS Installation in Steam",
+        paragraphs: [
+          "Use Steam file verification only after you have confirmed that the WARDOGS client you are launching should currently be available. This is a safe Steam-level check for incomplete or corrupted local files.",
+          "In Steam, use the WARDOGS or WARDOGS Playtest Library entry, open Properties, go to Installed Files, and run Verify integrity of game files. If Steam downloads missing content afterward, restart Steam before testing again."
+        ],
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "Steam Support documents verifying game files from the Steam client."
+          },
+          {
+            status: "Safe generic troubleshooting",
+            text: "If the installation size is suspiciously tiny, first check whether Steam is still delivering the current WARDOGS build instead of looping verification."
+          }
+        ]
+      },
+      {
+        heading: "Check the Executable / Launcher Path",
+        paragraphs: [
+          "Use Steam's Browse local files action instead of typing a path from a guide or forum post. Your Steam library may be on a different drive, and Playtest launch paths can change between builds.",
+          "If the WARDOGS folder has a full install but the expected launcher is genuinely absent, verify files through Steam. Do not create a fake executable, copy another player's file, or download a replacement EXE/DLL."
+        ],
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The Steam store lists WARDOGS as a Windows PC game with 50 GB available storage in the published requirements."
+          },
+          {
+            status: "Community-reported",
+            text: "Some Playtest-era reports mention old or specific executable paths, but those path names should not be treated as official current-build documentation."
+          }
+        ]
+      },
+      {
+        heading: "Anti-Cheat Refused the Game Executable",
+        paragraphs: [
+          "If the message changes from missing executable to invalid game executable, anti-cheat module could not be downloaded, failed to install, or service start failed, the problem has moved from Steam content delivery to anti-cheat or launcher acceptance.",
+          "Keep this separate from ordinary WARDOGS crashes. An anti-cheat refusal can stop the game before a normal window or menu appears."
+        ],
+        facts: [
+          {
+            status: "Officially confirmed",
+            text: "The WARDOGS Steam store currently lists kernel-level Easy Anti-Cheat."
+          },
+          {
+            status: "Safe generic troubleshooting",
+            text: "Use official WARDOGS posts, Steam file verification, and Easy Anti-Cheat support before making security or system-level changes."
+          }
+        ],
+        links: [
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Use this for EAC login, module, splash, or anti-cheat launch messages." }
+        ]
+      },
+      {
+        heading: "Elytra / Anti-Cheat Troubleshooting",
+        paragraphs: [
+          "Elytra appears in current WARDOGS player reports, but the checked official public WARDOGS source still lists Easy Anti-Cheat. Treat Elytra wording as community-reported and build-specific unless BULKHEAD, Team17, Steam, or an official support channel confirms a current public fix.",
+          "If your own WARDOGS install includes Elytra files and the launcher specifically names Elytra, only use files that came from your Steam installation. Do not download Elytra, WARDOGS executables, DLLs, or anti-cheat components from third-party sites."
+        ],
+        facts: [
+          {
+            status: "Community-reported",
+            text: "September 2026 Steam discussion reports mention Elytra Launcher and Elytra.Service errors, including anti-cheat module download or install symptoms."
+          },
+          {
+            status: "Community-reported",
+            text: "Some comments mention high-risk Windows security changes such as Smart App Control. This page does not recommend those as confirmed WARDOGS fixes."
+          },
+          {
+            status: "Safe generic troubleshooting",
+            text: "Preserve the exact error text, restart Steam and Windows once, verify files, and check official posts before escalating beyond reversible steps."
+          }
+        ]
+      },
+      {
+        heading: "Invalid Game Executable Path",
+        paragraphs: [
+          "An invalid game executable path can mean Steam is pointing to a file that is not present, the Playtest manifest is stale, or anti-cheat refused the executable before launch. The order matters: availability first, Steam files second, anti-cheat third.",
+          "If you are using a shortcut, custom launch option, or old Playtest entry, launch from the Steam Library entry and clear any custom launch option before retesting. Keep the path check simple and reversible."
+        ],
+        links: [
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Use this for broader startup failure diagnosis." },
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Use this if the game opens but login, queues, or servers fail." }
+        ]
+      },
+      {
+        heading: "Still Not Launching?",
+        bullets: [
+          "If WARDOGS opens a window and then crashes or freezes, move to the crash troubleshooting pages.",
+          "If Steam or the launcher cannot find or accept the executable, stay on this page and avoid unrelated graphics or gameplay fixes.",
+          "If the game opens but fails during login, matchmaking, queues, or server selection, check server status and playtest availability before local repairs.",
+          "If the error is anti-cheat-specific, use the anti-cheat page and keep community workarounds clearly labeled."
+        ],
+        links: [
+          { label: "WARDOGS Crashing", href: "/wardogs-crashing/", description: "Crash diagnosis after the game can start." },
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Broader launch failure checks." },
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Login, queue, failed join, and server symptoms." },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the main guide hub." }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: "What does WARDOGS missing game executable mean?",
+        answer: "It means Steam or the launcher cannot find the executable it expects. For WARDOGS, first check whether the Playtest or Early Access build should be playable, then verify Steam files only if the build should currently be available."
+      },
+      {
+        question: "Can an ended WARDOGS Playtest cause missing executable errors?",
+        answer: "Yes, it can. The last official beta window checked for this page ended on September 6, 2026 at 08:00 UTC. If you are launching an old Playtest entry after that, verify the official schedule before reinstalling."
+      },
+      {
+        question: "Should I reinstall WARDOGS to fix missing game executable?",
+        answer: "Not first. Confirm the current playable window and correct Steam client, then run Steam file verification. Reinstalling an unavailable or placeholder Playtest build can repeat the same problem."
+      },
+      {
+        question: "Is Elytra the official WARDOGS anti-cheat?",
+        answer: "The official Steam store currently lists Easy Anti-Cheat. Elytra appears in WARDOGS player reports and should be treated as community-reported or build-specific unless official WARDOGS sources confirm the current anti-cheat behavior."
+      },
+      {
+        question: "Should I download a missing WARDOGS executable or DLL?",
+        answer: "No. Do not download WARDOGS executables, DLLs, launchers, or anti-cheat components from third-party sites. Use Steam installation checks and official support sources."
+      }
+    ],
+    sources: [steamStore, steamOpenBetaNews, steamAnnouncements, steamMissingExecutableSupport, steamVerifyFilesSupport, steamLaunchSupport, easyAntiCheatSupport, steamMissingExecutableThread, steamCommunityDiscussions],
+    reviewNotes: [
+      "Keep this page focused on Steam/launcher/anti-cheat executable lookup failures, not ordinary crashes after the game starts.",
+      "Do not publish third-party executable downloads, DLL swaps, permanent security disablement, or Elytra repair claims as official WARDOGS fixes without official current-build evidence."
     ]
   },
   "/wardogs-best-settings/": {
@@ -1627,6 +1842,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         links: [
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" }
         ]
       }
