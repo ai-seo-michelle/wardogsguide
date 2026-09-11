@@ -73,6 +73,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-release-date/",
       "/wardogs-early-access/",
       "/wardogs-server-status/",
+      "/wardogs-failed-to-connect-to-server/",
       "/wardogs-crashing/",
       "/wardogs-crashing-fix/",
       "/wardogs-voip-not-working/",
@@ -115,6 +116,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-release-date/",
       "/wardogs-early-access/",
       "/wardogs-server-status/",
+      "/wardogs-failed-to-connect-to-server/",
       "/wardogs-crashing/",
       "/wardogs-crashing-fix/",
       "/wardogs-voip-not-working/",
@@ -220,7 +222,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Connect server checks with crashing, not launching, and error-code pages so readers can move through the first diagnosis path."
       }
     ],
-    relatedRoutes: ["/wardogs-crashing/", "/wardogs-not-launching/", "/wardogs-error-code-1147405308/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-failed-to-connect-to-server/", "/wardogs-error-code-1147405308/", "/wardogs-crashing/", "/wardogs-not-launching/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Crash Troubleshooting Hub",
@@ -252,6 +254,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-missing-game-executable/",
       "/wardogs-not-launching/",
       "/wardogs-server-status/",
+      "/wardogs-failed-to-connect-to-server/",
       "/wardogs-error-code-1147405308/",
       "/wardogs-guide/"
     ]
@@ -332,7 +335,7 @@ export const pageMatrix: PageMatrixEntry[] = [
     description:
       "Troubleshoot WARDOGS Easy Anti-Cheat login failed, module not found, splash-screen crashes, and anti-cheat launch symptoms safely.",
     quickAnswer:
-      "Steam lists WARDOGS with Easy Anti-Cheat, but no public WARDOGS-specific universal EAC fix is confirmed. Use safe checks and avoid unofficial downloads or file swaps.",
+      "The current Steam store disclosure lists WARDOGS with kernel-level Elytra anti-cheat, while older player wording may still mention Easy Anti-Cheat. No public WARDOGS-specific universal anti-cheat fix is confirmed, so use safe checks and avoid unofficial downloads or file swaps.",
     sections: [
       {
         heading: "Confirm the anti-cheat context",
@@ -497,7 +500,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Route readers to the specific error-code page first, then server status if the symptom points to online access."
       }
     ],
-    relatedRoutes: ["/wardogs-missing-game-executable/", "/wardogs-easy-anti-cheat-error-fix/", "/wardogs-error-code-1147405308/", "/wardogs-server-status/", "/wardogs-crashing-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-missing-game-executable/", "/wardogs-easy-anti-cheat-error-fix/", "/wardogs-error-code-1147405308/", "/wardogs-failed-to-connect-to-server/", "/wardogs-server-status/", "/wardogs-crashing-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Error Code 1147405308",
@@ -506,28 +509,58 @@ export const pageMatrix: PageMatrixEntry[] = [
     type: "troubleshooting",
     priority: "P1",
     manualReview: "high",
-    intent: "specific error-code lookup and safe troubleshooting",
+    intent: "authentication, access denied, failed to authenticate with online services, and 1147405308 launch errors",
     eyebrow: "Troubleshooting",
-    h1: "WARDOGS Error Code 1147405308",
+    h1: "WARDOGS Error Code 1147405308 Fix",
     description:
-      "A verification-first page for WARDOGS error code 1147405308 and safe troubleshooting notes.",
+      "A WARDOGS authentication troubleshooting page for error 1147405308, access denied, and failed-to-authenticate online-service messages.",
     quickAnswer:
-      "The cause and fix for WARDOGS error code 1147405308 are not asserted here until they are verified against official or current-build evidence.",
+      "Use this page when WARDOGS shows error code 1147405308, Access Denied, or Failed to authenticate with online services. Check official status context first because launch-day server load can look like a local PC problem.",
     sections: [
       {
-        heading: "What is known",
-        body: "Reserve this section for confirmed information only. Do not infer the cause of the code from unrelated games or unverified posts."
+        heading: "Authentication intent",
+        body: "This URL is the main WARDOGS 1147405308 and failed-authentication page. Do not split failed-to-authenticate into a separate URL unless the search intent changes."
       },
       {
-        heading: "Safe troubleshooting scope",
-        body: "Keep any future steps reversible and clearly sourced, especially if access, anti-cheat, or server behavior may be involved."
+        heading: "Server-side first",
+        body: "Start with official announcements, server-status context, and queue or login reports before asking users to change local security, firewall, or anti-cheat settings."
       },
       {
-        heading: "Related checks",
-        body: "Connect this page to not-launching and server-status pages so readers can move through a safe diagnosis path."
+        heading: "Safe checks only",
+        body: "Keep user-side steps reversible: restart the game and Steam, verify files if the client may be damaged, and record exact error text for support."
       }
     ],
-    relatedRoutes: ["/wardogs-easy-anti-cheat-error-fix/", "/wardogs-not-launching/", "/wardogs-server-status/", "/wardogs-crashing-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-failed-to-connect-to-server/", "/wardogs-server-status/", "/wardogs-not-launching/", "/wardogs-easy-anti-cheat-error-fix/", "/wardogs-crashing/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Failed to Connect to Server",
+    route: "/wardogs-failed-to-connect-to-server/",
+    keyword: "wardogs failed to connect to server",
+    type: "troubleshooting",
+    priority: "P1",
+    manualReview: "high",
+    intent: "failed to connect to server, reasonable-time timeout, cannot join server, launch queues, and connection checks",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Failed to Connect to Server Fix",
+    description:
+      "A WARDOGS connection troubleshooting page for reasonable-time server errors, failed joins, launch-day queues, and safe network checks.",
+    quickAnswer:
+      "Use this page when WARDOGS opens but cannot join online services or a server in a reasonable time. Check official server and launch-stability updates first before changing local network settings.",
+    sections: [
+      {
+        heading: "Connection timeout intent",
+        body: "This page covers failed-to-connect and reasonable-time timeout symptoms, not authentication access-denied codes."
+      },
+      {
+        heading: "Launch queue context",
+        body: "Treat launch-day queues, overloaded services, and server join failures as possible server-side symptoms unless official guidance points to a local fix."
+      },
+      {
+        heading: "Safe network checks",
+        body: "Keep checks reversible: restart WARDOGS and Steam, test your connection, review VPN or firewall context, and avoid risky file or security changes."
+      }
+    ],
+    relatedRoutes: ["/wardogs-server-status/", "/wardogs-error-code-1147405308/", "/wardogs-not-launching/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Controller Settings",

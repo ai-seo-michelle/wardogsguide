@@ -166,6 +166,12 @@ const steamOpenBetaNews: GuideSource = {
   type: "Announcement"
 };
 
+const steamLaunchHotfixNews: GuideSource = {
+  label: "WARDOGS Steam news: launch stability updates",
+  url: "https://steamcommunity.com/app/1867240/homecontent/",
+  type: "Announcement"
+};
+
 const steamHotasDeveloperReply: GuideSource = {
   label: "Steam discussion with developer HOTAS response",
   url: "https://steamcommunity.com/app/1867240/discussions/0/806848045381638518/",
@@ -201,6 +207,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "Early Access", href: "/wardogs-early-access/", description: "See what Early Access means, how access works, and what is still unconfirmed." },
           { label: "Playtest Schedule", href: "/wardogs-playtest-schedule/", description: "Check the current beta end time and next-playtest status." },
           { label: "Server Status", href: "/wardogs-server-status/", description: "Use this when connection, server, or matchmaking issues are the symptom." },
+          { label: "Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/", description: "Use this for reasonable-time connection errors, failed joins, and launch queues." },
           { label: "Best Settings", href: "/wardogs-best-settings/", description: "Use this once current-build settings guidance has been verified." }
         ]
       },
@@ -218,6 +225,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/" },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" }
         ]
       },
@@ -248,7 +256,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
   },
   "/wardogs-guide/": {
     quickAnswer: [
-      "Start with Release Date and Early Access if your question is about when or how to play. Use Server Status, Crashing, Not Launching, or Error Code 1147405308 if something fails. Use Best Settings, Controller Settings, and Helicopter Controls only for current-build setup topics.",
+      "Start with Release Date and Early Access if your question is about when or how to play. Use Server Status, Failed to Connect, Crashing, Not Launching, or Error Code 1147405308 if something fails. Use Best Settings, Controller Settings, and Helicopter Controls only for current-build setup topics.",
       "WARDOGS is still launch-sensitive as of August 28, 2026. Official sources confirm the Steam Early Access date and core game framing, while exact release time, Early Access preload, and final 1.0 date are not confirmed."
     ],
     sections: [
@@ -267,13 +275,14 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         heading: "Troubleshooting",
         links: [
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Server, region, failed join, and matchmaking checks." },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/", description: "Reasonable-time connection errors, failed joins, launch queues, and timeout checks." },
           { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/", description: "Diagnose crash issues and choose the right troubleshooting route." },
           { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "Startup, Steam, shader, DX12, and mid-game crash fixes." },
           { label: "WARDOGS VoIP Not Working", href: "/wardogs-voip-not-working/", description: "Voice chat, microphone, and local voice reset checks." },
-          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "EAC login, module, splash, and anti-cheat launch symptoms." },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Anti-cheat login, module, splash, and launch symptoms." },
           { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/", description: "Steam missing executable, invalid executable path, and Playtest build checks." },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Startup failure and access checks." },
-          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "Specific error lookup without unverified fixes." }
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "Authentication and access-denied error lookup without unverified fixes." }
         ]
       },
       {
@@ -590,6 +599,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         links: [
           { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" }
         ]
@@ -604,7 +614,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
   "/wardogs-crashing/": {
     quickAnswer: [
       "Use this page as the WARDOGS crash troubleshooting hub, not the detailed crash-fix article. If your intent is to fix WARDOGS crashing on startup, Steam launch, shader compilation, DX12, freezing, or mid-game crashes, go to the dedicated WARDOGS Crashing Fix page.",
-      "Start by identifying where the failure happens: before the game opens, at the Easy Anti-Cheat splash, during login or server join, during shader compilation, inside a match, or alongside a numeric error code.",
+      "Start by identifying where the failure happens: before the game opens, at the anti-cheat splash, during login or server join, during shader compilation, inside a match, or alongside a numeric error code.",
       "Officially confirmed: BULKHEAD acknowledged Closed Beta crashes and tracked crash reports. This hub keeps that official context separate from community-reported symptoms and routes each case to the right guide."
     ],
     lastUpdated: "September 4, 2026",
@@ -614,10 +624,11 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         links: [
           { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/", description: "For startup, launch, Steam, shader, DX12, freezing, and mid-game crash fix checks." },
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "For cases where Steam starts WARDOGS but the game never reaches a playable state." },
-          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "For Easy Anti-Cheat login failed, module not found, splash, or anti-cheat launch symptoms." },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "For anti-cheat login failed, module not found, splash, or anti-cheat launch symptoms." },
           { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/", description: "For Steam missing executable, invalid executable path, or executable-refused launch errors." },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "For failed joins, queues, server access, matchmaking, or online-service symptoms." },
-          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "For the specific beta-era authentication error code." },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/", description: "For reasonable-time connection errors, failed joins, and server timeout symptoms." },
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "For authentication, access-denied, and failed-to-authenticate symptoms." },
           { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the main WARDOGS guide hub." }
         ]
       },
@@ -634,9 +645,9 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         bullets: [
           "If Steam briefly starts WARDOGS and then returns to Play, use the Crashing Fix or Not Launching guide depending on whether a game window appears.",
           "If the message says missing game executable, game executable not found, invalid game executable, or points to a missing launcher path, use the Missing Game Executable page.",
-          "If the message mentions Easy Anti-Cheat, failed login, module not found, or an anti-cheat splash, use the Easy Anti-Cheat guide.",
+          "If the message mentions anti-cheat, failed login, module not found, or an anti-cheat splash, use the anti-cheat guide.",
           "If the crash happens during shader compilation, DX12 startup, freezing, or mid-match play, use the Crashing Fix page.",
-          "If the problem appears with queues, failed joins, matchmaking, authentication, or server access, check Server Status and the error-code page before changing local PC settings."
+          "If the problem appears with queues, failed joins, matchmaking, authentication, or server access, check Server Status, the failed-to-connect page, and the error-code page before changing local PC settings."
         ]
       },
       {
@@ -657,8 +668,8 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
   },
   "/wardogs-not-launching/": {
     quickAnswer: [
-      "Officially confirmed: the Steam page lists WARDOGS as a Windows PC game and says it uses kernel-level Easy Anti-Cheat. Steam also lists minimum requirements including Windows 10, 16 GB RAM, a 64-bit processor and operating system, broadband internet, and 50 GB storage.",
-      "Not officially confirmed: no public official WARDOGS-specific fix was found for access denied, launcher failure, Easy Anti-Cheat repair, antivirus conflicts, or other security conflicts.",
+      "Officially confirmed: the Steam page lists WARDOGS as a Windows PC game and currently discloses kernel-level Elytra anti-cheat. Steam also lists minimum requirements including Windows 10, 16 GB RAM, a 64-bit processor and operating system, broadband internet, and 50 GB storage.",
+      "Not officially confirmed: no public official WARDOGS-specific fix was found for access denied, launcher failure, anti-cheat repair, antivirus conflicts, or other security conflicts.",
       "Start with safe checks: restart Windows and Steam, confirm the official live window, verify files in Steam, check official announcements, and avoid risky downloads or security changes.",
       "If Steam specifically says missing game executable, game executable not found, or invalid game executable, use the dedicated Missing Game Executable page before applying broader not-launching checks."
     ],
@@ -717,11 +728,11 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         facts: [
           {
             status: "Officially confirmed",
-            text: "The Steam store lists WARDOGS as using kernel-level Easy Anti-Cheat."
+            text: "The Steam store currently lists WARDOGS as using kernel-level Elytra anti-cheat."
           },
           {
             status: "Not officially confirmed",
-            text: "No WARDOGS-specific official Easy Anti-Cheat repair steps were found in the public sources checked on August 28, 2026."
+            text: "No WARDOGS-specific official anti-cheat repair steps were found in the public sources checked on September 11, 2026."
           },
           {
             status: "Safe generic troubleshooting",
@@ -747,6 +758,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/" },
           { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
           { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" }
         ]
@@ -755,112 +767,229 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
     sources: [steamStore, steamAnnouncements, steamKnownIssues, steamAuthErrorThread, steamMissingExecutableSupport, steamLaunchSupport, steamVerifyFilesSupport],
     reviewNotes: [
       "Keep manual review high because launch and anti-cheat symptoms are sensitive and can change with the Early Access build.",
-      "Do not add Easy Anti-Cheat repair steps unless BULKHEAD, Team17, Steam, or Easy Anti-Cheat publishes WARDOGS-specific guidance."
+      "Do not add anti-cheat repair steps unless BULKHEAD, Team17, Steam, or the current anti-cheat provider publishes WARDOGS-specific guidance."
     ]
   },
   "/wardogs-error-code-1147405308/": {
     quickAnswer: [
-      "WARDOGS error code 1147405308 does not currently have a publicly documented official explanation.",
-      "Community reports from the August Closed Beta show the code alongside Access Denied and failed authentication with online services, usually after a queue or login attempt. That places the observed symptom around authentication, but it does not prove one permanent root cause.",
-      "Treat 1147405308 as a historical / beta-era authentication issue unless it reappears in a current official Early Access notice. Use safe checks only and avoid code-specific claims that BULKHEAD has not published."
+      "WARDOGS error code 1147405308 should be treated as an online authentication or access-check problem, not as proof that your PC install is broken.",
+      "If the message says Failed to authenticate with online services, Access Denied, or shows 1147405308, check WARDOGS server status and official Steam updates first. Around launch, official Steam news and player reports point to capacity, login, and queue symptoms affecting many players.",
+      "Only use reversible checks on your side: restart WARDOGS and Steam, verify files if the install may be damaged, and review firewall or VPN only as a general network check. Do not download replacement executables, DLLs, or anti-cheat files."
     ],
+    lastUpdated: "September 11, 2026",
     sections: [
       {
-        heading: "Is This Official?",
-        facts: [
-          {
-            status: "Not officially confirmed",
-            text: "No official public WARDOGS source checked on August 28, 2026 publishes a numeric explanation for error code 1147405308."
-          },
-          {
-            status: "Not officially confirmed",
-            text: "No code-specific official fix was found in the Steam store page, Steam announcements, WARDOGS FAQ, or Closed Beta Known Issues post."
-          },
-          {
-            status: "Officially confirmed",
-            text: "The official Known Issues post covers Closed Beta crashes, Server Browser region selection, voice-chat provider outages, and Supporter Pack availability, but it does not name 1147405308."
-          }
-        ]
-      },
-      {
-        heading: "What Players Report",
-        facts: [
-          {
-            status: "Community-reported",
-            text: "Steam players reported error 1147405308 with Access Denied and failed authentication after reaching or waiting in Closed Beta login queues."
-          },
-          {
-            status: "Community-reported",
-            text: "A live ticker reported that 1147405308 and 1628505085 were occurring frequently during the August 21 Closed Beta launch queue, then later reported that queue errors appeared resolved."
-          },
-          {
-            status: "Community-reported",
-            text: "Most checked reports place the code around login, authentication, queue completion, or server access. They do not establish a specific anti-cheat, account, or local network cause."
-          }
-        ]
-      },
-      {
-        heading: "Safe Steps to Try",
-        facts: [
-          {
-            status: "Safe generic troubleshooting",
-            text: "Check whether WARDOGS is inside a currently announced live window before troubleshooting your PC."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Restart WARDOGS and Steam, then try one clean launch."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Check Steam announcements, pinned Steam discussions, and official channels for a current authentication or queue incident."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Verify game files in Steam if the client also crashes, fails to launch, or behaves differently after an update."
-          },
-          {
-            status: "Safe generic troubleshooting",
-            text: "Keep a screenshot of the full error text, time, build, and whether it appeared during login, matchmaking, or server join."
-          }
-        ]
-      },
-      {
-        heading: "Do Not State as Confirmed",
-        bullets: [
-          "Do not state that 1147405308 definitely means a server outage.",
-          "Do not state that 1147405308 definitely means an anti-cheat issue.",
-          "Do not state that changing firewall, VPN, DNS, IPv6, registry, or DLL files is an official fix.",
-          "Do not treat beta-era queue reports as proof of a current Early Access outage."
-        ]
-      },
-      {
-        heading: "Historical / Beta-era Status",
-        facts: [
-          {
-            status: "Officially confirmed",
-            text: "WARDOGS Early Access is listed for September 10, 2026, so the August reports belong to the pre-Early Access Closed Beta period."
-          },
-          {
-            status: "Community-reported",
-            text: "The strongest evidence ties 1147405308 to Closed Beta authentication and queue reports on August 21, 2026."
-          },
-          {
-            status: "Not officially confirmed",
-            text: "There is no official evidence that this code is obsolete forever, but it should be described as beta-era until a current official source repeats it."
-          }
+        heading: "Choose the Right Error Path",
+        paragraphs: [
+          "If the message shows error code 1147405308, Access Denied, or Failed to authenticate with online services, stay on this page. That is the authentication path.",
+          "If WARDOGS opens but says failed to connect to the server in a reasonable time, cannot join server, or join timed out, use the failed-to-connect guide instead.",
+          "If you mainly want to know whether WARDOGS servers are down, overloaded, or generally available, use the server status page before changing local settings."
         ],
         links: [
-          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/" },
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
-          { label: "Crash Troubleshooting Hub", href: "/wardogs-crashing/" },
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/" }
+        ]
+      },
+      {
+        heading: "What Does Error Code 1147405308 Mean?",
+        facts: [
+          { status: "Not officially confirmed", text: "No public WARDOGS source checked publishes a numeric, developer-defined meaning for 1147405308." },
+          { status: "Community-reported", text: "Steam community reports and current search evidence connect wardogs error code 1147405308 with Access Denied and Failed to authenticate with online services wording." },
+          { status: "General guidance", text: "Because the observed wording is authentication-related, treat the error as an online service, account access, queue, or entitlement check until official guidance says otherwise." }
+        ]
+      },
+      {
+        heading: "Is WARDOGS Down or Are Servers Overloaded?",
+        facts: [
+          { status: "Officially confirmed", text: "The WARDOGS Steam news feed lists launch-stability updates and server-join notices around release, so official Steam news is the first place to check for live incidents." },
+          { status: "Community-reported", text: "Players have reported authentication and access-denied errors during high-traffic beta and launch windows. Those reports are useful context, but they do not prove one permanent root cause." },
+          { status: "General guidance", text: "If many players report the same authentication error at the same time, repeated reinstalls or system changes are unlikely to be the best first response." }
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/" }
+        ]
+      },
+      {
+        heading: "Failed to Authenticate with Online Services",
+        paragraphs: [
+          "Google and player search behavior now group wardogs failed to authenticate, wardogs failed to authenticate with online services, access denied 1147405308, and wardogs 1147405308 as the same troubleshooting intent.",
+          "Do not split this into a separate failed-authenticate page unless official WARDOGS guidance creates a clearly different issue. This URL is the main authentication-error page for the cluster."
+        ]
+      },
+      {
+        heading: "How to Fix WARDOGS Error Code 1147405308",
+        facts: [
+          { status: "Safe generic troubleshooting", text: "Check official WARDOGS Steam announcements, pinned Steam discussions, and server-status context before changing local settings." },
+          { status: "Safe generic troubleshooting", text: "Restart WARDOGS and Steam, then try one clean launch. If the error returns immediately, preserve the exact wording and time." },
+          { status: "Safe generic troubleshooting", text: "Verify game files in Steam if the client also fails to launch, crashes, or recently updated." },
+          { status: "Not officially confirmed", text: "No WARDOGS-specific public source confirms that firewall, DNS, VPN, anti-cheat repair, or a reinstall is a guaranteed fix for 1147405308." }
+        ]
+      },
+      {
+        heading: "Check WARDOGS Server Status First",
+        paragraphs: [
+          "Authentication errors can happen before you ever reach a server browser or match. Check official Steam news and the server-status page before assuming the fault is local.",
+          "If official updates mention join issues, queues, overload, or authentication, wait for the service-side update before repeating risky local troubleshooting."
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" }
+        ]
+      },
+      {
+        heading: "Restart WARDOGS and Steam",
+        paragraphs: [
+          "Close WARDOGS, exit Steam fully, reopen Steam, and launch WARDOGS once from the Steam Library. This is safe and reversible, and it avoids piling multiple changes on top of an active server incident."
+        ]
+      },
+      {
+        heading: "Verify Game Files",
+        paragraphs: [
+          "Use Steam's Verify integrity of game files option if the game recently patched, Steam shows install errors, or the client behaves differently after an update. Verification is safer than deleting files manually or downloading replacements."
+        ]
+      },
+      {
+        heading: "Check Network / Firewall / VPN",
+        paragraphs: [
+          "If official channels do not show a wider incident, test your connection normally, remove unusual VPN or proxy routing for one attempt, and make sure WARDOGS is not blocked by a local firewall prompt.",
+          "Do not permanently disable firewall or antivirus protection. Treat this as a cautious network check, not an official WARDOGS 1147405308 fix."
+        ]
+      },
+      {
+        heading: "What Not to Do",
+        bullets: [
+          "Do not download WARDOGS executables, DLLs, launchers, or anti-cheat files from third-party websites.",
+          "Do not claim 1147405308 definitely means a server outage, anti-cheat ban, firewall block, or account ban unless WARDOGS publishes that meaning.",
+          "Do not create a separate failed-to-authenticate URL for the same intent.",
+          "Do not use old beta queue workarounds as guaranteed launch fixes."
+        ]
+      },
+      {
+        heading: "Still Getting Error 1147405308?",
+        paragraphs: [
+          "Record the exact error wording, time, region, whether you reached a queue or server browser, and whether Steam had just updated WARDOGS. That information is more useful than repeated reinstalls when the root cause may be service-side."
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
+          { label: "WARDOGS Failed to Connect to Server", href: "/wardogs-failed-to-connect-to-server/" },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/" },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" }
         ]
       }
     ],
-    sources: [steamStore, steamAnnouncements, steamDeveloperFaq, steamKnownIssues, steamAuthErrorThread, steamBetaDelayThread, meinMmoBetaTicker, steamVerifyFilesSupport],
+    faqs: [
+      { question: "Is WARDOGS error code 1147405308 the same as Failed to authenticate with online services?", answer: "Current search behavior and player reports strongly group them together, and this page treats them as one authentication intent. WARDOGS has not published a public numeric definition for 1147405308." },
+      { question: "Is 1147405308 a server-side WARDOGS problem?", answer: "It can appear during server, login, queue, or authentication problems, but no public official source confirms one permanent cause. Check official Steam news and server-status context first." },
+      { question: "Should I reinstall WARDOGS to fix 1147405308?", answer: "Do not start with a reinstall. Restart WARDOGS and Steam, check official status updates, and verify files only if the install may be damaged or recently patched." },
+      { question: "Is WARDOGS error 1147405308 an anti-cheat error?", answer: "That is not officially confirmed. If your message names anti-cheat, use the anti-cheat guide; if it says failed to authenticate with online services, start with this authentication page." },
+      { question: "What is the difference between 1147405308 and failed to connect to server?", answer: "1147405308 belongs to authentication or access-denied wording. Failed to connect to server in a reasonable time is a server connection or join-timeout intent and has its own page." }
+    ],
+    sources: [steamStore, steamLaunchHotfixNews, steamAnnouncements, steamAuthErrorThread, steamCommunityDiscussions, steamVerifyFilesSupport, steamLaunchSupport],
     reviewNotes: [
       "Keep manual review high because the official numeric meaning and any official fix for 1147405308 remain undocumented.",
-      "Recheck official sources after Early Access unlocks before calling the code active, fixed, server-side, or local."
+      "Do not split failed-to-authenticate into a duplicate URL while Google and GSC treat it as the same intent."
+    ]
+  },
+  "/wardogs-failed-to-connect-to-server/": {
+    quickAnswer: [
+      "Use this page when WARDOGS opens but cannot connect, cannot join a server, or says it failed to connect to the server in a reasonable time.",
+      "Check WARDOGS server status and official Steam news first. Around launch, connection timeouts, queues, and failed joins can be caused by server load rather than a broken local install.",
+      "If the error says Failed to authenticate with online services or shows 1147405308, use the authentication error page instead."
+    ],
+    lastUpdated: "September 11, 2026",
+    sections: [
+      {
+        heading: "Start With Server Status",
+        paragraphs: [
+          "For wardogs failed to connect to server, start by checking whether other players are reporting server join failures, queues, or reasonable-time timeouts. If many players are affected, wait for official updates before changing local settings.",
+          "If only your connection is affected, use reversible checks: restart WARDOGS and Steam, test your connection, and review VPN or firewall prompts without permanently disabling protection."
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" }
+        ]
+      },
+      {
+        heading: "Why WARDOGS Says Failed to Connect to Server",
+        facts: [
+          { status: "General guidance", text: "A reasonable-time error usually means the client did not complete the server connection or join flow quickly enough." },
+          { status: "Not officially confirmed", text: "WARDOGS has not published a public one-line definition for every failed-to-connect or reasonable-time message checked for this page." },
+          { status: "Community-reported", text: "Current player and search reports group failed to connect, cannot join server, join timed out, and error code 1628505091-style connection variants as a server connection intent." }
+        ]
+      },
+      {
+        heading: "Check WARDOGS Server Status",
+        paragraphs: [
+          "Before changing local network settings, check the server-status page, official Steam announcements, and pinned developer posts. Launch-day server capacity or maintenance can produce symptoms that look like a local timeout.",
+          "Do not treat third-party status posts or AI summaries as official confirmation. Use official WARDOGS and Steam sources first."
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" }
+        ]
+      },
+      {
+        heading: "Server Overload and Launch-Day Queues",
+        facts: [
+          { status: "Officially confirmed", text: "The WARDOGS Steam news feed includes launch-stability and server-join updates around release, so launch congestion should be checked before local repairs." },
+          { status: "Community-reported", text: "Players have reported failed joins, queue pressure, and connection failures during high-traffic windows. Treat those reports as context, not as proof of one permanent root cause." },
+          { status: "General guidance", text: "If the same error suddenly appears for many players, waiting for a service-side update is safer than reinstalling or changing security tools." }
+        ]
+      },
+      {
+        heading: "Restart WARDOGS and Steam",
+        paragraphs: [
+          "Close WARDOGS, fully exit Steam, reopen Steam, and launch once from the Steam Library. This clears a stale client session without changing files or security settings."
+        ]
+      },
+      {
+        heading: "Check Your Internet Connection",
+        paragraphs: [
+          "If official sources do not show a wider WARDOGS issue, confirm that your connection is stable, restart your router if needed, and test whether other online games or Steam services work normally.",
+          "Avoid stacking many network changes at once. Change one thing, test once, and revert it if it does not help."
+        ]
+      },
+      {
+        heading: "Firewall / VPN / Network Checks",
+        paragraphs: [
+          "If you use a VPN, proxy, strict firewall, or network filtering tool, test one clean launch without unusual routing where safe to do so. If Windows asks whether WARDOGS can communicate on the network, review the prompt instead of dismissing it blindly.",
+          "Do not permanently disable firewall or antivirus protection, and do not download networking or anti-cheat files from third-party sites."
+        ]
+      },
+      {
+        heading: "Failed to Connect vs Failed to Authenticate",
+        paragraphs: [
+          "Failed to connect to server in a reasonable time is a connection or join timeout intent. Failed to authenticate with online services, Access Denied, or 1147405308 is an authentication intent.",
+          "The two problems can happen during the same launch window, but they should not be merged into one thin page because the user's next step is different."
+        ],
+        links: [
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/" }
+        ]
+      },
+      {
+        heading: "Still Can't Join a Server?",
+        paragraphs: [
+          "Take a screenshot of the full message, note the time, region, queue state, and whether you reached a server browser or match. If official channels later ask for reports, that context is more useful than repeated reinstalls."
+        ],
+        links: [
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+        ]
+      }
+    ],
+    faqs: [
+      { question: "How do I fix WARDOGS failed to connect to server in a reasonable time?", answer: "Check WARDOGS server status and Steam news first, then restart WARDOGS and Steam. If there is no wider incident, test your own connection and review VPN or firewall prompts carefully." },
+      { question: "Is failed to connect to server the same as WARDOGS error 1147405308?", answer: "No. Failed to connect is a server connection or join-timeout symptom. Error 1147405308 is grouped with failed authentication and access-denied wording." },
+      { question: "Should I reinstall WARDOGS for a failed-to-connect error?", answer: "Not as a first step. Reinstalling is unlikely to help if servers are overloaded or the join service is unstable. Use status checks and reversible troubleshooting first." },
+      { question: "What about WARDOGS error code 1628505091?", answer: "Current keyword evidence is smaller than 1147405308 and appears to fit the connection-timeout cluster, so it belongs on this page for now rather than as a separate thin URL." },
+      { question: "Can a VPN cause WARDOGS connection problems?", answer: "A VPN or proxy can affect routing in online games, but there is no WARDOGS-specific official VPN fix confirmed here. Test cautiously and revert the change if it does not help." }
+    ],
+    sources: [steamStore, steamLaunchHotfixNews, steamAnnouncements, steamCommunityDiscussions, steamLaunchSupport, steamVerifyFilesSupport],
+    reviewNotes: [
+      "Keep 1628505091 on this page until search volume and evidence justify a separate URL.",
+      "Do not turn launch congestion or queue reports into guaranteed local fixes."
     ]
   },
   "/wardogs-crashing-fix/": {
@@ -874,7 +1003,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       {
         heading: "Start Here: Safe Checks",
         facts: [
-          { status: "Officially confirmed", text: "Steam lists WARDOGS as a Windows PC title with published system requirements and kernel-level Easy Anti-Cheat on the store page." },
+          { status: "Officially confirmed", text: "Steam lists WARDOGS as a Windows PC title with published system requirements and currently discloses kernel-level Elytra anti-cheat on the store page." },
           { status: "Officially confirmed", text: "BULKHEAD's Closed Beta Known Issues post says crashes were being tracked and that crash reports helped the team catch issues before Early Access launch." },
           { status: "Safe generic troubleshooting", text: "Restart Windows and Steam, then launch WARDOGS once from the Steam Library before changing deeper settings." },
           { status: "Safe generic troubleshooting", text: "Use Steam's Verify integrity of game files tool before reinstalling the game." },
@@ -889,7 +1018,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ],
         links: [
           { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/", description: "Use this if Steam opens the game and it never reaches a playable state." },
-          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Use this if the crash appears around Easy Anti-Cheat, login, or an anti-cheat module message." }
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Use this if the crash appears around anti-cheat login, a splash screen, or an anti-cheat module message." }
         ]
       },
       {
@@ -912,13 +1041,13 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       },
       {
-        heading: "Easy Anti-Cheat-Related Crash Symptoms",
+        heading: "Anti-Cheat-Related Crash Symptoms",
         paragraphs: [
-          "Steam's store disclosure currently lists Easy Anti-Cheat for WARDOGS. If the crash happens before or during the anti-cheat splash, or if the error mentions login failed, failed to login, module not found, or an anti-cheat server error, do not mix that with generic crash advice.",
-          "Use the dedicated anti-cheat page for safe EAC troubleshooting boundaries and link generic wardogs crashing PC symptoms back here."
+          "Steam's store disclosure currently lists kernel-level Elytra anti-cheat for WARDOGS. If the crash happens before or during the anti-cheat splash, or if the error mentions login failed, failed to login, module not found, or an anti-cheat server error, do not mix that with generic crash advice.",
+          "Use the dedicated anti-cheat page for safe anti-cheat troubleshooting boundaries and link generic wardogs crashing PC symptoms back here."
         ],
         links: [
-          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "EAC login failed, module not found, anti-cheat splash, and launch crash checks." },
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Anti-cheat login failed, module not found, splash, and launch crash checks." },
           { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the central WARDOGS troubleshooting hub." }
         ]
       }
@@ -927,12 +1056,12 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       { question: "Why does WARDOGS keep crashing on startup?", answer: "There is no single official cause confirmed for every startup crash. Start with Steam file verification, a Steam and Windows restart, driver updates, and current official posts before trying community workarounds." },
       { question: "Is EXCEPTION_ACCESS_VIOLATION a confirmed WARDOGS bug?", answer: "EXCEPTION_ACCESS_VIOLATION appears in Steam player reports around shader-compilation crashes, but no official public WARDOGS source checked here confirms it as one universal bug with one guaranteed fix." },
       { question: "Should I reinstall WARDOGS to fix crashing?", answer: "Reinstalling is not the first confirmed WARDOGS fix. Verify game files in Steam first, then only reinstall if safe checks and official guidance leave no better option." },
-      { question: "Can Easy Anti-Cheat make WARDOGS crash on launch?", answer: "WARDOGS is listed on Steam with Easy Anti-Cheat, so anti-cheat-adjacent launch symptoms are possible. Use the anti-cheat guide if the crash occurs at the EAC splash or names an anti-cheat login or module error." }
+      { question: "Can anti-cheat make WARDOGS crash on launch?", answer: "WARDOGS currently discloses kernel-level Elytra anti-cheat on Steam, so anti-cheat-adjacent launch symptoms are possible. Use the anti-cheat guide if the crash occurs at an anti-cheat splash or names an anti-cheat login or module error." }
     ],
     sources: [steamStore, steamKnownIssues, steamShaderCrashThread, steamGameCrashesThread, steamLaunchSupport, steamVerifyFilesSupport, steamComputerCrashSupport, easyAntiCheatSupport],
     reviewNotes: [
       "Keep manual review high because WARDOGS crash behavior can change with the current beta and Early Access builds.",
-      "Do not publish BIOS, registry, DLL, antivirus-disable, or anti-cheat file-swap advice unless official WARDOGS, Steam, or Easy Anti-Cheat guidance supports it for the current build."
+      "Do not publish BIOS, registry, DLL, antivirus-disable, or anti-cheat file-swap advice unless official WARDOGS, Steam, or current anti-cheat provider guidance supports it for the current build."
     ]
   },
   "/wardogs-voip-not-working/": {
@@ -1004,17 +1133,17 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
   },
   "/wardogs-easy-anti-cheat-error-fix/": {
     quickAnswer: [
-      "Steam currently lists WARDOGS as using Easy Anti-Cheat, shown as kernel-level anti-cheat on the store page. That is the safest public source for the EAC wording.",
-      "No public WARDOGS-specific official fix was found for Easy Anti-Cheat login failed, failed to login, module not found, anti-cheat server error, or EAC splash-screen crashes in the sources checked on September 4, 2026.",
-      "Use safe checks only: restart Steam and Windows, verify files in Steam, check official WARDOGS posts, and use Easy Anti-Cheat official support for generic EAC help. Do not download replacement DLLs, run unofficial repair tools, or permanently disable security software."
+      "The current WARDOGS Steam store disclosure lists kernel-level Elytra anti-cheat. Older WARDOGS pages and player reports may still mention Easy Anti-Cheat, so check the current Steam store before treating legacy EAC wording as current-build fact.",
+      "No public WARDOGS-specific official fix was found for anti-cheat login failed, failed to login, module not found, anti-cheat server error, or splash-screen crashes in the sources checked on September 11, 2026.",
+      "Use safe checks only: restart Steam and Windows, verify files in Steam, and check official WARDOGS posts before changing security software. Do not download replacement DLLs, run unofficial repair tools, or permanently disable security software."
     ],
     lastUpdated: "September 4, 2026",
     sections: [
       {
         heading: "What Anti-Cheat Does WARDOGS Use?",
         facts: [
-          { status: "Officially confirmed", text: "The official Steam store page for WARDOGS lists Easy Anti-Cheat and labels it as kernel-level anti-cheat." },
-          { status: "Community-reported", text: "Some September 2026 Steam community posts discuss Elytra or build-specific anti-cheat behavior. These posts are useful context, but they are not a replacement for the current Steam store disclosure or an official public migration note." },
+          { status: "Officially confirmed", text: "The current official Steam store page for WARDOGS lists kernel-level Elytra anti-cheat." },
+          { status: "General guidance", text: "Older Easy Anti-Cheat wording should be treated as legacy or build-specific unless a current official source repeats it." },
           { status: "Not officially confirmed", text: "No public official WARDOGS post checked here confirms a single, universal player-side fix for all wardogs anticheat launch or login errors." }
         ]
       },
@@ -1022,18 +1151,18 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         heading: "Login Failed or Failed to Login",
         facts: [
           { status: "Community-reported", text: "During the August Closed Beta, Steam players reported access-denied and failed-authentication symptoms around online login and queueing." },
-          { status: "Not officially confirmed", text: "Those beta login reports do not prove that every wardogs anticheat login fail or wardogs anticheat failed to login message is caused by Easy Anti-Cheat. It may also be account, server, entitlement, or build availability related." },
+          { status: "Not officially confirmed", text: "Those beta login reports do not prove that every wardogs anticheat login fail or wardogs anticheat failed to login message is caused by anti-cheat. It may also be account, server, entitlement, or build availability related." },
           { status: "Safe generic troubleshooting", text: "Check official announcements and server-status context before changing local anti-cheat or security settings." }
         ],
         links: [
           { label: "WARDOGS Server Status", href: "/wardogs-server-status/", description: "Use this if the anti-cheat message appears with queues, login, failed joins, or server access." },
-          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "Use this if the symptom includes the beta-era authentication error code." }
+          { label: "WARDOGS Error Code 1147405308", href: "/wardogs-error-code-1147405308/", description: "Use this if the symptom includes authentication, access denied, or error 1147405308." }
         ]
       },
       {
         heading: "Module Not Found or Module Could Not Be Downloaded",
         paragraphs: [
-          "For wardogs anti cheat module not found symptoms, no WARDOGS-specific official fix was found in the checked public sources. Keep the troubleshooting reversible: restart Steam and Windows, verify files through Steam, and check Easy Anti-Cheat support for generic EAC guidance.",
+          "For wardogs anti cheat module not found symptoms, no WARDOGS-specific official fix was found in the checked public sources. Keep the troubleshooting reversible: restart Steam and Windows, verify files through Steam, and check current official WARDOGS posts before changing security tools.",
           "Do not download a missing module from a third-party site, copy files from another game, or run unknown executables. Anti-cheat components are security-sensitive and build-specific."
         ],
         links: [
@@ -1043,7 +1172,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       {
         heading: "EAC Splash or Anti-Cheat Launch Crash",
         facts: [
-          { status: "Safe generic troubleshooting", text: "If wardogs crashing before Easy Anti-Cheat finishes loading, preserve the exact error text and time, then verify Steam files before reinstalling." },
+          { status: "Safe generic troubleshooting", text: "If wardogs crashing before anti-cheat finishes loading, preserve the exact error text and time, then verify Steam files before reinstalling." },
           { status: "Safe generic troubleshooting", text: "Close overlays or apps that inject into games for one clean test, but do not permanently disable antivirus, firewall, or Windows security protections." },
           { status: "General guidance", text: "If the symptom is shader compilation, DX12, freezing, or a mid-game crash rather than a clear EAC message, use the WARDOGS crashing fix page." }
         ],
@@ -1054,11 +1183,11 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       },
       {
-        heading: "Safe EAC Troubleshooting Boundary",
+        heading: "Safe Anti-Cheat Troubleshooting Boundary",
         bullets: [
           "Restart Steam and Windows before changing files.",
           "Verify WARDOGS files through Steam.",
-          "Check the official Steam store page, Steam announcements, pinned developer posts, and Easy Anti-Cheat support.",
+          "Check the official Steam store page, Steam announcements, and pinned developer posts before using older EAC-specific guidance.",
           "Avoid permanent antivirus or firewall disablement.",
           "Avoid BIOS, registry, DLL, driver, or security-service changes unless official guidance for the current WARDOGS build supports them."
         ],
@@ -1068,22 +1197,22 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       }
     ],
     faqs: [
-      { question: "Does WARDOGS use Easy Anti-Cheat?", answer: "The official Steam store page currently lists WARDOGS with Easy Anti-Cheat and labels it as kernel-level anti-cheat. Community posts may discuss build-specific anti-cheat changes, so check official sources before assuming the current build behavior." },
+      { question: "Does WARDOGS use Easy Anti-Cheat?", answer: "The current Steam store disclosure lists WARDOGS with kernel-level Elytra anti-cheat. Treat Easy Anti-Cheat wording as legacy or build-specific unless a current official source repeats it." },
       { question: "Is every WARDOGS login failed message an anti-cheat issue?", answer: "No. Beta-era reports connect failed authentication and access denied with online queues and server load, but they do not prove every login failed message is caused by anti-cheat." },
-      { question: "How do I fix WARDOGS anti-cheat module not found?", answer: "No WARDOGS-specific official module-not-found fix was found. Use safe steps: restart Steam and Windows, verify files in Steam, check official WARDOGS posts, and use Easy Anti-Cheat official support for generic help." },
-      { question: "Should I disable antivirus to fix WARDOGS anti-cheat?", answer: "Do not permanently disable antivirus or firewall protection. If a security tool is suspected, test cautiously and follow official WARDOGS, Steam, or Easy Anti-Cheat guidance rather than downloading replacement files or using unofficial repair tools." }
+      { question: "How do I fix WARDOGS anti-cheat module not found?", answer: "No WARDOGS-specific official module-not-found fix was found. Use safe steps: restart Steam and Windows, verify files in Steam, and check official WARDOGS posts before changing files or security tools." },
+      { question: "Should I disable antivirus to fix WARDOGS anti-cheat?", answer: "Do not permanently disable antivirus or firewall protection. If a security tool is suspected, test cautiously and follow official WARDOGS or Steam guidance rather than downloading replacement files or using unofficial repair tools." }
     ],
     sources: [steamStore, steamKnownIssues, steamAuthErrorThread, steamMissingExecutableSupport, steamLaunchSupport, steamVerifyFilesSupport, easyAntiCheatSupport, steamCommunityDiscussions],
     reviewNotes: [
       "Keep manual review high because WARDOGS anti-cheat behavior appears build-sensitive and public player reports may conflict with the Steam store disclosure.",
-      "Do not add WARDOGS-specific EAC repair steps, BIOS changes, Secure Boot claims, or module-download claims without official current-build evidence."
+      "Do not add WARDOGS-specific anti-cheat repair steps, BIOS changes, Secure Boot claims, or module-download claims without official current-build evidence."
     ]
   },
   "/wardogs-missing-game-executable/": {
     quickAnswer: [
       "First decide whether WARDOGS should be playable right now. As of September 8, 2026, the last official beta window checked for this page had already ended on Sunday, September 6, 2026 at 08:00 UTC, while Steam lists Early Access for September 10, 2026. If you are launching an old Playtest entry outside an active window, repeated verify, reinstall, or system-setting changes may not restore a playable build.",
       "If WARDOGS is inside an active playtest or Early Access window and Steam says missing game executable, game executable not found, or invalid game executable, check whether Steam actually downloaded real game files before touching anti-cheat or security settings.",
-      "If the error names Easy Anti-Cheat, Elytra, or an anti-cheat module instead of a missing file, treat it as an anti-cheat launch symptom. Steam officially lists Easy Anti-Cheat for WARDOGS; Elytra-specific errors are currently community-reported and build-specific, not a universal official WARDOGS fix path."
+      "If the error names Easy Anti-Cheat, Elytra, or an anti-cheat module instead of a missing file, treat it as an anti-cheat launch symptom. The current Steam store disclosure lists kernel-level Elytra anti-cheat for WARDOGS; older EAC wording should be treated as legacy or build-specific unless official sources repeat it."
     ],
     lastUpdated: "September 8, 2026",
     sections: [
@@ -1182,21 +1311,21 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         facts: [
           {
             status: "Officially confirmed",
-            text: "The WARDOGS Steam store currently lists kernel-level Easy Anti-Cheat."
+            text: "The current WARDOGS Steam store disclosure lists kernel-level Elytra anti-cheat."
           },
           {
             status: "Safe generic troubleshooting",
-            text: "Use official WARDOGS posts, Steam file verification, and Easy Anti-Cheat support before making security or system-level changes."
+            text: "Use official WARDOGS posts and Steam file verification before making security or system-level changes."
           }
         ],
         links: [
-          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Use this for EAC login, module, splash, or anti-cheat launch messages." }
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/", description: "Use this for anti-cheat login, module, splash, or launch messages." }
         ]
       },
       {
         heading: "Elytra / Anti-Cheat Troubleshooting",
         paragraphs: [
-          "Elytra appears in current WARDOGS player reports, but the checked official public WARDOGS source still lists Easy Anti-Cheat. Treat Elytra wording as community-reported and build-specific unless BULKHEAD, Team17, Steam, or an official support channel confirms a current public fix.",
+          "The current Steam store disclosure lists WARDOGS with kernel-level Elytra anti-cheat. Treat older Easy Anti-Cheat wording and player reports as build-specific unless a current official source repeats them.",
           "If your own WARDOGS install includes Elytra files and the launcher specifically names Elytra, only use files that came from your Steam installation. Do not download Elytra, WARDOGS executables, DLLs, or anti-cheat components from third-party sites."
         ],
         facts: [
@@ -1256,7 +1385,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       },
       {
         question: "Is Elytra the official WARDOGS anti-cheat?",
-        answer: "The official Steam store currently lists Easy Anti-Cheat. Elytra appears in WARDOGS player reports and should be treated as community-reported or build-specific unless official WARDOGS sources confirm the current anti-cheat behavior."
+        answer: "The current official Steam store disclosure lists kernel-level Elytra anti-cheat for WARDOGS. Treat older Easy Anti-Cheat wording as legacy or build-specific unless a current official source repeats it."
       },
       {
         question: "Should I download a missing WARDOGS executable or DLL?",

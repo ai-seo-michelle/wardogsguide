@@ -139,12 +139,21 @@ export const seoByRoute: Record<string, SeoEntry> = {
     ogType: "article"
   },
   "/wardogs-error-code-1147405308/": {
-    title: "WARDOGS Error Code 1147405308 | Safe Troubleshooting",
+    title: "WARDOGS Error Code 1147405308: Failed to Authenticate Fix",
     description:
-      "Verification-first WARDOGS error code 1147405308 page for confirmed causes, safe checks, and source tracking.",
-    h1: "WARDOGS Error Code 1147405308",
+      "Fix WARDOGS error code 1147405308 and failed to authenticate with online services by checking server status, Steam, and safe authentication steps.",
+    h1: "WARDOGS Error Code 1147405308 Fix",
     canonical: canonical("/wardogs-error-code-1147405308/"),
     keyword: "wardogs error code 1147405308",
+    ogType: "article"
+  },
+  "/wardogs-failed-to-connect-to-server/": {
+    title: "WARDOGS Failed to Connect to Server: Reasonable Time Error Fix",
+    description:
+      "Fix WARDOGS failed to connect to server and reasonable time errors by checking server status, launch queues, Steam, network, firewall, and VPN safely.",
+    h1: "WARDOGS Failed to Connect to Server Fix",
+    canonical: canonical("/wardogs-failed-to-connect-to-server/"),
+    keyword: "wardogs failed to connect to server",
     ogType: "article"
   },
   "/wardogs-controller-settings/": {

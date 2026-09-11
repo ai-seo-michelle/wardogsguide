@@ -1,6 +1,6 @@
 # WARDOGS Guide Page Matrix
 
-This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 19 English SEO pages.
+This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 20 English SEO pages.
 
 | Route | Page | Target keyword | Type | Priority | Manual review | Intent |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -18,7 +18,8 @@ This page matrix contains the approved launch set plus the first troubleshooting
 | `/what-is-wardogs-game/` | What Is WARDOGS Game | what is wardogs game | overview | P1 | low | explain what the game is and the gameplay framework |
 | `/how-to-play-wardogs/` | How to Play WARDOGS | how to play wardogs | beginner_guide | P1 | medium | first-match learning path |
 | `/wardogs-not-launching/` | WARDOGS Not Launching | wardogs not launching | troubleshooting | P1 | high | startup failure, access denied, anti-cheat checks |
-| `/wardogs-error-code-1147405308/` | WARDOGS Error Code 1147405308 | wardogs error code 1147405308 | troubleshooting | P1 | high | specific error-code lookup and safe troubleshooting |
+| `/wardogs-error-code-1147405308/` | WARDOGS Error Code 1147405308 | wardogs error code 1147405308 | troubleshooting | P1 | high | authentication, access denied, failed to authenticate with online services, and 1147405308 launch errors |
+| `/wardogs-failed-to-connect-to-server/` | WARDOGS Failed to Connect to Server | wardogs failed to connect to server | troubleshooting | P1 | high | failed to connect to server, reasonable-time timeout, cannot join server, launch queues, and connection checks |
 | `/wardogs-controller-settings/` | WARDOGS Controller Settings | wardogs controller settings | settings_guide | P1 | high | controller, keyboard, mouse and keybind setup |
 | `/wardogs-helicopter-guide/` | WARDOGS Helicopter Guide | wardogs helicopter | controls_guide | P1 | high | complete helicopter guide for controls, flying, landing, aiming, transport, and settings boundaries |
 | `/wardogs-how-to-make-money/` | How to Make Money in WARDOGS | how to make money in wardogs | economy_guide | P1 | high | cash, money making, logistics, supply, transport, persistence, and spending-risk guide |
@@ -29,7 +30,7 @@ This page matrix contains the approved launch set plus the first troubleshooting
 
 - Guide: `/wardogs-guide/`
 - Launch: `/wardogs-release-date/`, `/wardogs-early-access/`, `/wardogs-playtest-schedule/`
-- Troubleshooting: `/wardogs-server-status/`, `/wardogs-crashing/`, `/wardogs-crashing-fix/`, `/wardogs-voip-not-working/`, `/wardogs-easy-anti-cheat-error-fix/`, `/wardogs-missing-game-executable/`, `/wardogs-not-launching/`, `/wardogs-error-code-1147405308/`
+- Troubleshooting: `/wardogs-server-status/`, `/wardogs-crashing/`, `/wardogs-crashing-fix/`, `/wardogs-voip-not-working/`, `/wardogs-easy-anti-cheat-error-fix/`, `/wardogs-missing-game-executable/`, `/wardogs-not-launching/`, `/wardogs-error-code-1147405308/`, `/wardogs-failed-to-connect-to-server/`
 - Settings: `/wardogs-best-settings/`, `/wardogs-controller-settings/`
 - Controls: `/wardogs-helicopter-guide/`, `/wardogs-helicopter-controls/`
 - Economy: `/wardogs-how-to-make-money/`
