@@ -11,6 +11,7 @@ export type PageType =
   | "beginner_guide"
   | "controls_guide"
   | "economy_guide"
+  | "gameplay_guide"
   | "playtest_guide";
 
 export type GuideSection = {
@@ -80,6 +81,10 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-missing-game-executable/",
       "/wardogs-playtest-schedule/",
       "/wardogs-how-to-make-money/",
+      "/wardogs-fob-guide/",
+      "/wardogs-tower-guide/",
+      "/wardogs-mortar-guide/",
+      "/wardogs-xp-guide/",
       "/wardogs-helicopter-guide/",
       "/wardogs-best-settings/"
     ]
@@ -125,6 +130,10 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-best-settings/",
       "/what-is-wardogs-game/",
       "/how-to-play-wardogs/",
+      "/wardogs-fob-guide/",
+      "/wardogs-tower-guide/",
+      "/wardogs-mortar-guide/",
+      "/wardogs-xp-guide/",
       "/wardogs-not-launching/",
       "/wardogs-error-code-1147405308/",
       "/wardogs-controller-settings/",
@@ -470,7 +479,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Avoid naming maps, weapons, factions, or meta advice until the site enters the fact-verification stage."
       }
     ],
-    relatedRoutes: ["/wardogs-early-access/", "/wardogs-how-to-make-money/", "/wardogs-helicopter-guide/", "/wardogs-best-settings/", "/wardogs-controller-settings/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-early-access/", "/wardogs-fob-guide/", "/wardogs-tower-guide/", "/wardogs-mortar-guide/", "/wardogs-xp-guide/", "/wardogs-how-to-make-money/", "/wardogs-helicopter-guide/", "/wardogs-best-settings/", "/wardogs-controller-settings/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Not Launching",
@@ -621,6 +630,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-controller-settings/",
       "/wardogs-best-settings/",
       "/wardogs-how-to-make-money/",
+      "/wardogs-xp-guide/",
       "/how-to-play-wardogs/",
       "/wardogs-guide/"
     ]
@@ -651,11 +661,94 @@ export const pageMatrix: PageMatrixEntry[] = [
     ],
     relatedRoutes: [
       "/how-to-play-wardogs/",
+      "/wardogs-fob-guide/",
+      "/wardogs-xp-guide/",
       "/wardogs-helicopter-guide/",
       "/wardogs-controller-settings/",
       "/wardogs-server-status/",
       "/wardogs-guide/"
     ]
+  },
+
+  {
+    title: "WARDOGS FOB Guide",
+    route: "/wardogs-fob-guide/",
+    keyword: "wardogs fob",
+    type: "gameplay_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "FOB building, placement, supplies, repair, spawning, and common FOB problems",
+    eyebrow: "Gameplay Guide",
+    h1: "WARDOGS FOB Guide",
+    description:
+      "A WARDOGS FOB guide for building, placing, supplying, repairing, spawning from, and troubleshooting forward operating bases.",
+    quickAnswer:
+      "Use this page for WARDOGS FOB questions. Official sources confirm FOB building and support play, while exact placement, cost, spawn, and supply rules should still be checked against the current build.",
+    sections: [
+      { heading: "FOB role", body: "FOBs belong to the gameplay systems cluster, not the money page. The money guide can mention FOBs as a cash-related team action, while this page owns FOB building and use intent." },
+      { heading: "Verification boundary", body: "Do not publish fixed FOB costs, radii, timers, or supply values unless official or current-build sources confirm them." }
+    ],
+    relatedRoutes: ["/wardogs-how-to-make-money/", "/wardogs-tower-guide/", "/wardogs-mortar-guide/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Tower Guide",
+    route: "/wardogs-tower-guide/",
+    keyword: "wardogs tower",
+    type: "gameplay_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "towers, tower codes, capture, control, objectives, and tower vs FOB boundaries",
+    eyebrow: "Gameplay Guide",
+    h1: "WARDOGS Tower Guide",
+    description:
+      "A WARDOGS tower guide for tower codes, capture, control, objectives, common tower problems, and tower vs FOB boundaries.",
+    quickAnswer:
+      "Use this page for WARDOGS tower, tower codes, capture, and control questions. It keeps tower-code intent on one mother page instead of splitting a thin tower-codes URL.",
+    sections: [
+      { heading: "Tower role", body: "Tower search intent is separate from FOB intent: towers are objective/control questions, while FOBs are build, supply, repair, and spawn questions." },
+      { heading: "Verification boundary", body: "Treat tower-code details as current-build information and avoid publishing permanent code mechanics unless reliable sources confirm them." }
+    ],
+    relatedRoutes: ["/wardogs-fob-guide/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Mortar Guide",
+    route: "/wardogs-mortar-guide/",
+    keyword: "wardogs mortar",
+    type: "gameplay_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "mortar building, controls, aiming, firing, range, ammo, resupply, placement, and calculator resources",
+    eyebrow: "Gameplay Guide",
+    h1: "WARDOGS Mortar Guide",
+    description:
+      "A WARDOGS mortar guide for building, using, aiming, firing, resupplying, placing, and understanding mortar resources without creating a calculator page.",
+    quickAnswer:
+      "Use this page for WARDOGS mortar questions. This is a guide, not a mortar calculator, and it keeps mortar intent separate from future artillery pages.",
+    sections: [
+      { heading: "Mortar role", body: "Mortar questions belong to one gameplay guide for now. Calculator searches are acknowledged as resources, but no calculator page is created this round." },
+      { heading: "Verification boundary", body: "Do not publish fixed range tables, ammo values, damage numbers, or ballistic formulas unless official or current-build sources confirm them." }
+    ],
+    relatedRoutes: ["/wardogs-fob-guide/", "/wardogs-tower-guide/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS XP Guide",
+    route: "/wardogs-xp-guide/",
+    keyword: "wardogs xp",
+    type: "gameplay_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "XP, leveling, role XP, support, driver, pilot, recon, assault, and medic progression",
+    eyebrow: "Gameplay Guide",
+    h1: "WARDOGS XP Guide",
+    description:
+      "A WARDOGS XP guide for leveling and role XP across Support, Driver, Pilot, Recon, Assault, and Medic without using noisy non-XP search variants.",
+    quickAnswer:
+      "Use this page for real experience and leveling intent. It excludes Similarweb noise where xp appears inside unrelated words such as explained, unexpected, or expect.",
+    sections: [
+      { heading: "XP role", body: "The money guide covers cash and economy; this page owns leveling, experience, and role XP intent." },
+      { heading: "Verification boundary", body: "Do not publish exact XP values, farm rates, unlock thresholds, or role-specific reward numbers unless reliable current-build sources confirm them." }
+    ],
+    relatedRoutes: ["/wardogs-how-to-make-money/", "/wardogs-helicopter-guide/", "/how-to-play-wardogs/", "/wardogs-guide/"]
   },
 
   {

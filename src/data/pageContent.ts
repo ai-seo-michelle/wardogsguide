@@ -190,6 +190,42 @@ const steamMissingExecutableThread: GuideSource = {
   type: "Community"
 };
 
+const wardogsHandbookDeployables: GuideSource = {
+  label: "WARDOGS Handbook: Deployables",
+  url: "https://wardogshandbook.com/Deployables",
+  type: "Community"
+};
+
+const wardogsHandbookClasses: GuideSource = {
+  label: "WARDOGS Handbook: Classes",
+  url: "https://wardogshandbook.com/Classes",
+  type: "Community"
+};
+
+const wardogsZoneClasses: GuideSource = {
+  label: "WARDOGS Field Manual: Classes & Progression",
+  url: "https://www.wardogs.zone/wiki/classes-and-progression",
+  type: "Community"
+};
+
+const wardogsZoneMortars: GuideSource = {
+  label: "WARDOGS Field Manual: Mortars",
+  url: "https://www.wardogs.zone/wiki/mortars",
+  type: "Community"
+};
+
+const wardogsCompanionMortars: GuideSource = {
+  label: "WARDOGS Companion: Mortars guide",
+  url: "https://www.wardogscompanion.com/guide/mortars",
+  type: "Community"
+};
+
+const metaforgeTowerGuide: GuideSource = {
+  label: "MetaForge WARDOGS tower guide",
+  url: "https://metaforge.app/guides/games/war-dogs/wardogs-towers-guide-tower-codes-capture-strategy/",
+  type: "Media"
+};
+
 
 export const guideContentByRoute: Record<string, GuidePageContent> = {
   "/": {
@@ -242,6 +278,19 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Helicopter Controls", href: "/wardogs-helicopter-controls/" }
         ]
       },
+
+      {
+        heading: "Gameplay Systems",
+        paragraphs: [
+          "Use these gameplay guides for focused help with building FOBs, taking towers, using mortars, and understanding XP and roles."
+        ],
+        links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "Building, placement, supplies, repair, spawning, and FOB problems." },
+          { label: "WARDOGS Tower Guide", href: "/wardogs-tower-guide/", description: "Tower codes, capture, control, objectives, and tower vs FOB boundaries." },
+          { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Building, aiming, firing, resupply, placement, and calculator resources." },
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP without fixed reward numbers." }
+        ]
+      },
       {
         heading: "Scope",
         bullets: [
@@ -268,7 +317,18 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Release Date", href: "/wardogs-release-date/", description: "Confirmed launch date, platform, and open timing questions." },
           { label: "WARDOGS Early Access", href: "/wardogs-early-access/", description: "Access, pricing, beta history, and Early Access expectations." },
           { label: "WARDOGS Playtest Schedule", href: "/wardogs-playtest-schedule/", description: "Current beta end time, next-playtest status, and official schedule checks." },
-          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, supply transport, and persistence questions." }
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, supply transport, and persistence questions." },
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP boundaries." }
+        ]
+      },
+
+      {
+        heading: "Gameplay Systems",
+        links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "Build, place, supply, repair, and use FOBs." },
+          { label: "WARDOGS Tower Guide", href: "/wardogs-tower-guide/", description: "Tower codes, capture, control, and objectives." },
+          { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Mortar building, aiming, firing, resupply, and placement." },
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP across Support, Driver, Pilot, Recon, Assault, and Medic." }
         ]
       },
       {
@@ -1808,6 +1868,8 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           "If you are trying to make money, look for team actions that move people, supplies, or objective pressure forward. The checked sources do not confirm exact payout tables, so this page avoids ranking one supply route above another."
         ],
         links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "FOB building, supply, repair, and spawn questions." },
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP boundaries." },
           { label: "WARDOGS Helicopter Guide", href: "/wardogs-helicopter-guide/", description: "Transport and helicopter supply context." },
           { label: "How to Play WARDOGS", href: "/how-to-play-wardogs/", description: "The broader match loop and objective basics." }
         ]
@@ -1886,6 +1948,408 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       "Do not create a separate wardogs logistics page until search demand and verified material justify a distinct intent."
     ]
   },
+  "/wardogs-fob-guide/": {
+    quickAnswer: [
+      "Use this page when your question is about WARDOGS FOBs: what they do, how to get or buy one, how to build and place one, how supplies and repair fit in, and what to check when the FOB says it needs supplies.",
+      "Official WARDOGS sources confirm forward operating base construction, building resources, logistics, and support play. Exact FOB cost, placement limits, spawn timers, and supply values are treated as current-build details unless reliable sources confirm them.",
+      "If your question is mainly about earning cash from logistics or support play, use the money guide. If your question is about mortars built from a FOB-style support setup, use the mortar guide after you understand FOB supply rules."
+    ],
+    sections: [
+      {
+        heading: "What Is a FOB in WARDOGS?",
+        facts: [
+          { status: "Officially confirmed", text: "Official Steam and developer FAQ wording connects WARDOGS with building forward operating bases, buying building resources, logistics, vehicles, and support-focused play." },
+          { status: "Officially confirmed", text: "The developer FAQ lists building FOBs among useful team actions that can earn cash." },
+          { status: "Community-reported", text: "Community-maintained deployable references describe FOBs as a deployable support structure, but their exact values should be checked against the live build." }
+        ]
+      },
+      {
+        heading: "How to Get / Buy a FOB",
+        paragraphs: [
+          "The safest supported answer is that FOBs are part of WARDOGS building resources and team logistics. Use the current in-game buy, build, or deployment interface as the source of truth for where the FOB appears and what it costs.",
+          "Do not rely on a fixed FOB price or permanent purchase path unless the current build confirms it. Community references may list deployable values, but those can change quickly after launch."
+        ],
+        links: [
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, supplies, and spending-risk context." }
+        ]
+      },
+      {
+        heading: "How to Build a FOB",
+        facts: [
+          { status: "General guidance", text: "Before placing a FOB, confirm that you have the current build's required resources, tool, deployable item, squad/team permission, and placement surface." },
+          { status: "Community-reported", text: "Community deployable references connect FOBs and other support structures with building tools and deployables, but this page does not turn those values into official rules." },
+          { status: "Not officially confirmed", text: "A public official placement checklist, build time, exclusion radius, and spawn-distance rule were not found in the official sources checked for this update." }
+        ]
+      },
+      {
+        heading: "Where to Place a FOB",
+        bullets: [
+          "Place it close enough to matter, but not so exposed that enemies can remove it immediately.",
+          "Avoid blocking vehicle paths, helicopter landing areas, or obvious retreat routes.",
+          "Prefer cover, supply access, and a path toward the active objective over flashy forward placements.",
+          "Treat placement advice from videos as map- and build-specific unless it matches the current live layout."
+        ]
+      },
+      {
+        heading: "Supplies and Resources",
+        facts: [
+          { status: "Officially confirmed", text: "Official descriptions connect WARDOGS logistics with supplies, building resources, vehicles, and support play." },
+          { status: "General guidance", text: "If the game reports not enough supplies or resources, stop trying to replace the same FOB and check whether the required support item, supply source, or team resource is missing." },
+          { status: "Not officially confirmed", text: "Exact FOB supply costs, reserve limits, repair values, and resupply amounts were not confirmed in the official sources checked." }
+        ]
+      },
+      {
+        heading: "How to Resupply / Repair a FOB",
+        paragraphs: [
+          "Use the live UI first: if the FOB has a health, supply, or repair prompt, follow that prompt rather than a stale beta guide. If the prompt asks for supplies, route a logistics player or vehicle before assuming the FOB is bugged.",
+          "For repair, confirm whether the current build expects a repair tool, building tool, or supply interaction. This page avoids listing a fixed tool requirement unless it is verified against the active build."
+        ],
+        links: [
+          { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Mortar setup and resupply context when indirect fire depends on logistics." }
+        ]
+      },
+      {
+        heading: "How Spawning at a FOB Works",
+        facts: [
+          { status: "Not officially confirmed", text: "The checked official sources do not publish a full public FOB spawn rule set, including spawn timers, restrictions, radius rules, or contested behavior." },
+          { status: "General guidance", text: "If the current spawn screen marks a FOB as unavailable, check whether it is out of supplies, under attack, destroyed, too close to enemies, or unavailable due to a current-build rule." }
+        ]
+      },
+      {
+        heading: "Common FOB Problems",
+        bullets: [
+          "FOB not enough supplies: check team resources, supply deliveries, and whether the right build interaction is being used.",
+          "Cannot place FOB: check terrain, nearby structures, objective restrictions, team limits, and whether another deployable blocks placement.",
+          "Cannot spawn at FOB: check whether the FOB is active, supplied, alive, contested, or restricted by the current spawn screen.",
+          "FOB disappears or is destroyed: separate enemy action from a bug before rebuilding in the same exposed place."
+        ]
+      },
+      {
+        heading: "Practical FOB Tips",
+        bullets: [
+          "Build for team movement, not just personal convenience.",
+          "Pair FOB placement with supplies, repair capacity, and a fallback route.",
+          "Do not spend scarce resources on a FOB if your team cannot defend or resupply it.",
+          "Use FOBs as part of the wider objective plan with towers, mortars, transport, and cash management."
+        ],
+        links: [
+          { label: "WARDOGS Tower Guide", href: "/wardogs-tower-guide/" },
+          { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/" },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+        ]
+      }
+    ],
+    sources: [steamStore, team17GamePage, steamDeveloperFaq, wardogsHandbookDeployables],
+    faqs: [
+      { question: "What does a FOB do in WARDOGS?", answer: "Official sources confirm FOB construction as part of WARDOGS team logistics and building. Exact spawn and supply behavior should be checked in the current build." },
+      { question: "Where do I buy a FOB in WARDOGS?", answer: "Use the live buy, build, or deployment interface. Official sources confirm building resources, but this page does not publish a fixed price or menu path without current-build verification." },
+      { question: "Why does my FOB say not enough supplies?", answer: "It usually means the required current-build resource, supply source, or build interaction is missing. Check supplies before rebuilding or assuming the FOB is bugged." },
+      { question: "Should FOBs and mortars be on the same page?", answer: "No. FOBs own building, supply, repair, and spawn intent. Mortars have enough build, aim, ammo, and resupply intent for a separate guide." }
+    ],
+    lastUpdated: "September 13, 2026",
+    reviewNotes: [
+      "Keep FOB values conservative until current-build placement, supply, and spawn rules are verified.",
+      "Do not split wardogs logistics into its own page during this round."
+    ]
+  },
+  "/wardogs-tower-guide/": {
+    quickAnswer: [
+      "Use this page for WARDOGS tower questions: tower codes, how towers work, how to capture or control them, how they differ from FOBs, and what to check when a tower interaction does not work.",
+      "Public official sources checked for this update confirm WARDOGS objective control and large-scale sandbox play, but do not publish a full tower-code manual. Tower-code and capture details should be treated as current-build or community-guide information unless verified in-game.",
+      "Tower code questions belong with tower capture and control, so this guide keeps those checks in one place."
+    ],
+    sections: [
+      {
+        heading: "What Towers Do",
+        facts: [
+          { status: "Officially confirmed", text: "Official sources describe WARDOGS around objective control, three-team play, building, fortification, and large-scale combined-arms combat." },
+          { status: "Community-reported", text: "Current tower guides and player reports describe towers as important control or objective structures with code-related interactions, but exact rules should be verified in the live build." },
+          { status: "Not officially confirmed", text: "A public official tower-code rulebook was not found in the official sources checked." }
+        ]
+      },
+      {
+        heading: "How Towers Work",
+        paragraphs: [
+          "Treat towers as a current-build objective system: read the on-screen prompt, check whether your team owns or contests the area, and avoid applying old beta instructions if the UI has changed.",
+          "If a tower interaction depends on a code, keep that code process tied to the current match UI or verified community guidance rather than a permanent hard-coded answer."
+        ]
+      },
+      {
+        heading: "How to Capture / Take a Tower",
+        bullets: [
+          "Clear nearby enemies before interacting with the tower.",
+          "Check whether the tower requires a code, a capture timer, a nearby objective state, or a team presence condition in the current build.",
+          "Bring teammates if the tower is contested, because towers can attract third-team pressure.",
+          "If the capture does not progress, check the UI prompt before assuming the tower is bugged."
+        ]
+      },
+      {
+        heading: "How to Control / Claim Towers",
+        facts: [
+          { status: "General guidance", text: "After capture, defend the approaches and keep the route between the tower, objective, and team logistics usable." },
+          { status: "Not officially confirmed", text: "The official sources checked do not confirm a permanent tower ownership timer, reward table, or reset rule." }
+        ]
+      },
+      {
+        heading: "Tower Codes",
+        paragraphs: [
+          "Tower code search demand is real, but code behavior can be version-sensitive. This page treats tower codes as a tower-guide subsection, not a separate URL.",
+          "Use the current in-game clue, prompt, or verified match-specific source. Do not trust a static code list unless it is clearly tied to the current WARDOGS build and map state."
+        ]
+      },
+      {
+        heading: "Tower Objectives",
+        bullets: [
+          "Use towers to support map control rather than chasing them away from the main fight without a plan.",
+          "Coordinate tower pushes with FOB placement, supply routes, and objective pressure.",
+          "If the tower is too expensive to hold, fall back to the active objective or a stronger logistics route."
+        ],
+        links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "FOB placement and supply support for tower pushes." }
+        ]
+      },
+      {
+        heading: "Tower vs FOB",
+        facts: [
+          { status: "General guidance", text: "Use the tower guide for capture, control, objective, and code intent. Use the FOB guide for player-built logistics, supplies, repair, and spawn questions." }
+        ],
+        links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/" },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+        ]
+      },
+      {
+        heading: "Common Tower Problems",
+        bullets: [
+          "Code does not work: confirm it is for the current tower, current match, and current build.",
+          "Cannot capture: check enemies, ownership state, objective state, and the tower prompt.",
+          "Tower resets: check whether the area was contested, abandoned, or changed by a current-build rule.",
+          "Team cannot hold it: reinforce with FOB logistics instead of repeatedly running into the same approach."
+        ]
+      }
+    ],
+    sources: [steamStore, team17GamePage, steamDeveloperFaq, metaforgeTowerGuide, steamCommunityDiscussions],
+    faqs: [
+      { question: "What are WARDOGS tower codes?", answer: "Tower-code behavior appears to be a current-build tower mechanic in community guides, but no official static code manual was found. Use the live match prompt or a verified current-build guide." },
+      { question: "How do I take a tower in WARDOGS?", answer: "Clear the area, follow the current tower prompt, and check whether a code, timer, or team presence requirement applies in the live build." },
+      { question: "Should tower codes have their own page?", answer: "No. Keep tower code checks on the main Tower Guide so capture, control, and code context stay together." },
+      { question: "What is the difference between a tower and a FOB?", answer: "Use towers for capture/control/code intent. Use FOBs for player-built logistics, supplies, repair, and spawn intent." }
+    ],
+    lastUpdated: "September 13, 2026",
+    reviewNotes: [
+      "Keep tower-code wording conservative until direct current-build verification is available.",
+      "Do not create /wardogs-tower-codes/ this round."
+    ]
+  },
+  "/wardogs-mortar-guide/": {
+    quickAnswer: [
+      "Use this page for WARDOGS mortar questions: how to get or build a mortar, how to aim and fire, how range and ammo should be handled, how to resupply, and how mortar calculators fit in without replacing in-game verification.",
+      "Official WARDOGS sources confirm building, destruction, logistics, vehicles, and support play. Specific mortar setup, range, ammunition, and calculator details are treated as community or current-build information unless verified in-game.",
+      "This is a mortar guide, not a mortar calculator. Use calculator resources only as optional aids, then verify with the current in-game UI and spotter corrections."
+    ],
+    sections: [
+      {
+        heading: "How to Get a Mortar",
+        facts: [
+          { status: "Officially confirmed", text: "Official sources describe WARDOGS as having building, destruction, logistics, supplies, and support-focused play." },
+          { status: "Community-reported", text: "Community deployable references list mortars among support/deployable items, but costs and unlock conditions should be checked in the current build." },
+          { status: "Not officially confirmed", text: "The official public sources checked do not publish a final mortar unlock path, cost, range table, or ammo table." }
+        ]
+      },
+      {
+        heading: "How to Build a Mortar",
+        paragraphs: [
+          "Before trying to place a mortar, check whether the live build requires a specific deployable item, building tool, support kit, supply source, or team resource. A failed placement often points to resources or placement rules, not a broken mortar.",
+          "If the mortar is tied to FOB or supply logistics in the current build, solve the FOB/supply problem first instead of repeatedly trying to place the mortar."
+        ],
+        links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "FOB supplies and build-context troubleshooting." }
+        ]
+      },
+      {
+        heading: "Mortar Controls",
+        facts: [
+          { status: "General guidance", text: "Use the live control prompt for entering, aiming, firing, leaving, and resupplying the mortar. Do not copy old beta bindings if the UI changed." },
+          { status: "Not officially confirmed", text: "No official public mortar keybind map was found in the sources checked for this update." }
+        ]
+      },
+      {
+        heading: "How to Aim / Fire",
+        paragraphs: [
+          "Aim and fire only after confirming the current build's bearing, elevation, map-marker, or spotting workflow. Mortar systems are highly sensitive to patch changes, so static numbers from a video can become wrong quickly.",
+          "Coordinate with teammates before firing. A mortar is most useful when someone is spotting targets, calling corrections, or marking the target area."
+        ]
+      },
+      {
+        heading: "Range",
+        facts: [
+          { status: "Community-reported", text: "Mortar-focused community resources and calculators exist, which shows real demand for range and angle planning." },
+          { status: "Not officially confirmed", text: "This page does not publish a fixed mortar range table because no official current-build range values were confirmed in the checked sources." }
+        ]
+      },
+      {
+        heading: "Mortar Ammo / Rounds",
+        facts: [
+          { status: "General guidance", text: "Before firing, check the mortar's current ammo state, team supplies, and whether a nearby supply source is required." },
+          { status: "Not officially confirmed", text: "Exact mortar round counts, resupply amounts, and ammunition types were not confirmed in official public sources." }
+        ]
+      },
+      {
+        heading: "How to Resupply",
+        paragraphs: [
+          "If the mortar cannot fire, check supplies before assuming an input problem. In a logistics-heavy game, ammo, supply boxes, FOB support, or nearby resources may be the limiting factor.",
+          "Use current in-game prompts for the resupply interaction. This page avoids giving fixed steps that could become unsafe or wrong after a patch."
+        ]
+      },
+      {
+        heading: "Mortar Placement",
+        bullets: [
+          "Place mortars where teammates can defend and resupply them.",
+          "Avoid obvious open areas where the mortar is easy to destroy.",
+          "Leave room for teammates to move, reload, and repair nearby support structures.",
+          "Plan the mortar position with FOB routes and objective pressure, not as a solo farming spot."
+        ]
+      },
+      {
+        heading: "Multiple Mortars",
+        facts: [
+          { status: "General guidance", text: "Multiple mortars can waste resources if no one is spotting or resupplying. Add more only when the team can feed targets, ammo, and defense." },
+          { status: "Not officially confirmed", text: "No official current-build limit on mortar count or team mortar cap was confirmed in the checked sources." }
+        ]
+      },
+      {
+        heading: "Mortar vs Artillery",
+        paragraphs: [
+          "This page is for mortar intent: buildable or support indirect fire, aiming, ammo, placement, and resupply. Artillery searches and artillery calculator searches are separate topics, so this guide only explains the boundary.",
+          "If a guide or video calls everything artillery, check the actual in-game item name before applying its steps to a mortar."
+        ]
+      },
+      {
+        heading: "Calculator Note / Resources",
+        facts: [
+          { status: "Community-reported", text: "Community mortar calculator and companion resources exist, but this page does not publish a calculator or copy third-party formulas." },
+          { status: "General guidance", text: "Use calculators as planning aids only, then verify with the live build, in-game UI, and spotter corrections." }
+        ],
+        links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/" },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+        ]
+      }
+    ],
+    sources: [steamStore, team17GamePage, steamDeveloperFaq, wardogsHandbookDeployables, wardogsZoneMortars, wardogsCompanionMortars],
+    faqs: [
+      { question: "How do I build a mortar in WARDOGS?", answer: "Check the live deployable/build interface, required tool, and supply context. Community references list mortars as support deployables, but final cost and placement rules should be verified in the current build." },
+      { question: "Is this a WARDOGS mortar calculator?", answer: "No. This is a mortar guide. Calculator resources can help with planning, but this page does not provide a calculator or copy third-party formulas." },
+      { question: "What is the WARDOGS mortar range?", answer: "No official current-build range table was confirmed in public sources checked here. Use the live UI and verified community tools carefully." },
+      { question: "How do I resupply mortars?", answer: "Check the current ammo and supply prompts first. Mortar resupply may depend on the live build's support, supply, or FOB logistics rules." }
+    ],
+    lastUpdated: "September 13, 2026",
+    reviewNotes: [
+      "Do not create a mortar calculator page this round.",
+      "Do not publish mortar range tables, ammo values, or formulas without reliable current-build verification."
+    ]
+  },
+  "/wardogs-xp-guide/": {
+    quickAnswer: [
+      "Use this page for WARDOGS XP and leveling questions: Support XP, Driver XP, Pilot XP, Recon XP, Assault XP, Medic XP, and efficient role leveling.",
+      "Official sources confirm WARDOGS has XP progression and no fixed class structure. Your role is shaped by what you buy and how you play, so role XP advice should follow current in-game role prompts instead of invented reward numbers.",
+      "This page does not publish exact XP values, farm rates, unlock thresholds, or best XP exploits because those details need current-build verification."
+    ],
+    sections: [
+      {
+        heading: "How XP / Experience Works",
+        facts: [
+          { status: "Officially confirmed", text: "The Steam Early Access description lists cash and XP progression as part of the current game." },
+          { status: "Officially confirmed", text: "The developer FAQ says WARDOGS does not use fixed classes; your role depends on what you buy and how you choose to play." },
+          { status: "Not officially confirmed", text: "Exact XP values, role thresholds, unlock levels, and farming rates were not confirmed in the official public sources checked." }
+        ]
+      },
+      {
+        heading: "Support XP",
+        paragraphs: [
+          "For support XP intent, look for actions the current UI identifies as support work: revives, supplies, building help, repairs, logistics, and objective support. Do not assume every cash-earning action gives the same XP unless the live UI confirms it.",
+          "Support XP searches often overlap with FOB and logistics questions, so use the FOB and money guides when the problem is supplies or cash rather than leveling."
+        ],
+        links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/" },
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/" }
+        ]
+      },
+      {
+        heading: "Driver XP",
+        paragraphs: [
+          "For driver XP, focus on useful team transport and objective movement if the current build credits those actions. Avoid parking vehicles away from the fight just to chase a role label.",
+          "The official sources confirm vehicles and logistics, but they do not publish a final driver XP table."
+        ]
+      },
+      {
+        heading: "Pilot XP",
+        paragraphs: [
+          "Pilot XP searches overlap with helicopter play. If the live build awards pilot XP, prioritize safe transport, supply movement, landing discipline, and team value rather than risky solo flights.",
+          "Use the helicopter guide for controls, landing, transport, and settings boundaries before chasing pilot XP."
+        ],
+        links: [
+          { label: "WARDOGS Helicopter Guide", href: "/wardogs-helicopter-guide/" }
+        ]
+      },
+      {
+        heading: "Recon XP",
+        paragraphs: [
+          "Recon XP should be treated as current-build role progression. The checked official sources do not confirm a full recon scoring table, so do not follow a fixed recon farm unless the game UI or reliable current-build testing supports it.",
+          "Practical recon play should help the team find enemies, support objective pushes, and avoid wasting time far from the fight."
+        ]
+      },
+      {
+        heading: "Assault XP",
+        paragraphs: [
+          "Assault XP intent is about combat and objective pressure, but this page does not turn that into weapon tier lists or kill-farming advice. WARDOGS objective play matters, so combat XP should be pursued where it helps the team win space."
+        ]
+      },
+      {
+        heading: "Medic XP",
+        facts: [
+          { status: "Officially confirmed", text: "The developer FAQ lists reviving downed allies as a useful team action that can earn cash." },
+          { status: "Not officially confirmed", text: "The official sources checked do not publish a final Medic XP value or role progression table." },
+          { status: "General guidance", text: "If the live UI awards Medic XP, stay near teammates and objectives so revives and support actions create real team value." }
+        ]
+      },
+      {
+        heading: "Efficient Leveling Principles",
+        bullets: [
+          "Follow the current UI: if the match feed or progression screen labels an action with role XP, trust that over old videos.",
+          "Stay near objectives and teammates so your actions count toward the role you are trying to level.",
+          "Do not confuse cash farming with XP farming unless the current build awards both for the same action.",
+          "Avoid AFK, exploit, or empty-server methods; they are risky and not reliable long-term guidance."
+        ]
+      },
+      {
+        heading: "Common XP Mistakes",
+        bullets: [
+          "Treating old beta XP numbers as permanent.",
+          "Chasing role labels away from the objective where actions have little team value.",
+          "Assuming helicopter transport, driving, revives, supplies, and combat all award identical XP.",
+          "Following pages that are not actually about WARDOGS experience, leveling, or role XP."
+        ],
+        links: [
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" },
+          { label: "How to Play WARDOGS", href: "/how-to-play-wardogs/" }
+        ]
+      }
+    ],
+    sources: [steamStore, steamDeveloperFaq, team17GamePage, wardogsHandbookClasses, wardogsZoneClasses],
+    faqs: [
+      { question: "What is the best way to get XP in WARDOGS?", answer: "The safest advice is to play the role the current UI credits and stay useful near objectives. Exact XP farms and reward values were not confirmed in official public sources." },
+      { question: "How do I get Support XP in WARDOGS?", answer: "Use current-build support prompts and focus on team-helping actions such as supplies, revives, building support, repairs, and objective support if the live UI credits them." },
+      { question: "How do I get Pilot XP in WARDOGS?", answer: "Use the helicopter guide first, then focus on safe transport, supply movement, and team value if the current build awards Pilot XP for those actions." },
+      { question: "Are there classes in WARDOGS?", answer: "The developer FAQ says there are no set classes; your role depends on what you buy and how you choose to play." }
+    ],
+    lastUpdated: "September 13, 2026",
+    reviewNotes: [
+      "Do not include noisy Similarweb xp terms that are not experience or leveling intent.",
+      "Do not publish exact XP values or farm rates without current-build verification."
+    ]
+  },
+
   "/wardogs-playtest-schedule/": {
     quickAnswer: [
       "Current official timing: the WARDOGS Steam store lists guaranteed Closed Beta access from September 3, 2026 at 18:00 UTC to September 6, 2026 at 08:00 UTC. The official Steam news feed also describes the beta as open until Sunday at 08:00 UTC.",
@@ -2171,6 +2635,10 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           }
         ],
         links: [
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "Building, supplies, repair, and spawn questions." },
+          { label: "WARDOGS Tower Guide", href: "/wardogs-tower-guide/", description: "Tower codes, capture, control, and objectives." },
+          { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Mortar building, aiming, firing, and resupply." },
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP without unverified values." },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" },
           { label: "What Is WARDOGS Game", href: "/what-is-wardogs-game/" },
           { label: "WARDOGS Early Access", href: "/wardogs-early-access/" }
@@ -2310,3 +2778,5 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
     ]
   }
 };
+
+

@@ -183,6 +183,42 @@ export const seoByRoute: Record<string, SeoEntry> = {
     keyword: "how to make money in wardogs",
     ogType: "article"
   },
+  "/wardogs-fob-guide/": {
+    title: "WARDOGS FOB Guide: How to Build, Place, Supply & Use FOBs",
+    description:
+      "Learn how FOBs work in WARDOGS, including how to build, place, supply, repair, spawn from, and troubleshoot FOBs without guessing unverified values.",
+    h1: "WARDOGS FOB Guide",
+    canonical: canonical("/wardogs-fob-guide/"),
+    keyword: "wardogs fob",
+    ogType: "article"
+  },
+  "/wardogs-tower-guide/": {
+    title: "WARDOGS Tower Guide: Codes, Capture, Control & How Towers Work",
+    description:
+      "Learn how WARDOGS towers work, including tower codes, capture, control, objectives, tower vs FOB differences, and common tower problems.",
+    h1: "WARDOGS Tower Guide",
+    canonical: canonical("/wardogs-tower-guide/"),
+    keyword: "wardogs tower",
+    ogType: "article"
+  },
+  "/wardogs-mortar-guide/": {
+    title: "WARDOGS Mortar Guide: How to Build, Use, Aim & Resupply Mortars",
+    description:
+      "Learn how mortars work in WARDOGS, including how to get, build, aim, fire, resupply, place, and use mortar calculator resources safely.",
+    h1: "WARDOGS Mortar Guide",
+    canonical: canonical("/wardogs-mortar-guide/"),
+    keyword: "wardogs mortar",
+    ogType: "article"
+  },
+  "/wardogs-xp-guide/": {
+    title: "WARDOGS XP Guide: How to Level Every Role Fast",
+    description:
+      "Learn how XP and leveling work in WARDOGS, including Support, Driver, Pilot, Recon, Assault, Medic, efficient role XP, and mistakes to avoid.",
+    h1: "WARDOGS XP Guide",
+    canonical: canonical("/wardogs-xp-guide/"),
+    keyword: "wardogs xp",
+    ogType: "article"
+  },
   "/wardogs-playtest-schedule/": {
     title: "WARDOGS Playtest Schedule: End Time & Next Beta Updates",
     description:

@@ -1,6 +1,6 @@
 # WARDOGS Guide Page Matrix
 
-This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 20 English SEO pages.
+This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 24 English SEO pages.
 
 | Route | Page | Target keyword | Type | Priority | Manual review | Intent |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -23,6 +23,10 @@ This page matrix contains the approved launch set plus the first troubleshooting
 | `/wardogs-controller-settings/` | WARDOGS Controller Settings | wardogs controller settings | settings_guide | P1 | high | controller, keyboard, mouse and keybind setup |
 | `/wardogs-helicopter-guide/` | WARDOGS Helicopter Guide | wardogs helicopter | controls_guide | P1 | high | complete helicopter guide for controls, flying, landing, aiming, transport, and settings boundaries |
 | `/wardogs-how-to-make-money/` | How to Make Money in WARDOGS | how to make money in wardogs | economy_guide | P1 | high | cash, money making, logistics, supply, transport, persistence, and spending-risk guide |
+| `/wardogs-fob-guide/` | WARDOGS FOB Guide | wardogs fob | gameplay_guide | P1 | high | FOB building, placement, supplies, repair, spawning, and common FOB problems |
+| `/wardogs-tower-guide/` | WARDOGS Tower Guide | wardogs tower | gameplay_guide | P1 | high | towers, tower codes, capture, control, objectives, and tower vs FOB boundaries |
+| `/wardogs-mortar-guide/` | WARDOGS Mortar Guide | wardogs mortar | gameplay_guide | P1 | high | mortar building, controls, aiming, firing, range, ammo, resupply, placement, and calculator resources |
+| `/wardogs-xp-guide/` | WARDOGS XP Guide | wardogs xp | gameplay_guide | P1 | high | XP, leveling, role XP, support, driver, pilot, recon, assault, and medic progression |
 | `/wardogs-playtest-schedule/` | WARDOGS Playtest Schedule | wardogs playtest end time | playtest_guide | P1 | high | current playtest end time, next playtest, beta access, and schedule updates |
 | `/wardogs-helicopter-controls/` | WARDOGS Helicopter Controls | wardogs helicopter controls status | controls_guide | P1 | high | current helicopter control-map status and input-support boundaries |
 
@@ -34,6 +38,7 @@ This page matrix contains the approved launch set plus the first troubleshooting
 - Settings: `/wardogs-best-settings/`, `/wardogs-controller-settings/`
 - Controls: `/wardogs-helicopter-guide/`, `/wardogs-helicopter-controls/`
 - Economy: `/wardogs-how-to-make-money/`
+- Gameplay: `/wardogs-fob-guide/`, `/wardogs-tower-guide/`, `/wardogs-mortar-guide/`, `/wardogs-xp-guide/`
 
 ## Source Priority
 
