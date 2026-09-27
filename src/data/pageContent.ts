@@ -1,5 +1,6 @@
 export type FactStatus =
   | "Officially confirmed"
+  | "Developer statement"
   | "Not officially confirmed"
   | "Community-reported"
   | "General guidance"
@@ -223,6 +224,60 @@ const wardogsCompanionMortars: GuideSource = {
 const metaforgeTowerGuide: GuideSource = {
   label: "MetaForge WARDOGS tower guide",
   url: "https://metaforge.app/guides/games/war-dogs/wardogs-towers-guide-tower-codes-capture-strategy/",
+  type: "Media"
+};
+
+const steamSeason2Teaser: GuideSource = {
+  label: "WARDOGS Steam announcement: Season 02 Teaser",
+  url: "https://steamcommunity.com/app/1867240/announcements/",
+  type: "Announcement"
+};
+
+const wardogsEarlyAccessBeyondVideo: GuideSource = {
+  label: "WARDOGS official video: Early Access & Beyond",
+  url: "https://www.youtube.com/watch?v=OEjZTJADiE8",
+  type: "Official"
+};
+
+const steamWdL020PinnedThread: GuideSource = {
+  label: "Steam pinned developer post: WD-L020 Windows update error",
+  url: "https://steamcommunity.com/app/1867240/discussions/3/585060903246925093/",
+  type: "Developer Post"
+};
+
+const microsoftKb5124010: GuideSource = {
+  label: "Microsoft Support: KB5124010 (OS Build 26200.9550)",
+  url: "https://support.microsoft.com/help/5124010",
+  type: "Support"
+};
+
+const wardogsHubWeapons: GuideSource = {
+  label: "WARDOGS Hub weapon stats",
+  url: "https://wardogshub.gg/weapons",
+  type: "Community"
+};
+
+const wardoGsWeaponTierList: GuideSource = {
+  label: "Wardo.gs weapons tier list",
+  url: "https://wardo.gs/tier-list/weapons",
+  type: "Community"
+};
+
+const wardogsStatsWeapons: GuideSource = {
+  label: "WARDOGS Stats weapon picks",
+  url: "https://www.wardogsstats.com/",
+  type: "Community"
+};
+
+const redditTtkSpreadsheet: GuideSource = {
+  label: "Reddit community TTK and armor spreadsheet",
+  url: "https://www.reddit.com/r/PlayWARDOGS/comments/1nj6022/shots_to_kill_ttk_and_armor_spreadsheet/",
+  type: "Community"
+};
+
+const dexertoAllWeapons: GuideSource = {
+  label: "Dexerto all WARDOGS weapons guide",
+  url: "https://www.dexerto.com/gaming/all-weapons-in-wardogs-how-to-get-them-3235410/",
   type: "Media"
 };
 
@@ -2347,6 +2402,408 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
     reviewNotes: [
       "Do not include noisy Similarweb xp terms that are not experience or leveling intent.",
       "Do not publish exact XP values or farm rates without current-build verification."
+    ]
+  },
+
+  "/wardogs-wipe/": {
+    quickAnswer: [
+      "Short answer: WARDOGS Season 02 is officially announced for October 15, 2026. Treat that as the next major seasonal update date, and use official WARDOGS/Steam posts for any same-day timing changes.",
+      "Official developer video guidance says major seasonal updates can reset player progression such as cash, XP, and levels. The same developer statement says the team was looking into carrying over Gold Bars and cosmetics, so do not treat those carryover details as final until a current official Season 02 wipe post confirms them.",
+      "This is the evergreen WARDOGS wipe page. Future Season 3 or Season 4 wipe information should update this URL instead of creating duplicate wipe-date pages."
+    ],
+    lastUpdated: "September 27, 2026",
+    sections: [
+      {
+        heading: "Next WARDOGS Wipe Date",
+        facts: [
+          { status: "Officially confirmed", text: "The official Steam announcement for the Season 02 teaser says Season 02 arrives on October 15, 2026." },
+          { status: "General guidance", text: "For wipe searches, use October 15, 2026 as the current Season 02 date unless a newer official WARDOGS, BULKHEAD, Team17, or Steam announcement changes it." },
+          { status: "Not officially confirmed", text: "The checked public sources did not publish a separate exact hour for a progression wipe on October 15." }
+        ]
+      },
+      {
+        heading: "Is the October 15 Wipe Confirmed?",
+        paragraphs: [
+          "The Season 02 date is official. The reset details need more careful wording: WARDOGS developers have described major seasonal updates as the point where cash, XP, and levels may reset, but each season's exact wipe contents should still be checked against that season's official notes.",
+          "If a future Steam announcement lists exact reset categories, this page should update the Quick Answer and the reset sections rather than creating a new Season 2 wipe URL."
+        ],
+        facts: [
+          { status: "Officially confirmed", text: "Season 02 arrives October 15, 2026 according to the official Steam announcement feed." },
+          { status: "Developer statement", text: "The official Early Access & Beyond video says major seasonal updates are planned to reset player progression, namely cash, XP, and levels." },
+          { status: "Not officially confirmed", text: "The checked sources did not provide a final item-by-item Season 02 wipe table for every currency, cosmetic, unlock, or account item." }
+        ]
+      },
+      {
+        heading: "What Resets in a WARDOGS Wipe?",
+        facts: [
+          { status: "Developer statement", text: "The official video describes planned seasonal resets for cash, XP, and levels." },
+          { status: "General guidance", text: "Expect seasonal progression details to be patch-sensitive and verify the current season notes before spending based on old wipe information." },
+          { status: "Not officially confirmed", text: "Exact Season 02 reset handling for every progression item was not confirmed in the public sources checked for this update." }
+        ],
+        links: [
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, spending risk, and money persistence context." },
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "XP and role-leveling context without unverified values." }
+        ]
+      },
+      {
+        heading: "What Do You Keep After a Wipe?",
+        paragraphs: [
+          "The safest wording is that not every carryover category is final until the current season's official notes say so. Do not rely on Reddit summaries or old beta posts as the final list of what stays after Season 02.",
+          "If you are deciding whether to spend or save before the wipe, separate confirmed reset categories from still-pending carryover categories."
+        ],
+        facts: [
+          { status: "Developer statement", text: "The official video says the team was looking into letting players carry over Gold Bars and cosmetics across major seasonal updates." },
+          { status: "Not officially confirmed", text: "The checked sources did not confirm a final Season 02 keep list for Gold Bars, cosmetics, purchases, or account items." }
+        ]
+      },
+      {
+        heading: "Does Cash Reset?",
+        facts: [
+          { status: "Developer statement", text: "The official video includes cash in the progression categories planned for major seasonal resets." },
+          { status: "Officially confirmed", text: "The Steam developer FAQ says cash persists between lives and matches, which is a separate rule from seasonal wipes." },
+          { status: "General guidance", text: "Between-match persistence and seasonal wipe behavior are different questions; do not use one to answer the other." }
+        ],
+        links: [
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/" }
+        ]
+      },
+      {
+        heading: "Does XP / Character Progression Reset?",
+        facts: [
+          { status: "Developer statement", text: "The official video names XP and levels as progression categories planned for major seasonal resets." },
+          { status: "Not officially confirmed", text: "The checked sources did not publish exact Season 02 reset handling for every role XP track or unlock threshold." },
+          { status: "General guidance", text: "Use current season notes and the in-game progression screen before assuming old XP carryover behavior still applies." }
+        ],
+        links: [
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/" }
+        ]
+      },
+      {
+        heading: "What Happens to Gold Bars / Cosmetics?",
+        paragraphs: [
+          "Gold Bars and cosmetics are the most important categories to phrase carefully. The developer video says the team was looking into carryover options, but that is not the same as a final Season 02 wipe table.",
+          "Until a current official post confirms the exact carryover rule, this page should not tell players that Gold Bars or cosmetics definitely reset or definitely stay."
+        ],
+        facts: [
+          { status: "Developer statement", text: "The official video mentions the possibility of carrying over Gold Bars and cosmetics." },
+          { status: "Not officially confirmed", text: "A final Season 02 Gold Bar and cosmetics carryover rule was not confirmed in the public sources checked for this update." }
+        ]
+      },
+      {
+        heading: "How Often Does WARDOGS Wipe?",
+        facts: [
+          { status: "Developer statement", text: "The official video describes major updates every two to three months as the planned cadence for progression resets." },
+          { status: "General guidance", text: "Treat two to three months as developer roadmap context, not an automatic calendar guarantee for every future wipe." },
+          { status: "Not officially confirmed", text: "A full future wipe calendar for Season 3, Season 4, and later seasons was not confirmed in the checked sources." }
+        ]
+      },
+      {
+        heading: "WARDOGS Season 2 Wipe",
+        paragraphs: [
+          "Season 02 is the current wipe-focused update because official Steam posts place Season 02 on October 15, 2026. The page should stay evergreen: update this section when official Season 02 patch notes state the exact reset and carryover categories.",
+          "Avoid creating separate pages for Season 2 wipe, first wipe, next wipe, what resets, or what do you keep unless search intent clearly separates in the future. Right now they belong together."
+        ],
+        links: [
+          { label: "WARDOGS Playtest Schedule", href: "/wardogs-playtest-schedule/", description: "Beta and playtest timing, separate from seasonal wipe rules." },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/", description: "Return to the main guide hub." }
+        ]
+      },
+      {
+        heading: "Future Wipe Schedule",
+        paragraphs: [
+          "For future seasons, keep the most recent official date at the top of this same page, archive older details in short context, and avoid launching one-off wipe-date URLs for each season.",
+          "Community reports can help spot demand, but only official WARDOGS, BULKHEAD, Team17, Steam announcements, or in-game notices should decide the published wipe date and exact reset rules."
+        ]
+      }
+    ],
+    sources: [steamSeason2Teaser, wardogsEarlyAccessBeyondVideo, steamAnnouncements, steamDeveloperFaq, steamStore],
+    faqs: [
+      { question: "When is the next WARDOGS wipe?", answer: "The current official Season 02 date is October 15, 2026. Use this page for the next wipe unless a newer official WARDOGS or Steam announcement changes the date." },
+      { question: "What resets in a WARDOGS wipe?", answer: "Developer video guidance says major seasonal updates can reset cash, XP, and levels. Exact Season 02 item-by-item reset rules still need current official confirmation." },
+      { question: "Do you keep Gold Bars after a WARDOGS wipe?", answer: "The developers said they were looking into carrying over Gold Bars and cosmetics, but the checked sources did not confirm the final Season 02 carryover rule." },
+      { question: "Does cash persist or reset?", answer: "Cash persists between lives and matches according to the developer FAQ. Seasonal wipe behavior is separate, and official video guidance says cash can reset during major seasonal updates." }
+    ],
+    reviewNotes: [
+      "Keep this as the only WARDOGS wipe URL unless a future intent clearly separates.",
+      "Update the exact reset and carryover table only when official Season 02 notes confirm it."
+    ]
+  },
+  "/wardogs-error-wd-l020/": {
+    quickAnswer: [
+      "WARDOGS WD-L020 is currently best treated as a launcher/startup error tied to a recent Windows update, not a normal mid-game crash or server login code.",
+      "A pinned Team17 Steam developer post says some players ran into WD-L020 and launch issues after Windows Update KB5124010, OS build 26200.9550. The post says the team is investigating with the anti-cheat provider.",
+      "The official temporary workaround is to uninstall that specific recent Windows update only if it is present, restart the PC, and launch WARDOGS again. Do not guess other KB numbers, delete system files, or disable Windows security as a generic fix."
+    ],
+    lastUpdated: "September 27, 2026",
+    sections: [
+      {
+        heading: "What Is WARDOGS Error WD-L020?",
+        paragraphs: [
+          "WD-L020 is a WARDOGS launcher/startup error reported around a recent Windows update. It belongs with launch troubleshooting, but it is specific enough to keep separate from the broad Not Launching page.",
+          "Use this page when the visible code is WD-L020 or the launcher fails immediately after a Windows update. If the game opens and then freezes or crashes, use the crash pages instead."
+        ],
+        facts: [
+          { status: "Officially confirmed", text: "A pinned Team17 Steam post names WD-L020 and launch issues after Windows Update KB5124010, OS build 26200.9550." },
+          { status: "Not officially confirmed", text: "The checked sources do not define WD-L020 as a server outage, online authentication code, or ordinary missing executable error." }
+        ]
+      },
+      {
+        heading: "Why WD-L020 Appears",
+        facts: [
+          { status: "Officially confirmed", text: "Team17 says the issue appears after the latest Windows Update and that the team is investigating with the anti-cheat provider." },
+          { status: "Officially confirmed", text: "Microsoft Support lists KB5124010 as a Windows update with OS build 26200.9550." },
+          { status: "General guidance", text: "Because the post names a specific update/build, do not generalize the fix to every Windows update or every launcher error." }
+        ]
+      },
+      {
+        heading: "Is WD-L020 Caused by a Windows Update?",
+        paragraphs: [
+          "The strongest source for this page is the pinned developer post: it directly connects WD-L020 and launch issues with Windows Update KB5124010, OS build 26200.9550. That makes the update check the first branch in the troubleshooting path.",
+          "If that update is not installed, keep troubleshooting reversible and gather the exact launcher message before applying unrelated community workarounds."
+        ],
+        facts: [
+          { status: "Officially confirmed", text: "The developer post identifies KB5124010 and OS build 26200.9550 by name." },
+          { status: "Community-reported", text: "Reddit and Steam players also report WD-L020 shortly after the September 23 Windows update, but those reports are supporting evidence, not the official fix source." }
+        ]
+      },
+      {
+        heading: "Official Fix / Developer Guidance",
+        facts: [
+          { status: "Officially confirmed", text: "Team17 says the temporary fix is to remove/uninstall the recent Windows update KB5124010, restart, and launch WARDOGS again." },
+          { status: "Officially confirmed", text: "The developer post says to reinstall the update once Microsoft or the anti-cheat provider releases a hotfix." },
+          { status: "General guidance", text: "Only follow this path if Windows Update History shows the named update. Otherwise, do not uninstall random updates." }
+        ]
+      },
+      {
+        heading: "Safe Fixes to Try",
+        bullets: [
+          "Restart WARDOGS, Steam, and Windows once before deeper checks.",
+          "Open Windows Update History and look specifically for KB5124010 / OS build 26200.9550.",
+          "If the named update is present and WD-L020 started after it, follow the pinned developer post's temporary uninstall guidance.",
+          "Verify WARDOGS files through Steam after basic restart checks if the launcher still fails.",
+          "Check official Steam pinned posts before trying community workarounds."
+        ]
+      },
+      {
+        heading: "Restart WARDOGS and Steam",
+        paragraphs: [
+          "A restart will not fix a confirmed Windows update compatibility issue by itself, but it is a safe first check that clears stuck launcher and Steam client states before you compare symptoms with the developer post.",
+          "If WD-L020 comes back immediately after restart and KB5124010 is installed, move to the Windows Update History branch rather than reinstalling WARDOGS repeatedly."
+        ]
+      },
+      {
+        heading: "Check Windows Update History",
+        paragraphs: [
+          "Open Windows Settings, go to Windows Update, then Update history. Look for KB5124010 or OS build 26200.9550. The pinned developer post specifically names this update, so exact matching matters.",
+          "If the update is present, use the official post's temporary guidance. If it is not present, do not guess a different KB as the cause."
+        ],
+        links: [
+          { label: "Microsoft KB5124010 support page", href: "https://support.microsoft.com/help/5124010" }
+        ]
+      },
+      {
+        heading: "Verify Game Files",
+        facts: [
+          { status: "Safe generic troubleshooting", text: "Steam's verify integrity tool is a reversible check for damaged or incomplete local game files." },
+          { status: "General guidance", text: "File verification is useful after launcher restarts, but it should not replace the official Windows update branch when KB5124010 is present." }
+        ]
+      },
+      {
+        heading: "Launcher / Anti-Cheat Checks",
+        paragraphs: [
+          "Because Team17 says the team is investigating with the anti-cheat provider, treat WD-L020 as security-sensitive. Preserve the exact message and avoid deleting anti-cheat folders, replacing executables, or downloading DLLs from third-party sites.",
+          "If your visible symptom is an Elytra or anti-cheat module message without WD-L020, use the anti-cheat or missing executable pages instead."
+        ],
+        links: [
+          { label: "WARDOGS Easy Anti-Cheat Error Fix", href: "/wardogs-easy-anti-cheat-error-fix/" },
+          { label: "WARDOGS Missing Game Executable", href: "/wardogs-missing-game-executable/" }
+        ]
+      },
+      {
+        heading: "What Not to Do",
+        bullets: [
+          "Do not guess or uninstall unrelated Windows updates.",
+          "Do not delete Windows system files, anti-cheat files, or launcher folders based on a video comment.",
+          "Do not permanently disable antivirus, firewall, Secure Boot, Smart App Control, or Windows security features as a generic WD-L020 fix.",
+          "Do not download replacement WARDOGS executables, DLLs, launcher files, or anti-cheat components from third-party sites."
+        ]
+      },
+      {
+        heading: "Still Unable to Launch?",
+        paragraphs: [
+          "If WD-L020 remains after following official guidance, return to the pinned Steam thread and report the exact Windows build, whether KB5124010 is installed, and the launcher text. If the visible problem has changed, move to the page that matches the new symptom.",
+          "Keep WD-L020 separate from online authentication errors and failed server joins. Those are different search intents and different troubleshooting paths."
+        ],
+        links: [
+          { label: "WARDOGS Not Launching", href: "/wardogs-not-launching/" },
+          { label: "WARDOGS Crashing Fix", href: "/wardogs-crashing-fix/" },
+          { label: "WARDOGS Server Status", href: "/wardogs-server-status/" },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+        ]
+      }
+    ],
+    sources: [steamWdL020PinnedThread, microsoftKb5124010, steamVerifyFilesSupport, steamLaunchSupport, steamStore, steamCommunityDiscussions],
+    faqs: [
+      { question: "What is WARDOGS error WD-L020?", answer: "It is a launcher/startup error currently linked by a pinned Team17 Steam post to Windows Update KB5124010, OS build 26200.9550." },
+      { question: "Is WD-L020 the same as WARDOGS crashing?", answer: "No. WD-L020 appears before normal play as a launcher/startup problem. Use crash pages when the game opens and then crashes or freezes." },
+      { question: "Should I uninstall a Windows update for WD-L020?", answer: "Only if Windows Update History shows the specific KB5124010 update named in the official developer post. Do not uninstall random updates." },
+      { question: "Should I disable Windows security to fix WD-L020?", answer: "No. The checked official guidance does not tell players to disable Windows security. Avoid risky system changes and use the pinned developer post's temporary workaround if it applies." }
+    ],
+    reviewNotes: [
+      "Keep this page focused on WD-L020 and Windows update-linked launcher symptoms.",
+      "Update immediately if Team17, Microsoft, or the anti-cheat provider publishes a hotfix that replaces the temporary workaround."
+    ]
+  },
+  "/wardogs-best-guns/": {
+    quickAnswer: [
+      "There is not enough official public data to publish a fixed WARDOGS S/A/B/C tier list, damage table, or TTK table as fact. Use this page as a current-build weapons guide, not a fake permanent ranking.",
+      "For now, the safest best-gun answer is: compare role, price, recoil/control, ammo, attachment access, damage testing, and current patch context. Community stat sites and tier lists can help, but treat them as build-specific and verify in game.",
+      "This single page handles best guns, weapon tier list, weapon stats, damage, TTK, prices, ammo, and attachments intent so the site does not split one weapon-search cluster into thin competing URLs."
+    ],
+    lastUpdated: "September 27, 2026",
+    sections: [
+      {
+        heading: "Quick Picks",
+        paragraphs: [
+          "If you only need a fast answer, do not copy a tier list without checking its update date. WARDOGS weapon balance can move with patches, and the checked official sources did not publish a complete current damage or TTK table.",
+          "Pick a weapon that fits the job: controllable weapons for new players, cost-efficient weapons when cash is tight, role-appropriate weapons for objective play, and community-tested picks only when their data matches the current build."
+        ],
+        facts: [
+          { status: "Not officially confirmed", text: "No official complete weapon damage, TTK, fire-rate, ammo, price, attachment, or S/A/B/C tier table was found in the public sources checked." },
+          { status: "Community-reported", text: "Community weapon databases and tier lists publish current snapshots, but they should be treated as patch-sensitive rather than permanent official data." }
+        ]
+      },
+      {
+        heading: "How This Ranking Works",
+        paragraphs: [
+          "This guide does not invent rankings. A weapon should only be called best when its performance is supported by current in-game testing, multiple reliable community datasets, official patch context, or clear role fit.",
+          "If those signals disagree, this page explains the tradeoff instead of forcing a fake single winner."
+        ],
+        bullets: [
+          "Official patch and balance notes outweigh old videos.",
+          "Current in-game stats outweigh copied screenshots from older builds.",
+          "Community-tested TTK and damage sheets are useful only when their patch context is clear.",
+          "Price and ammo matter because WARDOGS has a cash economy."
+        ]
+      },
+      {
+        heading: "WARDOGS Weapon Tier List",
+        paragraphs: [
+          "Because no official complete tier list was found, this page does not present fixed S, A, B, or C rankings as fact. Community tier lists from WARDOGS Hub, Wardo.gs, WARDOGS Stats, Reddit, and media guides can be used as cross-checks, but they may update at different speeds.",
+          "Use tier lists as a starting point for testing. If a weapon feels strong in one video but was nerfed in a later patch, the newer patch and current in-game results should win."
+        ],
+        links: [
+          { label: "WARDOGS Hub weapon stats", href: "https://wardogshub.gg/weapons" },
+          { label: "Wardo.gs weapons tier list", href: "https://wardo.gs/tier-list/weapons" },
+          { label: "WARDOGS Stats", href: "https://www.wardogsstats.com/" }
+        ]
+      },
+      {
+        heading: "Best Overall Gun",
+        facts: [
+          { status: "Not officially confirmed", text: "No official source checked here names one current best overall WARDOGS gun." },
+          { status: "General guidance", text: "A true overall pick needs strong damage, usable recoil, reliable ammo access, reasonable cost, and current patch performance." },
+          { status: "Community-reported", text: "Community tier lists may name top guns, but their conclusions should be verified against the current build before being treated as recommendations." }
+        ]
+      },
+      {
+        heading: "Best Budget Gun",
+        paragraphs: [
+          "Budget matters in WARDOGS because official sources describe a persistent cash economy and loadout spending. A budget weapon is not just cheap; it should let you help the team without risking too much cash on each life.",
+          "Until official or verified current-build price data is available, this page avoids naming a permanent cheapest best gun. Use current in-game prices and your team's objective needs."
+        ],
+        links: [
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/" }
+        ]
+      },
+      {
+        heading: "Best Starter Gun",
+        paragraphs: [
+          "A starter pick should be easy to control, affordable, and useful near objectives. New players should value consistency over theoretical max TTK from a weapon they cannot control yet.",
+          "If you are new, test recoil and reload feel in the current build before following an aggressive meta list."
+        ],
+        links: [
+          { label: "How to Play WARDOGS", href: "/how-to-play-wardogs/" }
+        ]
+      },
+      {
+        heading: "Best Assault Rifle",
+        facts: [
+          { status: "Not officially confirmed", text: "No official current assault-rifle ranking or complete assault-rifle stat table was found in the checked sources." },
+          { status: "General guidance", text: "Compare recoil, range, reload time, ammo economy, price, and objective role before deciding which assault rifle is best for the current patch." }
+        ]
+      },
+      {
+        heading: "Best SMG",
+        facts: [
+          { status: "Not officially confirmed", text: "No official current SMG ranking or complete SMG stat table was found in the checked sources." },
+          { status: "General guidance", text: "SMG value depends on close-range control, movement, ammo, price, and whether the fight is actually happening at SMG range." }
+        ]
+      },
+      {
+        heading: "Best Weapon by Role",
+        paragraphs: [
+          "WARDOGS does not use fixed classes in the official FAQ; your role depends on what you buy and how you play. That makes weapon choice role-driven rather than class-locked.",
+          "Use reliable, controllable weapons for objective pushes, affordable weapons when your cash is low, and role-specific loadouts only when your current task really needs them."
+        ],
+        links: [
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Role XP and leveling context." },
+          { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "Support and objective infrastructure context." }
+        ]
+      },
+      {
+        heading: "Weapon Stats Comparison",
+        paragraphs: [
+          "When comparing weapons, look for the same fields across sources: damage, shots to kill, TTK, recoil, fire rate, magazine size, reload behavior, price, ammo availability, attachment access, and patch date.",
+          "If a source shows numbers without an update date or patch context, treat it as a clue, not a final answer."
+        ],
+        facts: [
+          { status: "Community-reported", text: "WARDOGS Hub, Wardo.gs, WARDOGS Stats, and Reddit community spreadsheets provide weapon-stat or tier-list snapshots that may help with current testing." },
+          { status: "Not officially confirmed", text: "Those community numbers are not official WARDOGS weapon data and may change after balance patches." }
+        ]
+      },
+      {
+        heading: "Damage / TTK",
+        paragraphs: [
+          "Damage and TTK are the easiest fields to make wrong. Armor, range, hit location, patch version, and testing method can change the result, so do not copy a TTK number unless the source explains how it was tested.",
+          "For now, this page links to community-tested resources rather than reproducing numbers that could be outdated or incorrectly copied."
+        ],
+        links: [
+          { label: "Reddit community TTK spreadsheet", href: "https://www.reddit.com/r/PlayWARDOGS/comments/1nj6022/shots_to_kill_ttk_and_armor_spreadsheet/" }
+        ]
+      },
+      {
+        heading: "Price / Ammo / Attachments",
+        paragraphs: [
+          "Price, ammo, and attachments can matter as much as raw damage because WARDOGS loadouts tie into cash and role choices. A gun that is technically stronger may be a poor pick if it drains your budget or lacks the setup you need.",
+          "Use current in-game prices and attachment availability before treating any budget or starter recommendation as final."
+        ],
+        links: [
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/" }
+        ]
+      },
+      {
+        heading: "How Patches Can Change the Meta",
+        paragraphs: [
+          "Steam Early Access wording says WARDOGS will evolve with feedback, balance, performance, stability, and content updates. That means weapon rankings can change quickly.",
+          "When a patch lands, re-check the source date, in-game weapon feel, and community stat updates before trusting old best-gun recommendations."
+        ],
+        links: [
+          { label: "WARDOGS Steam announcements", href: "https://steamcommunity.com/app/1867240/announcements/" },
+          { label: "WARDOGS Guide", href: "/wardogs-guide/" }
+        ]
+      }
+    ],
+    sources: [steamStore, steamDeveloperFaq, steamAnnouncements, wardogsHubWeapons, wardoGsWeaponTierList, wardogsStatsWeapons, redditTtkSpreadsheet, dexertoAllWeapons],
+    faqs: [
+      { question: "What is the best gun in WARDOGS?", answer: "No official public source checked here names one permanent best gun. Use current-build testing, price, recoil, role fit, and patch context before copying a tier list." },
+      { question: "Is there an official WARDOGS weapon tier list?", answer: "No official complete WARDOGS weapon tier list was found in the checked sources. Community tier lists exist, but they are patch-sensitive and should be verified in game." },
+      { question: "Where can I check WARDOGS weapon stats?", answer: "Community resources such as WARDOGS Hub, Wardo.gs, WARDOGS Stats, and Reddit spreadsheets publish stat snapshots. Treat them as community-tested rather than official unless WARDOGS publishes matching data." },
+      { question: "Should WARDOGS weapon stats and best guns be separate pages?", answer: "Not yet. Best guns, tier list, weapon stats, damage, and TTK are one connected search intent, so this site keeps them on one page to avoid cannibalization." }
+    ],
+    reviewNotes: [
+      "Do not add fixed tiers, damage, TTK, ammo, prices, attachments, or best-gun claims without reliable current-build verification.",
+      "If an official weapon database appears, update this page before considering a separate tool or database URL."
     ]
   },
 

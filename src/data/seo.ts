@@ -219,6 +219,33 @@ export const seoByRoute: Record<string, SeoEntry> = {
     keyword: "wardogs xp",
     ogType: "article"
   },
+  "/wardogs-wipe/": {
+    title: "WARDOGS Wipe: Date, What Resets & What You Keep",
+    description:
+      "Track the next WARDOGS wipe date, Season 2 reset, what progression resets, what you keep, and how seasonal wipes work.",
+    h1: "WARDOGS Wipe Guide",
+    canonical: canonical("/wardogs-wipe/"),
+    keyword: "wardogs wipe",
+    ogType: "article"
+  },
+  "/wardogs-error-wd-l020/": {
+    title: "WARDOGS Error WD-L020 Fix: Windows Update & Launcher Error",
+    description:
+      "Fix WARDOGS error WD-L020 and launcher startup issues linked to Windows updates with safe troubleshooting steps and verified fixes.",
+    h1: "WARDOGS Error WD-L020 Fix",
+    canonical: canonical("/wardogs-error-wd-l020/"),
+    keyword: "wardogs wd-l020",
+    ogType: "article"
+  },
+  "/wardogs-best-guns/": {
+    title: "WARDOGS Best Guns & Weapon Tier List: Stats, Damage & TTK",
+    description:
+      "Compare the best guns in WARDOGS with weapon stats, damage, TTK, prices, ammo, and practical picks for different roles and budgets.",
+    h1: "WARDOGS Best Guns & Weapon Tier List",
+    canonical: canonical("/wardogs-best-guns/"),
+    keyword: "wardogs best guns",
+    ogType: "article"
+  },
   "/wardogs-playtest-schedule/": {
     title: "WARDOGS Playtest Schedule: End Time & Next Beta Updates",
     description:

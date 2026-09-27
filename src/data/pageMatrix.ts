@@ -12,7 +12,9 @@ export type PageType =
   | "controls_guide"
   | "economy_guide"
   | "gameplay_guide"
-  | "playtest_guide";
+  | "playtest_guide"
+  | "wipe_guide"
+  | "weapon_guide";
 
 export type GuideSection = {
   heading: string;
@@ -75,16 +77,19 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-early-access/",
       "/wardogs-server-status/",
       "/wardogs-failed-to-connect-to-server/",
+      "/wardogs-error-wd-l020/",
       "/wardogs-crashing/",
       "/wardogs-crashing-fix/",
       "/wardogs-voip-not-working/",
       "/wardogs-missing-game-executable/",
       "/wardogs-playtest-schedule/",
+      "/wardogs-wipe/",
       "/wardogs-how-to-make-money/",
       "/wardogs-fob-guide/",
       "/wardogs-tower-guide/",
       "/wardogs-mortar-guide/",
       "/wardogs-xp-guide/",
+      "/wardogs-best-guns/",
       "/wardogs-helicopter-guide/",
       "/wardogs-best-settings/"
     ]
@@ -127,6 +132,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-voip-not-working/",
       "/wardogs-easy-anti-cheat-error-fix/",
       "/wardogs-missing-game-executable/",
+      "/wardogs-error-wd-l020/",
       "/wardogs-best-settings/",
       "/what-is-wardogs-game/",
       "/how-to-play-wardogs/",
@@ -136,6 +142,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-xp-guide/",
       "/wardogs-not-launching/",
       "/wardogs-error-code-1147405308/",
+      "/wardogs-error-wd-l020/",
       "/wardogs-controller-settings/",
       "/wardogs-helicopter-guide/",
       "/wardogs-how-to-make-money/",
@@ -262,6 +269,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-easy-anti-cheat-error-fix/",
       "/wardogs-missing-game-executable/",
       "/wardogs-not-launching/",
+      "/wardogs-error-wd-l020/",
       "/wardogs-server-status/",
       "/wardogs-failed-to-connect-to-server/",
       "/wardogs-error-code-1147405308/",
@@ -294,6 +302,7 @@ export const pageMatrix: PageMatrixEntry[] = [
     ],
     relatedRoutes: [
       "/wardogs-easy-anti-cheat-error-fix/",
+      "/wardogs-error-wd-l020/",
       "/wardogs-crashing/",
       "/wardogs-not-launching/",
       "/wardogs-server-status/",
@@ -359,6 +368,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/wardogs-crashing-fix/",
       "/wardogs-not-launching/",
       "/wardogs-error-code-1147405308/",
+      "/wardogs-error-wd-l020/",
       "/wardogs-guide/"
     ]
   },
@@ -479,7 +489,7 @@ export const pageMatrix: PageMatrixEntry[] = [
         body: "Avoid naming maps, weapons, factions, or meta advice until the site enters the fact-verification stage."
       }
     ],
-    relatedRoutes: ["/wardogs-early-access/", "/wardogs-fob-guide/", "/wardogs-tower-guide/", "/wardogs-mortar-guide/", "/wardogs-xp-guide/", "/wardogs-how-to-make-money/", "/wardogs-helicopter-guide/", "/wardogs-best-settings/", "/wardogs-controller-settings/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-early-access/", "/wardogs-wipe/", "/wardogs-fob-guide/", "/wardogs-tower-guide/", "/wardogs-mortar-guide/", "/wardogs-xp-guide/", "/wardogs-best-guns/", "/wardogs-how-to-make-money/", "/wardogs-helicopter-guide/", "/wardogs-best-settings/", "/wardogs-controller-settings/", "/wardogs-guide/"]
   },
   {
     title: "WARDOGS Not Launching",
@@ -663,6 +673,7 @@ export const pageMatrix: PageMatrixEntry[] = [
       "/how-to-play-wardogs/",
       "/wardogs-fob-guide/",
       "/wardogs-xp-guide/",
+      "/wardogs-wipe/",
       "/wardogs-helicopter-guide/",
       "/wardogs-controller-settings/",
       "/wardogs-server-status/",
@@ -748,7 +759,68 @@ export const pageMatrix: PageMatrixEntry[] = [
       { heading: "XP role", body: "The money guide covers cash and economy; this page owns leveling, experience, and role XP intent." },
       { heading: "Verification boundary", body: "Do not publish exact XP values, farm rates, unlock thresholds, or role-specific reward numbers unless reliable current-build sources confirm them." }
     ],
-    relatedRoutes: ["/wardogs-how-to-make-money/", "/wardogs-helicopter-guide/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+    relatedRoutes: ["/wardogs-how-to-make-money/", "/wardogs-wipe/", "/wardogs-best-guns/", "/wardogs-helicopter-guide/", "/how-to-play-wardogs/", "/wardogs-guide/"]
+  },
+
+  {
+    title: "WARDOGS Wipe Guide",
+    route: "/wardogs-wipe/",
+    keyword: "wardogs wipe",
+    type: "wipe_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "wipe date, next wipe, Season 2 reset, what resets, what players keep, and future wipe schedule",
+    eyebrow: "Wipe Guide",
+    h1: "WARDOGS Wipe Guide",
+    description:
+      "An evergreen WARDOGS wipe guide for Season 2, future seasonal resets, progression reset questions, and what players keep.",
+    quickAnswer:
+      "Use this page for wipe date, next wipe, first wipe, Season 2 wipe, what resets, and what you keep questions. Keep future Season 3 or Season 4 updates on this same evergreen URL.",
+    sections: [
+      { heading: "Wipe role", body: "This page owns WARDOGS wipe and seasonal reset intent. Playtest Schedule remains about beta timing, and Money stays focused on cash and logistics." },
+      { heading: "Verification boundary", body: "Do not publish exact reset details for cash, XP, Gold Bars, cosmetics, or seasonal carryover unless official WARDOGS, BULKHEAD, Team17, or Steam sources confirm them." }
+    ],
+    relatedRoutes: ["/wardogs-playtest-schedule/", "/wardogs-how-to-make-money/", "/wardogs-xp-guide/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Error WD-L020 Fix",
+    route: "/wardogs-error-wd-l020/",
+    keyword: "wardogs wd-l020",
+    type: "troubleshooting",
+    priority: "P1",
+    manualReview: "high",
+    intent: "WD-L020 launcher startup error, Windows update conflict, anti-cheat provider investigation, and safe launch troubleshooting",
+    eyebrow: "Troubleshooting",
+    h1: "WARDOGS Error WD-L020 Fix",
+    description:
+      "A WARDOGS WD-L020 launcher error page for Windows Update-linked startup failures and safe current-build troubleshooting.",
+    quickAnswer:
+      "Use this page when WARDOGS shows WD-L020 or fails at the launcher after a Windows update. It is separate from generic crashes, missing executable errors, and online authentication codes.",
+    sections: [
+      { heading: "WD-L020 role", body: "This URL owns WD-L020 and Windows Update launcher intent. Not Launching remains a broad startup hub, and Missing Game Executable remains for Steam or anti-cheat executable-path symptoms." },
+      { heading: "Verification boundary", body: "Only publish Windows update identifiers, workaround scope, or anti-cheat provider context when official developer or Microsoft sources support them." }
+    ],
+    relatedRoutes: ["/wardogs-not-launching/", "/wardogs-crashing/", "/wardogs-crashing-fix/", "/wardogs-missing-game-executable/", "/wardogs-easy-anti-cheat-error-fix/", "/wardogs-guide/"]
+  },
+  {
+    title: "WARDOGS Best Guns & Weapon Tier List",
+    route: "/wardogs-best-guns/",
+    keyword: "wardogs best guns",
+    type: "weapon_guide",
+    priority: "P1",
+    manualReview: "high",
+    intent: "best guns, weapon tier list, weapon stats, damage, TTK, price, ammo, attachments, and patch-sensitive meta context",
+    eyebrow: "Weapons Guide",
+    h1: "WARDOGS Best Guns & Weapon Tier List",
+    description:
+      "A WARDOGS weapons guide for best guns, tier-list context, stat comparisons, damage, TTK, prices, ammo, and patch-sensitive meta checks.",
+    quickAnswer:
+      "Use this page for best guns, weapon tier list, weapon stats, damage, and TTK intent. Do not split best guns, weapon stats, and tier list into competing pages until official or current-build data supports deeper tools.",
+    sections: [
+      { heading: "Weapon role", body: "This page owns broad weapon-meta intent. The beginner guide can mention loadouts, but it should route weapon ranking and stat comparison questions here." },
+      { heading: "Verification boundary", body: "Do not invent damage, TTK, ammo, price, attachment, or S/A/B/C tier data. Treat community testing as build-specific unless official data confirms it." }
+    ],
+    relatedRoutes: ["/how-to-play-wardogs/", "/wardogs-xp-guide/", "/wardogs-how-to-make-money/", "/wardogs-guide/"]
   },
 
   {

@@ -1,6 +1,6 @@
 # WARDOGS Guide Page Matrix
 
-This page matrix contains the approved launch set plus the first troubleshooting expansion: the home page plus 24 English SEO pages.
+This page matrix contains the approved launch set plus the troubleshooting and gameplay expansions: the home page plus 27 English SEO pages.
 
 | Route | Page | Target keyword | Type | Priority | Manual review | Intent |
 | --- | --- | --- | --- | --- | --- | --- |
