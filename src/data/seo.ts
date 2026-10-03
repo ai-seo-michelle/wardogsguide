@@ -25,7 +25,7 @@ export const seoByRoute: Record<string, SeoEntry> = {
     title: "WARDOGS Guide | Launch, Settings, Controls and Troubleshooting",
     description:
       "Start with the central WARDOGS guide hub for launch, Early Access, troubleshooting, settings, controls, and beginner pages.",
-    h1: "WARDOGS Guide",
+    h1: "WARDOGS Guide Hub",
     canonical: canonical("/wardogs-guide/"),
     keyword: "wardogs guide",
     ogType: "article"
@@ -183,6 +183,15 @@ export const seoByRoute: Record<string, SeoEntry> = {
     keyword: "how to make money in wardogs",
     ogType: "article"
   },
+  "/wardogs-gold-bars-guide/": {
+    title: "WARDOGS Gold Bars Guide: Gold Market, Exchange & Wipes",
+    description:
+      "Learn how Gold Bars work in WARDOGS, including Gold Market and exchange questions, wipe carryover, prices, and cash vs gold boundaries.",
+    h1: "WARDOGS Gold Bars Guide",
+    canonical: canonical("/wardogs-gold-bars-guide/"),
+    keyword: "wardogs gold bars",
+    ogType: "article"
+  },
   "/wardogs-fob-guide/": {
     title: "WARDOGS FOB Guide: How to Build, Place, Supply & Use FOBs",
     description:
@@ -202,12 +211,21 @@ export const seoByRoute: Record<string, SeoEntry> = {
     ogType: "article"
   },
   "/wardogs-mortar-guide/": {
-    title: "WARDOGS Mortar Guide: How to Build, Use, Aim & Resupply Mortars",
+    title: "WARDOGS Mortar Guide: How to Build, Aim & Use Mortars",
     description:
-      "Learn how mortars work in WARDOGS, including how to get, build, aim, fire, resupply, place, and use mortar calculator resources safely.",
+      "Learn how mortars work in WARDOGS, including how to build, aim, fire, reload, resupply, use map context, and understand mortar calculators safely.",
     h1: "WARDOGS Mortar Guide",
     canonical: canonical("/wardogs-mortar-guide/"),
     keyword: "wardogs mortar",
+    ogType: "article"
+  },
+  "/wardogs-infantry-mode/": {
+    title: "WARDOGS Infantry Mode Guide: Infantry Only Servers Explained",
+    description:
+      "Learn what WARDOGS Infantry Mode and Infantry Only servers are, how they change gameplay, how to find them, and what to check before joining.",
+    h1: "WARDOGS Infantry Mode Guide",
+    canonical: canonical("/wardogs-infantry-mode/"),
+    keyword: "wardogs infantry mode",
     ogType: "article"
   },
   "/wardogs-xp-guide/": {

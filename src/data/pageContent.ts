@@ -233,6 +233,12 @@ const steamSeason2Teaser: GuideSource = {
   type: "Announcement"
 };
 
+const steamUpdate012InfantryMode: GuideSource = {
+  label: "WARDOGS Steam announcement: Update 0.1.2 server modifiers",
+  url: "https://steamcommunity.com/app/1867240/announcements/",
+  type: "Announcement"
+};
+
 const wardogsEarlyAccessBeyondVideo: GuideSource = {
   label: "WARDOGS official video: Early Access & Beyond",
   url: "https://www.youtube.com/watch?v=OEjZTJADiE8",
@@ -337,13 +343,15 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       {
         heading: "Gameplay Systems",
         paragraphs: [
-          "Use these gameplay guides for focused help with building FOBs, taking towers, using mortars, and understanding XP and roles."
+          "Use these gameplay and economy guides for focused help with building FOBs, taking towers, using mortars, choosing infantry-focused servers, understanding XP, and separating Gold Bars from cash."
         ],
         links: [
           { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "Building, placement, supplies, repair, spawning, and FOB problems." },
           { label: "WARDOGS Tower Guide", href: "/wardogs-tower-guide/", description: "Tower codes, capture, control, objectives, and tower vs FOB boundaries." },
           { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Building, aiming, firing, resupply, placement, and calculator resources." },
-          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP without fixed reward numbers." }
+          { label: "WARDOGS Infantry Mode Guide", href: "/wardogs-infantry-mode/", description: "Infantry only servers, mode differences, and infantry-focused tips." },
+          { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP without fixed reward numbers." },
+          { label: "WARDOGS Gold Bars Guide", href: "/wardogs-gold-bars-guide/", description: "Gold Market, exchange, wipe, and cash-vs-gold boundaries." }
         ]
       },
       {
@@ -373,6 +381,8 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS Early Access", href: "/wardogs-early-access/", description: "Access, pricing, beta history, and Early Access expectations." },
           { label: "WARDOGS Playtest Schedule", href: "/wardogs-playtest-schedule/", description: "Current beta end time, next-playtest status, and official schedule checks." },
           { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, supply transport, and persistence questions." },
+          { label: "WARDOGS Gold Bars Guide", href: "/wardogs-gold-bars-guide/", description: "Gold Market, exchange, wipe, and cash-vs-gold questions." },
+          { label: "WARDOGS Wipe Guide", href: "/wardogs-wipe/", description: "Seasonal wipe date, what resets, and what players may keep." },
           { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP boundaries." }
         ]
       },
@@ -383,6 +393,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "Build, place, supply, repair, and use FOBs." },
           { label: "WARDOGS Tower Guide", href: "/wardogs-tower-guide/", description: "Tower codes, capture, control, and objectives." },
           { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Mortar building, aiming, firing, resupply, and placement." },
+          { label: "WARDOGS Infantry Mode Guide", href: "/wardogs-infantry-mode/", description: "Infantry only servers, mode differences, and infantry-focused tips." },
           { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP across Support, Driver, Pilot, Recon, Assault, and Medic." }
         ]
       },
@@ -1960,6 +1971,17 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       },
       {
+        heading: "Gold Bars vs Cash",
+        paragraphs: [
+          "Cash and Gold Bars should not be treated as the same search intent. The money guide covers earning and spending normal cash through team actions and logistics. Gold Bars questions are about Gold Market, exchange, price, wipe carryover, and whether gold behaves differently from cash.",
+          "If you are deciding whether to earn cash, spend cash, or handle Gold Bars before a wipe, use the Gold Bars guide and the wipe guide instead of assuming one currency rule answers every economy question."
+        ],
+        links: [
+          { label: "WARDOGS Gold Bars Guide", href: "/wardogs-gold-bars-guide/", description: "Gold Market, exchange, price, wipe carryover, and cash-vs-gold boundaries." },
+          { label: "WARDOGS Wipe Guide", href: "/wardogs-wipe/", description: "Seasonal reset and carryover questions." }
+        ]
+      },
+      {
         heading: "What Is Not Confirmed Yet",
         facts: [
           {
@@ -1978,7 +2000,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       }
     ],
-    sources: [steamStore, team17GamePage, steamDeveloperFaq, steamCommunityDiscussions],
+    sources: [steamStore, team17GamePage, steamDeveloperFaq, wardogsEarlyAccessBeyondVideo, steamCommunityDiscussions],
     faqs: [
       {
         question: "What is the best way to make money in WARDOGS?",
@@ -1997,12 +2019,111 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         answer: "Official sources confirm cash persistence and risk-based spending, but exact death-loss behavior was not confirmed in the official sources checked."
       }
     ],
-    lastUpdated: "September 6, 2026",
+    lastUpdated: "October 3, 2026",
     reviewNotes: [
       "Keep manual review high because economy values, logistics payouts, and persistence rules can change by build.",
       "Do not create a separate wardogs logistics page until search demand and verified material justify a distinct intent."
     ]
   },
+  "/wardogs-gold-bars-guide/": {
+    quickAnswer: [
+      "Use this page for WARDOGS Gold Bars, Gold Market, Gold Exchange, gold price, and gold-after-wipe questions. Use the Money Guide if the question is how to earn or spend normal cash through teamplay.",
+      "Official cash rules are clearer than Gold Bar rules: the developer FAQ confirms cash use and cash persistence between lives and matches, while public sources checked here do not publish a final Gold Market manual, fixed gold price table, or Season 02 Gold Bar carryover rule.",
+      "Developer wipe guidance has mentioned the team looking into Gold Bars and cosmetics carryover, but that is not a final guarantee. Treat Gold Bar wipe claims as pending until current official Season 02 notes confirm them."
+    ],
+    sections: [
+      {
+        heading: "What Are Gold Bars?",
+        facts: [
+          { status: "Developer statement", text: "The official Early Access & Beyond video mentions Gold Bars when discussing what the team was looking into for seasonal carryover." },
+          { status: "Not officially confirmed", text: "The checked public official sources do not provide a complete Gold Bar manual, account-wallet rule, or final Season 02 carryover table." },
+          { status: "General guidance", text: "Treat Gold Bars as a separate economy/carryover topic from normal match cash until official notes define the final rules." }
+        ]
+      },
+      {
+        heading: "How to Get Gold Bars",
+        facts: [
+          { status: "Not officially confirmed", text: "The checked official sources do not publish a final current-build list of every Gold Bar source." },
+          { status: "Community-reported", text: "Steam community discussions show players asking about Gold Bars and pricing, but those reports should not be used as official acquisition rules." },
+          { status: "General guidance", text: "Use the live in-game UI and official patch notes before buying, selling, or planning around Gold Bars." }
+        ]
+      },
+      {
+        heading: "Gold Market Explained",
+        paragraphs: [
+          "Gold Market searches are asking about a market or trading-style economy, not basic cash farming. This page should explain the boundary without inventing a complete market system that official sources have not documented publicly.",
+          "If the live game shows a Gold Market screen, treat its current labels, price prompts, fees, and restrictions as build-specific until official notes confirm which rules are permanent."
+        ]
+      },
+      {
+        heading: "Gold Exchange Explained",
+        facts: [
+          { status: "Not officially confirmed", text: "No official public exchange-rate table, buy/sell spread, fee schedule, or conversion formula was confirmed in the sources checked." },
+          { status: "General guidance", text: "Before exchanging Gold Bars, compare the current in-game prompt with current official notes and avoid relying on old screenshots or community price claims." }
+        ]
+      },
+      {
+        heading: "Gold Bar Price",
+        facts: [
+          { status: "Community-reported", text: "Players discuss Gold Bar prices in community spaces, which proves search demand but does not confirm an official long-term price." },
+          { status: "Not officially confirmed", text: "This page does not publish fixed Gold Bar prices because official public sources checked here do not confirm a final price table." }
+        ]
+      },
+      {
+        heading: "When to Buy / Sell / Exchange",
+        bullets: [
+          "Avoid buying or exchanging only because a community post claims a guaranteed wipe outcome.",
+          "Check current official notes before making wipe-sensitive decisions.",
+          "Treat Gold Bars differently from cash if the live UI separates them.",
+          "Do not assume a pre-wipe price, carryover rule, or market condition applies after a patch."
+        ]
+      },
+      {
+        heading: "What Happens to Gold During a Wipe?",
+        facts: [
+          { status: "Developer statement", text: "Developer wipe guidance has mentioned looking into Gold Bars and cosmetics carryover." },
+          { status: "Not officially confirmed", text: "The checked public sources do not confirm the final Season 02 Gold Bar reset or carryover rule." },
+          { status: "General guidance", text: "Use the Wipe Guide for the current Season 02 date and update both pages if official notes publish a final Gold Bar rule." }
+        ],
+        links: [
+          { label: "WARDOGS Wipe Guide", href: "/wardogs-wipe/", description: "Season 02 wipe date, reset, and carryover boundaries." }
+        ]
+      },
+      {
+        heading: "Gold Bars vs Cash",
+        facts: [
+          { status: "Officially confirmed", text: "The developer FAQ confirms normal cash is used to buy weapons, equipment, gadgets, vehicles, supplies, and building resources." },
+          { status: "Officially confirmed", text: "The developer FAQ says cash persists between lives and matches." },
+          { status: "General guidance", text: "Cash earning belongs on the Money Guide. Gold Bars belong here when the question is market, exchange, price, or wipe carryover." }
+        ],
+        links: [
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash, logistics, supply, transport, and money-making questions." }
+        ]
+      },
+      {
+        heading: "Common Gold Mistakes",
+        bullets: [
+          "Treating Gold Bars and normal cash as the same currency.",
+          "Assuming a community price claim is an official exchange rate.",
+          "Assuming Gold Bars definitely reset or definitely carry over before official Season 02 notes say so.",
+          "Creating separate thin pages for gold price, gold market, gold exchange, and gold after wipe when one guide can answer the intent cleanly."
+        ]
+      }
+    ],
+    sources: [steamStore, steamDeveloperFaq, wardogsEarlyAccessBeyondVideo, steamCommunityDiscussions],
+    faqs: [
+      { question: "What are Gold Bars in WARDOGS?", answer: "Gold Bars are best treated as a separate economy and wipe-carryover topic from normal cash. Official public sources checked here do not publish a complete Gold Bar manual." },
+      { question: "Do Gold Bars reset after a WARDOGS wipe?", answer: "Developer guidance has mentioned looking into Gold Bars and cosmetics carryover, but the checked sources do not confirm the final Season 02 Gold Bar rule." },
+      { question: "What is the WARDOGS Gold Bar price?", answer: "This page does not publish a fixed price because official public sources checked here do not confirm a final price or exchange-rate table." },
+      { question: "Is this the same as making money in WARDOGS?", answer: "No. The Money Guide covers earning and spending normal cash. This page covers Gold Bars, market, exchange, price, and wipe carryover questions." }
+    ],
+    lastUpdated: "October 3, 2026",
+    reviewNotes: [
+      "Do not publish fixed gold prices, exchange rates, or buy/sell advice without current-build verification.",
+      "Keep Gold Bars separate from normal cash and logistics intent."
+    ]
+  },
+
   "/wardogs-fob-guide/": {
     quickAnswer: [
       "Use this page when your question is about WARDOGS FOBs: what they do, how to get or buy one, how to build and place one, how supplies and repair fit in, and what to check when the FOB says it needs supplies.",
@@ -2198,11 +2319,18 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
   },
   "/wardogs-mortar-guide/": {
     quickAnswer: [
-      "Use this page for WARDOGS mortar questions: how to get or build a mortar, how to aim and fire, how range and ammo should be handled, how to resupply, and how mortar calculators fit in without replacing in-game verification.",
+      "Use this page for WARDOGS mortar questions: how to build and use a mortar, how to aim and fire, how range, ammo, reload, resupply, and map context should be handled, and how mortar calculators fit in without replacing in-game verification.",
       "Official WARDOGS sources confirm building, destruction, logistics, vehicles, and support play. Specific mortar setup, range, ammunition, and calculator details are treated as community or current-build information unless verified in-game.",
       "This is a mortar guide, not a mortar calculator. Use calculator resources only as optional aids, then verify with the current in-game UI and spotter corrections."
     ],
     sections: [
+      {
+        heading: "How Mortars Work in WARDOGS",
+        paragraphs: [
+          "Mortar searches are about indirect-fire gameplay: build context, aiming, firing, reloads, resupply, map reading, and calculator resources. They are not the same as artillery calculator searches, and this site does not claim to provide an interactive calculator.",
+          "Because mortar values can change quickly, this page avoids fixed range tables, formulas, or ammo numbers unless reliable current-build sources confirm them."
+        ]
+      },
       {
         heading: "How to Get a Mortar",
         facts: [
@@ -2222,6 +2350,13 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       },
       {
+        heading: "How to Use a Mortar",
+        paragraphs: [
+          "Use the live prompt and current build UI first. If the mortar has an enter/use interaction, aiming interface, ammo state, or supply requirement, those labels should override old videos or static guides.",
+          "A useful mortar usually needs at least three things: a defensible position, enough supplies or rounds, and teammate spotting or map context."
+        ]
+      },
+      {
         heading: "Mortar Controls",
         facts: [
           { status: "General guidance", text: "Use the live control prompt for entering, aiming, firing, leaving, and resupplying the mortar. Do not copy old beta bindings if the UI changed." },
@@ -2229,10 +2364,17 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       },
       {
-        heading: "How to Aim / Fire",
+        heading: "How to Aim",
         paragraphs: [
           "Aim and fire only after confirming the current build's bearing, elevation, map-marker, or spotting workflow. Mortar systems are highly sensitive to patch changes, so static numbers from a video can become wrong quickly.",
           "Coordinate with teammates before firing. A mortar is most useful when someone is spotting targets, calling corrections, or marking the target area."
+        ]
+      },
+      {
+        heading: "How to Fire",
+        paragraphs: [
+          "Fire only after confirming the current UI, ammo state, and target callout. If a shot lands short or long, adjust based on spotter correction instead of assuming a third-party table is still accurate.",
+          "Avoid blind firing when teammates are pushing the same area; this guide does not publish damage, splash, or friendly-fire values without current-build verification."
         ]
       },
       {
@@ -2247,6 +2389,13 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         facts: [
           { status: "General guidance", text: "Before firing, check the mortar's current ammo state, team supplies, and whether a nearby supply source is required." },
           { status: "Not officially confirmed", text: "Exact mortar round counts, resupply amounts, and ammunition types were not confirmed in official public sources." }
+        ]
+      },
+      {
+        heading: "How to Reload",
+        facts: [
+          { status: "General guidance", text: "Use the current in-game reload or resupply prompt before assuming the mortar is broken." },
+          { status: "Not officially confirmed", text: "Official public sources checked here do not publish a final reload interaction, reload time, or round-by-round ammo behavior." }
         ]
       },
       {
@@ -2280,7 +2429,14 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         ]
       },
       {
-        heading: "Calculator Note / Resources",
+        heading: "Mortar Maps",
+        paragraphs: [
+          "Mortar map searches usually mean players want map context for range, line of fire, and target correction. This page does not create a generic WARDOGS map page because the current map SERP is tool-heavy and best served by interactive maps or specific map-use guides.",
+          "For mortar use, treat map information as context: target area, teammate callouts, route risk, and whether your mortar position can be supplied and defended."
+        ]
+      },
+      {
+        heading: "Mortar Calculators Explained",
         facts: [
           { status: "Community-reported", text: "Community mortar calculator and companion resources exist, but this page does not publish a calculator or copy third-party formulas." },
           { status: "General guidance", text: "Use calculators as planning aids only, then verify with the live build, in-game UI, and spotter corrections." }
@@ -2298,12 +2454,104 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       { question: "What is the WARDOGS mortar range?", answer: "No official current-build range table was confirmed in public sources checked here. Use the live UI and verified community tools carefully." },
       { question: "How do I resupply mortars?", answer: "Check the current ammo and supply prompts first. Mortar resupply may depend on the live build's support, supply, or FOB logistics rules." }
     ],
-    lastUpdated: "September 13, 2026",
+    lastUpdated: "October 3, 2026",
     reviewNotes: [
       "Do not create a mortar calculator page this round.",
       "Do not publish mortar range tables, ammo values, or formulas without reliable current-build verification."
     ]
   },
+  "/wardogs-infantry-mode/": {
+    quickAnswer: [
+      "Use this page for WARDOGS infantry, infantry mode, infantry only, infantry-only servers, and infantry server searches. Keep all of those on one page for now instead of splitting infantry-only server pages.",
+      "Official WARDOGS Update 0.1.2 says the Deploy screen now calls out community server modifiers such as Low-Level and Infantry Mode. That supports the existence of Infantry Mode as a server modifier, but it does not publish every rule, vehicle restriction, or map recommendation.",
+      "If you want an infantry-focused match, look for the server's current labels and rules in-game. Do not assume every infantry server has the same vehicle, helicopter, heavy-weapon, or map rules unless the server or official patch notes say so."
+    ],
+    sections: [
+      {
+        heading: "What Is Infantry Mode?",
+        facts: [
+          { status: "Officially confirmed", text: "An official Steam update says the Deploy screen now calls out community server modifiers including Infantry Mode." },
+          { status: "General guidance", text: "Infantry Mode should be treated as server-mode or server-modifier intent, not generic server outage or connection intent." },
+          { status: "Not officially confirmed", text: "The checked official sources do not publish a complete public ruleset for every Infantry Mode server." }
+        ]
+      },
+      {
+        heading: "What Is Infantry Only?",
+        paragraphs: [
+          "Infantry only searches usually mean players want reduced vehicle pressure, more foot combat, or community servers where infantry fights are the focus. The exact rule may vary by server until official notes define a single standard.",
+          "Use the current server label, description, and in-game restrictions as the source of truth before assuming a server is completely vehicle-free."
+        ]
+      },
+      {
+        heading: "How Infantry Mode Changes Gameplay",
+        bullets: [
+          "Expect more emphasis on objective movement, cover, revives, supplies, and weapon choices.",
+          "If a server reduces vehicle access, plan around infantry routes, cover, and objective movement instead of assuming aircraft or heavy vehicle support will be available.",
+          "Use communication and squad movement because infantry-focused matches can punish isolated pushes.",
+          "Treat balance and rule details as current-build information that can change with patches or server settings."
+        ]
+      },
+      {
+        heading: "Vehicles / Helicopters / Heavy Weapons",
+        facts: [
+          { status: "Officially confirmed", text: "Official WARDOGS sources describe normal gameplay with vehicles, flyable aircraft, logistics, and large-scale combined-arms play." },
+          { status: "Not officially confirmed", text: "The official sources checked do not publish a final vehicle-ban, helicopter-ban, or heavy-weapon rule for all Infantry Mode servers." },
+          { status: "General guidance", text: "If a server says Infantry Mode or Infantry Only, check that server's live restrictions before planning around vehicles, helicopters, mortars, or other heavy systems." }
+        ],
+        links: [
+          { label: "WARDOGS Helicopter Guide", href: "/wardogs-helicopter-guide/", description: "Use this for normal helicopter and transport intent." },
+          { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Use this when the question is indirect fire rather than infantry-only rules." }
+        ]
+      },
+      {
+        heading: "How to Find Infantry Only Servers",
+        paragraphs: [
+          "Start from the live server browser or deploy screen and look for labels, modifiers, or descriptions that mention Infantry Mode, Infantry Only, or infantry-focused rules.",
+          "If a server title uses infantry language but the match rules still allow vehicles or heavy systems, follow the server's current description and in-game restrictions rather than the title alone."
+        ]
+      },
+      {
+        heading: "Infantry Mode vs Normal WARDOGS",
+        facts: [
+          { status: "Officially confirmed", text: "Normal official WARDOGS descriptions emphasize up to 100 players, three teams, vehicles, aircraft, building, destruction, logistics, and objective control." },
+          { status: "General guidance", text: "Infantry Mode narrows player intent toward foot combat and infantry-focused pacing, but the exact restrictions can vary by server or update. Normal WARDOGS keeps the broader combined-arms sandbox." }
+        ]
+      },
+      {
+        heading: "Best Maps for Infantry",
+        facts: [
+          { status: "Not officially confirmed", text: "The checked official sources do not publish an official best-map list for infantry-only play." },
+          { status: "General guidance", text: "A good infantry map context usually means short routes, cover, readable objectives, and less reliance on long vehicle movement, but map-specific rankings need current-build evidence." }
+        ]
+      },
+      {
+        heading: "Infantry Tips",
+        bullets: [
+          "Move with teammates instead of taking long solo routes.",
+          "Choose weapons and equipment for the current engagement distance rather than a generic meta list.",
+          "Use revives, supplies, and objective pressure because infantry-focused matches reward sustained team presence.",
+          "Check server rules before assuming vehicles, helicopters, mortars, or heavy weapons are disabled."
+        ],
+        links: [
+          { label: "WARDOGS Best Guns & Weapon Tier List", href: "/wardogs-best-guns/", description: "Weapon picks and stats context without inventing unsupported values." },
+          { label: "How to Play WARDOGS", href: "/how-to-play-wardogs/", description: "Core objective and first-match basics." }
+        ]
+      }
+    ],
+    sources: [steamUpdate012InfantryMode, steamStore, team17GamePage, steamCommunityDiscussions],
+    faqs: [
+      { question: "What is WARDOGS Infantry Mode?", answer: "Official Update 0.1.2 says the Deploy screen calls out community server modifiers including Infantry Mode. Treat exact server rules as current-build or server-specific until official notes define them." },
+      { question: "Are Infantry Only servers completely vehicle-free?", answer: "Do not assume that from the search term alone. Check the server label, description, and live restrictions because official public sources do not publish one universal vehicle-ban rule for all infantry servers." },
+      { question: "What is the best map for infantry in WARDOGS?", answer: "No official best-map list was confirmed. Prefer maps or server contexts with readable objectives, cover, and routes that fit infantry movement, then verify in the current build." },
+      { question: "Should Infantry Mode have separate pages for infantry only servers?", answer: "No. Infantry mode, infantry only, and infantry server searches belong on this single guide for now to avoid thin duplicate pages." }
+    ],
+    lastUpdated: "October 3, 2026",
+    reviewNotes: [
+      "Do not split /wardogs-infantry-only/ or /wardogs-infantry-server/ unless search intent clearly separates later.",
+      "Do not publish exact server restrictions or best-map rankings without current-build verification."
+    ]
+  },
+
   "/wardogs-xp-guide/": {
     quickAnswer: [
       "Use this page for WARDOGS XP and leveling questions: Support XP, Driver XP, Pilot XP, Recon XP, Assault XP, Medic XP, and efficient role leveling.",
@@ -2411,7 +2659,7 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
       "Official developer video guidance says major seasonal updates can reset player progression such as cash, XP, and levels. The same developer statement says the team was looking into carrying over Gold Bars and cosmetics, so do not treat those carryover details as final until a current official Season 02 wipe post confirms them.",
       "This is the evergreen WARDOGS wipe page. Future Season 3 or Season 4 wipe information should update this URL instead of creating duplicate wipe-date pages."
     ],
-    lastUpdated: "September 27, 2026",
+    lastUpdated: "October 3, 2026",
     sections: [
       {
         heading: "Next WARDOGS Wipe Date",
@@ -2487,6 +2735,9 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
         facts: [
           { status: "Developer statement", text: "The official video mentions the possibility of carrying over Gold Bars and cosmetics." },
           { status: "Not officially confirmed", text: "A final Season 02 Gold Bar and cosmetics carryover rule was not confirmed in the public sources checked for this update." }
+        ],
+        links: [
+          { label: "WARDOGS Gold Bars Guide", href: "/wardogs-gold-bars-guide/", description: "Gold Market, exchange, price, and gold-after-wipe boundaries." }
         ]
       },
       {
@@ -2514,14 +2765,27 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           "For future seasons, keep the most recent official date at the top of this same page, archive older details in short context, and avoid launching one-off wipe-date URLs for each season.",
           "Community reports can help spot demand, but only official WARDOGS, BULKHEAD, Team17, Steam announcements, or in-game notices should decide the published wipe date and exact reset rules."
         ]
+      },
+      {
+        heading: "How to Prepare Before a Wipe",
+        bullets: [
+          "Check the latest official Season 02 notes before making cash, XP, or Gold Bar decisions.",
+          "Spend or save normal cash based on current wipe notes, not old beta assumptions.",
+          "Do not assume Gold Bars, cosmetics, or permanent items reset or carry over until official notes confirm the category.",
+          "Use one evergreen wipe URL for updates instead of chasing separate wipe-date or what-resets pages."
+        ],
+        links: [
+          { label: "WARDOGS Gold Bars Guide", href: "/wardogs-gold-bars-guide/", description: "Gold Bars, exchange, and wipe carryover context." },
+          { label: "How to Make Money in WARDOGS", href: "/wardogs-how-to-make-money/", description: "Cash and logistics context before the wipe." }
+        ]
       }
     ],
     sources: [steamSeason2Teaser, wardogsEarlyAccessBeyondVideo, steamAnnouncements, steamDeveloperFaq, steamStore],
     faqs: [
-      { question: "When is the next WARDOGS wipe?", answer: "The current official Season 02 date is October 15, 2026. Use this page for the next wipe unless a newer official WARDOGS or Steam announcement changes the date." },
+      { question: "When is the next WARDOGS wipe?", answer: "The official Season 02 date is October 15, 2026. Treat that as the current season-update date for wipe searches, but exact wipe timing and mechanics still need current official Season 02 notes." },
       { question: "What resets in a WARDOGS wipe?", answer: "Developer video guidance says major seasonal updates can reset cash, XP, and levels. Exact Season 02 item-by-item reset rules still need current official confirmation." },
       { question: "Do you keep Gold Bars after a WARDOGS wipe?", answer: "The developers said they were looking into carrying over Gold Bars and cosmetics, but the checked sources did not confirm the final Season 02 carryover rule." },
-      { question: "Does cash persist or reset?", answer: "Cash persists between lives and matches according to the developer FAQ. Seasonal wipe behavior is separate, and official video guidance says cash can reset during major seasonal updates." }
+      { question: "Does cash persist or reset?", answer: "Cash persists between lives and matches according to the developer FAQ. Seasonal wipe behavior is separate, and developer video guidance says cash can reset during major seasonal updates; exact Season 02 handling still needs current official notes." }
     ],
     reviewNotes: [
       "Keep this as the only WARDOGS wipe URL unless a future intent clearly separates.",
@@ -3095,7 +3359,9 @@ export const guideContentByRoute: Record<string, GuidePageContent> = {
           { label: "WARDOGS FOB Guide", href: "/wardogs-fob-guide/", description: "Building, supplies, repair, and spawn questions." },
           { label: "WARDOGS Tower Guide", href: "/wardogs-tower-guide/", description: "Tower codes, capture, control, and objectives." },
           { label: "WARDOGS Mortar Guide", href: "/wardogs-mortar-guide/", description: "Mortar building, aiming, firing, and resupply." },
+          { label: "WARDOGS Infantry Mode Guide", href: "/wardogs-infantry-mode/", description: "Infantry only servers and infantry-focused gameplay." },
           { label: "WARDOGS XP Guide", href: "/wardogs-xp-guide/", description: "Leveling and role XP without unverified values." },
+          { label: "WARDOGS Gold Bars Guide", href: "/wardogs-gold-bars-guide/", description: "Gold Market, exchange, and wipe carryover boundaries." },
           { label: "WARDOGS Guide", href: "/wardogs-guide/" },
           { label: "What Is WARDOGS Game", href: "/what-is-wardogs-game/" },
           { label: "WARDOGS Early Access", href: "/wardogs-early-access/" }
